@@ -28,11 +28,11 @@ Every page and component visually matches DESIGN.md — typography, color, spaci
 
 ### Active
 
-- [ ] Implement DESIGN.md typography system (General Sans headlines, DM Sans body, tabular-nums for data)
-- [ ] Implement DESIGN.md color system (teal accent, warm neutrals, semantic colors, CSS variables)
-- [ ] Implement DESIGN.md spacing system (4px base unit, comfortable density)
-- [ ] Implement DESIGN.md layout system (12-col grid, breakpoints, max-width, border-radius scale)
-- [ ] Implement dark mode (redesigned surfaces, reduced accent saturation, proper dark borders)
+- [x] Implement DESIGN.md typography system (General Sans headlines, DM Sans body, tabular-nums for data) — Validated in Phase 1: Foundation
+- [x] Implement DESIGN.md color system (teal accent, warm neutrals, semantic colors, CSS variables) — Validated in Phase 1: Foundation
+- [x] Implement DESIGN.md spacing system (4px base unit, comfortable density) — Validated in Phase 1: Foundation
+- [x] Implement DESIGN.md layout system (12-col grid, breakpoints, max-width, border-radius scale) — Validated in Phase 1: Foundation
+- [x] Implement dark mode (redesigned surfaces, reduced accent saturation, proper dark borders) — Validated in Phase 1: Foundation
 - [ ] Restyle all public pages (homepage, explore, region, help, privacy, terms, auth)
 - [ ] Restyle all buyer pages (create ad, my ads, postcards)
 - [ ] Restyle all owner pages (register property, my properties, property detail)
@@ -54,7 +54,7 @@ Every page and component visually matches DESIGN.md — typography, color, spaci
 - **Tech stack:** Next.js 15.1, React 19, Tailwind CSS, TypeScript — all styling is Tailwind utility classes
 - **Existing state:** ~45 pages, 13+ components, all functional but not yet styled to DESIGN.md spec
 - **Design system:** Fully specified in `DESIGN.md` at repo root — typography, color, spacing, layout, dark mode, AI slop blacklist
-- **Fonts:** General Sans (via Fontsource), DM Sans + JetBrains Mono (via Google Fonts CDN)
+- **Fonts:** General Sans (via local woff2), DM Sans + JetBrains Mono (via Google Fonts CDN via next/font)
 - **Codebase map:** Available at `.planning/codebase/` — architecture, stack, conventions, structure all documented
 - **Monorepo:** Turborepo with pnpm workspaces — frontend is `apps/web/`
 
@@ -94,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after initialization*
+*Last updated: 2026-03-30 after Phase 1: Foundation completion*
