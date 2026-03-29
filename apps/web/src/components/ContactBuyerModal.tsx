@@ -116,13 +116,13 @@ export function ContactBuyerModal({
   if (checkingAccess) {
     return (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+        className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center"
         onClick={handleBackdropClick}
       >
-        <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 p-6">
+        <div className="modal-panel-sm p-6">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto mb-4" />
-            <p className="text-gray-600">Checking access...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent mx-auto mb-4" />
+            <p className="text-text-secondary">Checking access...</p>
           </div>
         </div>
       </div>
@@ -134,42 +134,41 @@ export function ContactBuyerModal({
     return (
       <>
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center"
           onClick={handleBackdropClick}
         >
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Contact {buyerName}
-                </h2>
-                <button
-                  onClick={onClose}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+          <div className="modal-panel-sm">
+            <div className="flex items-center justify-between p-6 border-b border-border">
+              <h2 className="text-xl font-semibold text-text-base">
+                Contact {buyerName}
+              </h2>
+              <button
+                onClick={onClose}
+                className="btn-ghost h-8 w-8 p-0 rounded-md"
+                aria-label="Close"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-              <div className="text-center py-6">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 mb-4">
-                  <svg className="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
+            <div className="p-6">
+              <div className="text-center py-2">
+                <svg className="h-6 w-6 text-text-secondary mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <h3 className="text-lg font-medium text-text-base mb-2">
                   Finder&apos;s Fee Required
                 </h3>
-                <p className="text-sm text-gray-600 mb-6">
+                <p className="text-sm text-text-secondary mb-6">
                   To contact this buyer about your property at{" "}
                   <span className="font-medium">{propertyAddress}</span>,
                   a one-time finder&apos;s fee is required.
                 </p>
 
-                <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
-                  <ul className="space-y-2 text-sm text-gray-600">
+                <div className="bg-surface-raised rounded-lg p-4 mb-6 text-left">
+                  <ul className="space-y-2 text-sm text-text-secondary">
                     <li className="flex items-start gap-2">
                       <svg className="w-4 h-4 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -195,14 +194,14 @@ export function ContactBuyerModal({
                   <button
                     type="button"
                     onClick={onClose}
-                    className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="btn-ghost flex-1"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
                     onClick={() => setShowPaymentModal(true)}
-                    className="flex-1 px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors"
+                    className="btn-primary flex-1"
                   >
                     Pay Finder&apos;s Fee
                   </button>
@@ -229,26 +228,27 @@ export function ContactBuyerModal({
   // Show contact form if has access
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Contact {buyerName}
-            </h2>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-600"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+      <div className="modal-panel-lg">
+        <div className="flex items-center justify-between p-6 border-b border-border">
+          <h2 className="text-xl font-semibold text-text-base">
+            Contact {buyerName}
+          </h2>
+          <button
+            onClick={onClose}
+            className="btn-ghost h-8 w-8 p-0 rounded-md"
+            aria-label="Close"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-          <p className="text-sm text-gray-600 mb-4">
+        <div className="p-6">
+          <p className="text-sm text-text-secondary mb-4">
             This buyer is interested in your property at{" "}
             <span className="font-medium">{propertyAddress}</span>
           </p>
@@ -257,7 +257,7 @@ export function ContactBuyerModal({
             <div className="mb-4">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="label"
               >
                 Your message
               </label>
@@ -267,15 +267,15 @@ export function ContactBuyerModal({
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Introduce yourself and express your interest in discussing the property..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                className="input resize-none"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-text-muted mt-1">
                 {message.length}/1000 characters (minimum 10)
               </p>
             </div>
 
             {error && (
-              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-md text-sm text-red-700">
                 {error}
               </div>
             )}
@@ -284,14 +284,14 @@ export function ContactBuyerModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                className="btn-ghost flex-1"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={loading || message.length < 10}
-                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-primary flex-1"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
