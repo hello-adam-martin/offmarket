@@ -13,7 +13,7 @@ A pixel-perfect design system implementation across 45+ pages of an existing Nex
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Tailwind config, CSS variables, fonts, and dark mode provider wired atomically
-- [ ] **Phase 2: Shared Components** - Header, footer, modals, form primitives, cards, and all shared UI restyled
+- [x] **Phase 2: Shared Components** - Header, footer, modals, form primitives, cards, and all shared UI restyled (completed 2026-03-29)
 - [ ] **Phase 3: Public Pages** - Homepage, explore, region, auth, and legal pages restyled and blacklist-clean
 - [ ] **Phase 4: Buyer Pages** - Create ad, my ads, and postcards pages restyled
 - [ ] **Phase 5: Owner Pages** - Register property, my properties, and property detail pages restyled
@@ -56,7 +56,7 @@ Plans:
 - [x] 02-02-PLAN.md — Restyle all 5 modals with modal shell classes and semantic tokens
 - [x] 02-03-PLAN.md — Restyle FilterPanel, RegionFilterPanel, EmptyState (AI slop removal)
 - [x] 02-04-PLAN.md — Restyle DemandCardGrid (.card + tabular-nums) and NZRegionMap (teal fill system)
-- [ ] 02-05-PLAN.md — Restyle AddressAutocomplete and PropertyImageUpload
+- [x] 02-05-PLAN.md — Restyle AddressAutocomplete and PropertyImageUpload
 **UI hint**: yes
 
 ### Phase 3: Public Pages
@@ -138,7 +138,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
-| 2. Shared Components | 4/5 | In Progress|  |
+| 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
 | 3. Public Pages | 0/TBD | Not started | - |
 | 4. Buyer Pages | 0/TBD | Not started | - |
 | 5. Owner Pages | 0/TBD | Not started | - |
