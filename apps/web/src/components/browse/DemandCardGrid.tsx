@@ -118,17 +118,17 @@ export function DemandCardGrid({ data }: DemandCardGridProps) {
     <div>
       {/* View toggle */}
       <div className="flex items-center justify-between mb-4">
-        <p className="text-sm text-gray-600">
-          <span className="font-semibold text-gray-900">{totalBuyers}</span> buyers across{" "}
-          <span className="font-semibold text-gray-900">{data.length}</span> different requirements
+        <p className="text-sm text-text-secondary">
+          <span className="font-semibold text-text-base tabular-nums">{totalBuyers}</span> buyers across{" "}
+          <span className="font-semibold text-text-base tabular-nums">{data.length}</span> different requirements
         </p>
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+        <div className="flex gap-1 bg-surface-raised rounded-lg p-1">
           <button
             onClick={() => setViewMode("summary")}
             className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
               viewMode === "summary"
-                ? "bg-white text-gray-900 shadow-sm"
-                : "text-gray-600 hover:text-gray-900"
+                ? "bg-surface text-text-base shadow-sm"
+                : "text-text-secondary hover:text-text-base"
             }`}
           >
             Summary
@@ -137,8 +137,8 @@ export function DemandCardGrid({ data }: DemandCardGridProps) {
             onClick={() => setViewMode("detailed")}
             className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
               viewMode === "detailed"
-                ? "bg-white text-gray-900 shadow-sm"
-                : "text-gray-600 hover:text-gray-900"
+                ? "bg-surface text-text-base shadow-sm"
+                : "text-text-secondary hover:text-text-base"
             }`}
           >
             Detailed
@@ -152,32 +152,32 @@ export function DemandCardGrid({ data }: DemandCardGridProps) {
           {aggregated.map((item) => (
             <div
               key={item.propertyType}
-              className="flex items-center gap-4 p-3 bg-white border border-gray-200 rounded-lg hover:border-primary-200 transition-colors"
+              className="flex items-center gap-4 p-3 bg-surface border border-border rounded-lg hover:border-accent/40 hover:shadow-sm transition-all duration-100"
             >
               {/* Property type icon */}
-              <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-lg bg-accent-light flex items-center justify-center flex-shrink-0">
                 <PropertyTypeIcon type={item.propertyType} />
               </div>
 
               {/* Main info */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-text-base">
                     {PROPERTY_TYPE_LABELS[item.propertyType] || "Any Property"}
                   </span>
-                  <span className="text-sm text-gray-500">
-                    ({item.demandCount} {item.demandCount === 1 ? "request" : "requests"})
+                  <span className="text-sm text-text-muted">
+                    (<span className="tabular-nums">{item.demandCount}</span> {item.demandCount === 1 ? "request" : "requests"})
                   </span>
                 </div>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-gray-600">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-text-secondary">
                   {item.bedroomRanges.length > 0 && (
                     <span>{item.bedroomRanges.join(", ")} bed</span>
                   )}
                   {item.topFeatures.length > 0 && (
-                    <span className="text-gray-400">|</span>
+                    <span className="text-text-muted">|</span>
                   )}
                   {item.topFeatures.slice(0, 2).map((f) => (
-                    <span key={f} className="text-gray-500">
+                    <span key={f} className="text-text-muted">
                       {FEATURE_LABELS[f] || f}
                     </span>
                   ))}
@@ -186,16 +186,16 @@ export function DemandCardGrid({ data }: DemandCardGridProps) {
 
               {/* Buyer count */}
               <div className="text-right flex-shrink-0">
-                <p className="text-lg font-bold text-primary-600">{item.totalBuyers}</p>
-                <p className="text-xs text-gray-500">buyers</p>
+                <p className="font-display text-xl font-semibold text-accent tabular-nums">{item.totalBuyers}</p>
+                <p className="text-xs text-text-muted">buyers</p>
               </div>
 
               {/* Budget range */}
               <div className="text-right flex-shrink-0 hidden sm:block">
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-medium text-text-base tabular-nums">
                   {formatNZD(item.budgetRange.min)} - {formatNZD(item.budgetRange.max)}
                 </p>
-                <p className="text-xs text-gray-500">budget range</p>
+                <p className="text-xs text-text-muted">budget range</p>
               </div>
             </div>
           ))}
@@ -214,7 +214,7 @@ export function DemandCardGrid({ data }: DemandCardGridProps) {
             <div className="mt-4 text-center">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-primary-600 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors"
+                className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-accent hover:text-accent-hover hover:bg-accent-light/30 rounded-lg transition-colors"
               >
                 {showAll ? (
                   <>
@@ -261,15 +261,15 @@ function DemandCard({ demand }: { demand: AreaDemand }) {
   }, [demand]);
 
   return (
-    <div className="p-3 bg-white border border-gray-200 rounded-lg hover:border-primary-200 transition-colors">
+    <div className="card hover:border-accent/40 hover:shadow-sm transition-all duration-100 p-3">
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
-          <p className="font-medium text-gray-900 text-sm">{description}</p>
+          <p className="font-medium text-text-base text-sm">{description}</p>
           <div className="flex flex-wrap gap-1 mt-2">
             {demand.features.slice(0, 2).map((feature) => (
               <span
                 key={feature}
-                className="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-gray-100 text-gray-600"
+                className="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-surface-raised text-text-secondary"
               >
                 {FEATURE_LABELS[feature] || feature}
               </span>
@@ -277,13 +277,13 @@ function DemandCard({ demand }: { demand: AreaDemand }) {
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="text-lg font-bold text-primary-600">{demand.buyerCount}</p>
-          <p className="text-xs text-gray-500">
+          <p className="font-display text-xl font-semibold text-accent tabular-nums">{demand.buyerCount}</p>
+          <p className="text-xs text-text-muted">
             {demand.buyerCount === 1 ? "buyer" : "buyers"}
           </p>
         </div>
       </div>
-      <p className="mt-2 text-xs text-gray-500">
+      <p className="mt-2 text-xs text-text-muted tabular-nums">
         {demand.budgetRange.min === demand.budgetRange.max
           ? formatNZD(demand.budgetRange.min)
           : `${formatNZD(demand.budgetRange.min)} - ${formatNZD(demand.budgetRange.max)}`}
@@ -293,7 +293,7 @@ function DemandCard({ demand }: { demand: AreaDemand }) {
 }
 
 function PropertyTypeIcon({ type }: { type: string }) {
-  const iconClass = "w-5 h-5 text-primary-600";
+  const iconClass = "w-5 h-5 text-accent";
 
   switch (type) {
     case "HOUSE":
