@@ -132,80 +132,80 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | TBD | Pending |
-| FOUN-02 | TBD | Pending |
-| FOUN-03 | TBD | Pending |
-| FOUN-04 | TBD | Pending |
-| FOUN-05 | TBD | Pending |
-| FOUN-06 | TBD | Pending |
-| FOUN-07 | TBD | Pending |
-| FOUN-08 | TBD | Pending |
-| FOUN-09 | TBD | Pending |
-| FOUN-10 | TBD | Pending |
-| FOUN-11 | TBD | Pending |
-| FOUN-12 | TBD | Pending |
-| FOUN-13 | TBD | Pending |
-| FOUN-14 | TBD | Pending |
-| FOUN-15 | TBD | Pending |
-| COMP-01 | TBD | Pending |
-| COMP-02 | TBD | Pending |
-| COMP-03 | TBD | Pending |
-| COMP-04 | TBD | Pending |
-| COMP-05 | TBD | Pending |
-| COMP-06 | TBD | Pending |
-| COMP-07 | TBD | Pending |
-| COMP-08 | TBD | Pending |
-| COMP-09 | TBD | Pending |
-| COMP-10 | TBD | Pending |
-| COMP-11 | TBD | Pending |
-| COMP-12 | TBD | Pending |
-| COMP-13 | TBD | Pending |
-| COMP-14 | TBD | Pending |
-| PUBL-01 | TBD | Pending |
-| PUBL-02 | TBD | Pending |
-| PUBL-03 | TBD | Pending |
-| PUBL-04 | TBD | Pending |
-| PUBL-05 | TBD | Pending |
-| PUBL-06 | TBD | Pending |
-| PUBL-07 | TBD | Pending |
-| BUYR-01 | TBD | Pending |
-| BUYR-02 | TBD | Pending |
-| BUYR-03 | TBD | Pending |
-| OWNR-01 | TBD | Pending |
-| OWNR-02 | TBD | Pending |
-| OWNR-03 | TBD | Pending |
-| USER-01 | TBD | Pending |
-| USER-02 | TBD | Pending |
-| USER-03 | TBD | Pending |
-| USER-04 | TBD | Pending |
-| USER-05 | TBD | Pending |
-| USER-06 | TBD | Pending |
-| USER-07 | TBD | Pending |
-| USER-08 | TBD | Pending |
-| USER-09 | TBD | Pending |
-| USER-10 | TBD | Pending |
-| ADMN-01 | TBD | Pending |
-| ADMN-02 | TBD | Pending |
-| ADMN-03 | TBD | Pending |
-| ADMN-04 | TBD | Pending |
-| ADMN-05 | TBD | Pending |
-| ADMN-06 | TBD | Pending |
-| ADMN-07 | TBD | Pending |
-| ADMN-08 | TBD | Pending |
-| ADMN-09 | TBD | Pending |
-| XCUT-01 | TBD | Pending |
-| XCUT-02 | TBD | Pending |
-| XCUT-03 | TBD | Pending |
-| XCUT-04 | TBD | Pending |
-| XCUT-05 | TBD | Pending |
-| XCUT-06 | TBD | Pending |
-| XCUT-07 | TBD | Pending |
+| FOUN-01 | Phase 1 | Pending |
+| FOUN-02 | Phase 1 | Pending |
+| FOUN-03 | Phase 1 | Pending |
+| FOUN-04 | Phase 1 | Pending |
+| FOUN-05 | Phase 1 | Pending |
+| FOUN-06 | Phase 1 | Pending |
+| FOUN-07 | Phase 1 | Pending |
+| FOUN-08 | Phase 1 | Pending |
+| FOUN-09 | Phase 1 | Pending |
+| FOUN-10 | Phase 1 | Pending |
+| FOUN-11 | Phase 1 | Pending |
+| FOUN-12 | Phase 1 | Pending |
+| FOUN-13 | Phase 1 | Pending |
+| FOUN-14 | Phase 1 | Pending |
+| FOUN-15 | Phase 1 | Pending |
+| COMP-01 | Phase 2 | Pending |
+| COMP-02 | Phase 2 | Pending |
+| COMP-03 | Phase 2 | Pending |
+| COMP-04 | Phase 2 | Pending |
+| COMP-05 | Phase 2 | Pending |
+| COMP-06 | Phase 2 | Pending |
+| COMP-07 | Phase 2 | Pending |
+| COMP-08 | Phase 2 | Pending |
+| COMP-09 | Phase 2 | Pending |
+| COMP-10 | Phase 2 | Pending |
+| COMP-11 | Phase 2 | Pending |
+| COMP-12 | Phase 2 | Pending |
+| COMP-13 | Phase 2 | Pending |
+| COMP-14 | Phase 2 | Pending |
+| PUBL-01 | Phase 3 | Pending |
+| PUBL-02 | Phase 3 | Pending |
+| PUBL-03 | Phase 3 | Pending |
+| PUBL-04 | Phase 3 | Pending |
+| PUBL-05 | Phase 3 | Pending |
+| PUBL-06 | Phase 3 | Pending |
+| PUBL-07 | Phase 3 | Pending |
+| BUYR-01 | Phase 4 | Pending |
+| BUYR-02 | Phase 4 | Pending |
+| BUYR-03 | Phase 4 | Pending |
+| OWNR-01 | Phase 5 | Pending |
+| OWNR-02 | Phase 5 | Pending |
+| OWNR-03 | Phase 5 | Pending |
+| USER-01 | Phase 6 | Pending |
+| USER-02 | Phase 6 | Pending |
+| USER-03 | Phase 6 | Pending |
+| USER-04 | Phase 6 | Pending |
+| USER-05 | Phase 6 | Pending |
+| USER-06 | Phase 6 | Pending |
+| USER-07 | Phase 6 | Pending |
+| USER-08 | Phase 6 | Pending |
+| USER-09 | Phase 6 | Pending |
+| USER-10 | Phase 6 | Pending |
+| ADMN-01 | Phase 7 | Pending |
+| ADMN-02 | Phase 7 | Pending |
+| ADMN-03 | Phase 7 | Pending |
+| ADMN-04 | Phase 7 | Pending |
+| ADMN-05 | Phase 7 | Pending |
+| ADMN-06 | Phase 7 | Pending |
+| ADMN-07 | Phase 7 | Pending |
+| ADMN-08 | Phase 7 | Pending |
+| ADMN-09 | Phase 7 | Pending |
+| XCUT-01 | Phase 8 | Pending |
+| XCUT-02 | Phase 8 | Pending |
+| XCUT-03 | Phase 8 | Pending |
+| XCUT-04 | Phase 8 | Pending |
+| XCUT-05 | Phase 8 | Pending |
+| XCUT-06 | Phase 8 | Pending |
+| XCUT-07 | Phase 8 | Pending |
 
 **Coverage:**
-- v1 requirements: 64 total
-- Mapped to phases: 0
-- Unmapped: 64
+- v1 requirements: 68 total
+- Mapped to phases: 68
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-30*
-*Last updated: 2026-03-30 after initial definition*
+*Last updated: 2026-03-30 after roadmap creation — all 68 requirements mapped*
