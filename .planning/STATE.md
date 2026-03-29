@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-29T15:02:38.324Z"
+stopped_at: "Checkpoint: Task 3 visual verification in 01-02-PLAN.md"
+last_updated: "2026-03-29T15:06:32.766Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 8
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -67,6 +67,8 @@ Recent decisions affecting current work:
 - [Phase 01-01]: DM Sans axes: use ['opsz'] only — 'ital' is not a valid axis in next/font DM_Sans types
 - [Phase 01-01]: globals.css CSS variables defined in :root (not @layer base) for universal availability
 - [Phase 01-01]: General Sans downloaded automatically via Fontshare CDN — manual download not required
+- [Phase 01-02]: CSS variables placed inside @layer base :root block — Tailwind v3 cascade order requirement
+- [Phase 01-02]: DM Sans weight changed to 'variable' for axes compatibility in next/font
 
 ### Pending Todos
 
@@ -79,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T15:02:38.322Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-29T15:06:28.759Z
+Stopped at: Checkpoint: Task 3 visual verification in 01-02-PLAN.md
 Resume file: None

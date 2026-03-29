@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 Plans:
 - [x] 01-01-PLAN.md — Install prerequisites, create fonts.ts, rewrite tailwind.config.ts, create ThemeProvider
-- [ ] 01-02-PLAN.md — Rewrite globals.css, wire fonts in layout.tsx, connect ThemeProvider in providers.tsx
+- [x] 01-02-PLAN.md — Rewrite globals.css, wire fonts in layout.tsx, connect ThemeProvider in providers.tsx
 **UI hint**: yes
 
 ### Phase 2: Shared Components

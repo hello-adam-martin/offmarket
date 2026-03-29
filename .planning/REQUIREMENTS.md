@@ -9,7 +9,7 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUN-01**: CSS custom properties defined for all DESIGN.md colors (primary, accent, secondary, neutrals, semantic) in :root and .dark
+- [x] **FOUN-01**: CSS custom properties defined for all DESIGN.md colors (primary, accent, secondary, neutrals, semantic) in :root and .dark
 - [x] **FOUN-02**: Tailwind config rewritten with semantic color names mapping to CSS variables (accent, surface, border, text-secondary, etc.)
 - [x] **FOUN-03**: Tailwind typography scale matches DESIGN.md (3xl through xs with correct font-family, weight, line-height)
 - [x] **FOUN-04**: Tailwind spacing scale uses 4px base unit with DESIGN.md stops (2xs through 3xl)
@@ -17,13 +17,13 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 - [x] **FOUN-06**: General Sans loaded via next/font/local (downloaded from Fontshare, variable woff2)
 - [x] **FOUN-07**: DM Sans loaded via next/font/google with all required weights (300-700, italic 400)
 - [x] **FOUN-08**: JetBrains Mono loaded via next/font/google (weights 400, 500)
-- [ ] **FOUN-09**: Inter font completely removed from layout.tsx and replaced with General Sans + DM Sans
+- [x] **FOUN-09**: Inter font completely removed from layout.tsx and replaced with General Sans + DM Sans
 - [x] **FOUN-10**: next-themes installed and ThemeProvider wrapping app with dark mode toggle
-- [ ] **FOUN-11**: Dark mode CSS variables defined per DESIGN.md (bg #0f0f1a, surface #1a1a2e, surface-raised #252540, reduced accent saturation, border #374151)
-- [ ] **FOUN-12**: suppressHydrationWarning on html element to prevent dark mode FOUC
-- [ ] **FOUN-13**: globals.css component classes (.btn-primary, .card, .input) updated to use DESIGN.md tokens
-- [ ] **FOUN-14**: font-variant-numeric: tabular-nums applied to all data/number displays via Tailwind utility or DM Sans config
-- [ ] **FOUN-15**: Subtle grain texture on card backgrounds per DESIGN.md
+- [x] **FOUN-11**: Dark mode CSS variables defined per DESIGN.md (bg #0f0f1a, surface #1a1a2e, surface-raised #252540, reduced accent saturation, border #374151)
+- [x] **FOUN-12**: suppressHydrationWarning on html element to prevent dark mode FOUC
+- [x] **FOUN-13**: globals.css component classes (.btn-primary, .card, .input) updated to use DESIGN.md tokens
+- [x] **FOUN-14**: font-variant-numeric: tabular-nums applied to all data/number displays via Tailwind utility or DM Sans config
+- [x] **FOUN-15**: Subtle grain texture on card backgrounds per DESIGN.md
 
 ### Shared Components
 
@@ -132,7 +132,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | Phase 1 | Pending |
+| FOUN-01 | Phase 1 | Complete |
 | FOUN-02 | Phase 1 | Complete |
 | FOUN-03 | Phase 1 | Complete |
 | FOUN-04 | Phase 1 | Complete |
@@ -140,13 +140,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUN-06 | Phase 1 | Complete |
 | FOUN-07 | Phase 1 | Complete |
 | FOUN-08 | Phase 1 | Complete |
-| FOUN-09 | Phase 1 | Pending |
+| FOUN-09 | Phase 1 | Complete |
 | FOUN-10 | Phase 1 | Complete |
-| FOUN-11 | Phase 1 | Pending |
-| FOUN-12 | Phase 1 | Pending |
-| FOUN-13 | Phase 1 | Pending |
-| FOUN-14 | Phase 1 | Pending |
-| FOUN-15 | Phase 1 | Pending |
+| FOUN-11 | Phase 1 | Complete |
+| FOUN-12 | Phase 1 | Complete |
+| FOUN-13 | Phase 1 | Complete |
+| FOUN-14 | Phase 1 | Complete |
+| FOUN-15 | Phase 1 | Complete |
 | COMP-01 | Phase 2 | Pending |
 | COMP-02 | Phase 2 | Pending |
 | COMP-03 | Phase 2 | Pending |
