@@ -14,15 +14,14 @@ interface NZRegionMapProps {
   selectedRegion?: string | null;
 }
 
-// Get fill color based on buyer count (heat map style)
-function getRegionColor(count: number, maxCount: number): string {
-  if (count === 0 || maxCount === 0) return "#f3f4f6"; // gray-100
+// Get fill color based on buyer count (heat map style) using teal CSS variables
+function getRegionFill(count: number, maxCount: number): string {
+  if (count === 0 || maxCount === 0) return "var(--color-surface-raised)";
   const intensity = count / maxCount;
-  if (intensity < 0.2) return "#dbeafe"; // blue-100
-  if (intensity < 0.4) return "#93c5fd"; // blue-300
-  if (intensity < 0.6) return "#3b82f6"; // blue-500
-  if (intensity < 0.8) return "#2563eb"; // blue-600
-  return "#1d4ed8"; // blue-700
+  if (intensity < 0.25) return "color-mix(in srgb, var(--color-accent) 20%, transparent)";
+  if (intensity < 0.5) return "color-mix(in srgb, var(--color-accent) 50%, transparent)";
+  if (intensity < 0.75) return "color-mix(in srgb, var(--color-accent) 80%, transparent)";
+  return "var(--color-accent)";
 }
 
 export function NZRegionMap({
@@ -94,20 +93,20 @@ export function NZRegionMap({
       {/* Tooltip */}
       {hoveredData && (
         <div
-          className="absolute z-10 px-3 py-2 text-sm bg-gray-900 text-white rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
+          className="absolute z-10 px-3 py-2 text-sm bg-primary text-text-inverse rounded-lg shadow-lg pointer-events-none transform -translate-x-1/2 -translate-y-full"
           style={{
             left: tooltipPos.x,
             top: tooltipPos.y,
           }}
         >
           <div className="font-medium">{hoveredData.name}</div>
-          <div className="text-gray-300">
-            {hoveredData.count} {hoveredData.count === 1 ? "buyer" : "buyers"}
+          <div className="text-text-inverse/70">
+            <span className="tabular-nums">{hoveredData.count}</span> {hoveredData.count === 1 ? "buyer" : "buyers"}
           </div>
-          <div className="text-xs text-gray-400 mt-0.5">Click to explore</div>
+          <div className="text-xs text-text-inverse/50 mt-0.5">Click to explore</div>
           {/* Tooltip arrow */}
           <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full">
-            <div className="border-8 border-transparent border-t-gray-900" />
+            <div className="border-8 border-transparent border-t-primary" />
           </div>
         </div>
       )}
@@ -127,15 +126,15 @@ export function NZRegionMap({
           const count = getCount(region.name);
           const isHovered = hoveredRegion === region.name;
           const isSelected = selectedRegion === region.name;
-          const fillColor = getRegionColor(count, maxCount);
+          const fillColor = getRegionFill(count, maxCount);
 
           return (
             <path
               key={region.id}
               d={region.path}
               fill={fillColor}
-              stroke={isSelected ? "#1e40af" : isHovered ? "#3b82f6" : "#94a3b8"}
-              strokeWidth={isSelected ? 4 : isHovered ? 3 : 1.5}
+              stroke={isSelected ? "var(--color-accent)" : isHovered ? "var(--color-accent)" : "var(--color-border)"}
+              strokeWidth={isSelected ? 3 : isHovered ? 2 : 1.5}
               className="cursor-pointer transition-all duration-150"
               style={{
                 filter: isHovered ? "brightness(1.1)" : undefined,
@@ -154,17 +153,21 @@ export function NZRegionMap({
       </svg>
 
       {/* Legend */}
-      <div className="flex items-center justify-center gap-4 mt-4 text-xs text-gray-500">
+      <div className="flex items-center justify-center gap-4 mt-4 text-xs text-text-secondary">
         <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded bg-gray-100 border border-gray-300" />
+          <div className="w-3 h-3 rounded border border-border" style={{ backgroundColor: "var(--color-surface-raised)" }} />
           <span>No demand</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded bg-blue-300" />
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: "color-mix(in srgb, var(--color-accent) 30%, transparent)" }} />
           <span>Low</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded bg-blue-600" />
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: "color-mix(in srgb, var(--color-accent) 60%, transparent)" }} />
+          <span>Medium</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <div className="w-3 h-3 rounded" style={{ backgroundColor: "var(--color-accent)" }} />
           <span>High</span>
         </div>
       </div>
