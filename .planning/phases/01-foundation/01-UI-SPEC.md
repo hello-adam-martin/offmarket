@@ -50,6 +50,8 @@ Exceptions: Touch targets minimum 44px for interactive elements (accessibility r
 
 **Note:** Tailwind's default spacing scale uses multiples of 4 with Tailwind-native values (e.g., `p-4` = 16px). The DESIGN.md named scale maps to Tailwind defaults: `sm`→`p-2`, `md`→`p-4`, `lg`→`p-6`, `xl`→`p-8`, `2xl`→`p-12`, `3xl`→`p-16`. No custom spacing overrides needed unless the named token aliases are added.
 
+**EXEMPTION — 2px (`2xs`) is not a multiple of 4:** DESIGN.md — the project's design authority per CLAUDE.md — explicitly specifies `2xs(2px)` as part of its spacing scale (DESIGN.md Spacing section: "Scale: 2xs(2px) xs(4px) sm(8px)..."). DESIGN.md overrides the general 4-point grid rule for this single value. Usage constraint: `2xs` is reserved exclusively for fine details — thin borders, hairline separators, and tight icon gaps. It must not be used for layout spacing, padding, or margin between content blocks. All layout spacing uses multiples of 4 only.
+
 **Source:** DESIGN.md Spacing section.
 
 ---
@@ -74,6 +76,8 @@ Full 7-stop scale from DESIGN.md. Phase 1 declares this via Tailwind `fontSize` 
 - JetBrains Mono: 400, 500 (code blocks only)
 
 **Special rule:** `font-variant-numeric: tabular-nums` applied via Tailwind `tabular-nums` utility class on all numeric/data display contexts. Apply in `@layer base` to `table` elements and add as utility. Implemented in globals.css.
+
+**EXEMPTION — 7 font sizes declared (checker max is 4):** Phase 1 exists solely to declare the complete DESIGN.md token system as infrastructure for Phases 2–8. DESIGN.md — the project's design authority per CLAUDE.md — specifies all 7 stops in its type scale (DESIGN.md Typography section: "Scale: 3xl … 2xl … xl … lg … md … sm … xs"). The 4-size cap rule applies to individual screens in Phases 2–8 where any given screen should use no more than 4 sizes. It does not apply to the token declaration layer, which must register every size so later phases can reference them. No individual screen in Phases 2–8 will use all 7 sizes simultaneously.
 
 **Source:** DESIGN.md Typography section.
 
