@@ -2,55 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-bg: #fafaf7;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f5f5f0;
-  --color-border: #e5e5e0;
-  --color-primary: #1a1a2e;
-  --color-text: #1a1a2e;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-  --color-text-inverse: #fafaf7;
-  --color-accent: #0d9488;
-  --color-accent-hover: #0f766e;
-  --color-accent-light: #ccfbf1;
-  --color-secondary: #d97706;
-  --color-secondary-light: #fef3c7;
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
-  --color-info: #0d9488;
-}
-
-.dark {
-  --color-bg: #0f0f1a;
-  --color-surface: #1a1a2e;
-  --color-surface-raised: #252540;
-  --color-border: #374151;
-  --color-primary: #fafaf7;
-  --color-text: #fafaf7;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
-  --color-text-inverse: #1a1a2e;
-  --color-accent: #0b8276;
-  --color-accent-hover: #0d6b62;
-  --color-accent-light: #134e4a;
-  --color-secondary: #d97706;
-  --color-secondary-light: #451a03;
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
-  --color-info: #0b8276;
-}
-
 @layer base {
+  :root {
+    --color-primary: #1a1a2e;
+    --color-accent: #0d9488;
+    --color-accent-hover: #0f766e;
+    --color-accent-light: #ccfbf1;
+    --color-secondary: #d97706;
+    --color-secondary-light: #fef3c7;
+    --color-bg: #fafaf7;
+    --color-surface: #ffffff;
+    --color-surface-raised: #f5f5f0;
+    --color-border: #e5e5e0;
+    --color-text: #1a1a2e;
+    --color-text-secondary: #6b7280;
+    --color-text-muted: #9ca3af;
+    --color-text-inverse: #fafaf7;
+    --color-success: #059669;
+    --color-warning: #d97706;
+    --color-error: #dc2626;
+    --color-info: #0d9488;
+  }
+
+  .dark {
+    --color-bg: #0f0f1a;
+    --color-surface: #1a1a2e;
+    --color-surface-raised: #252540;
+    --color-border: #374151;
+    --color-primary: #fafaf7;
+    --color-text: #fafaf7;
+    --color-text-secondary: #9ca3af;
+    --color-text-muted: #6b7280;
+    --color-text-inverse: #1a1a2e;
+    --color-accent: #0b8276;
+    --color-accent-hover: #0d6b62;
+    --color-accent-light: #134e4a;
+    --color-secondary-light: #451a03;
+  }
+
   html {
     @apply scroll-smooth;
   }
+
   body {
     @apply antialiased;
   }
+
   table {
     font-variant-numeric: tabular-nums;
   }
@@ -60,26 +57,43 @@
   .btn {
     @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent-light focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
+
   .btn-primary {
-    @apply btn bg-accent text-white hover:bg-accent-hover focus:ring-accent-light;
+    @apply btn bg-accent text-white hover:bg-accent-hover;
   }
+
   .btn-secondary {
-    @apply btn bg-surface text-text-base border border-border hover:bg-surface-raised focus:ring-accent-light;
+    @apply btn bg-surface text-text-base border border-border hover:bg-surface-raised;
   }
+
   .btn-ghost {
     @apply btn text-text-secondary hover:bg-surface-raised hover:text-text-base;
   }
+
   .btn-destructive {
     @apply btn bg-error text-white hover:bg-red-700 focus:ring-red-300;
   }
+
   .input {
     @apply block w-full rounded-md border border-border bg-surface px-4 py-2 text-text-base placeholder:text-text-muted focus:border-accent focus:ring-1 focus:ring-accent-light focus:outline-none;
   }
+
   .label {
     @apply block text-xs font-semibold text-text-secondary mb-1 uppercase tracking-wide;
   }
+
   .card {
-    @apply bg-surface rounded-lg border border-border p-6;
+    @apply relative overflow-hidden bg-surface rounded-lg border border-border p-6;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
   }
 }
 
