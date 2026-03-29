@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-03-30
+revised: 2026-03-30
 ---
 
 # Phase 2 — UI Design Contract: Shared Components
@@ -35,7 +36,6 @@ Inherited from Phase 1. All components in this phase use these exact values.
 
 | Token | Value | Tailwind Equivalent | Phase 2 Usage |
 |-------|-------|---------------------|---------------|
-| 2xs | 2px | `gap-0.5` | Fine separators only (badge border hairlines) |
 | xs | 4px | `p-1` / `gap-1` | Icon-to-text gaps, badge internal padding |
 | sm | 8px | `p-2` / `gap-2` | Compact internal padding (button sm variant, inline elements) |
 | md | 16px | `p-4` / `gap-4` | Default element spacing, form field padding, modal content padding |
@@ -48,6 +48,7 @@ Exceptions:
 - Touch targets: all interactive elements (buttons, toggles, nav links, close buttons) must meet `min-h-[44px]` on mobile (WCAG 2.5.5). This is a constraint, not a spacing token.
 - Header height: fixed at `h-16` (64px) to match existing component; do not change.
 - Mobile menu: `p-4` vertical rhythm for nav items.
+- Badge borders: implemented as `border` (1px CSS layout constraint), not as a named spacing token.
 
 **Source:** DESIGN.md Spacing section. Phase 1 UI-SPEC Spacing Scale. CONTEXT.md D-19 (button heights).
 
@@ -63,12 +64,11 @@ This phase uses the full token set defined in Phase 1. Per-component assignments
 | Secondary | 14px (sm) | DM Sans (`font-sans`) | 400 | 1.5 | `text-sm` | Nav link text, metadata, secondary modal copy, filter labels |
 | Label | 12px (xs) | DM Sans (`font-sans`) | 600 | 1.4 | `text-xs` | Form labels (`.label` class), badge text, small uppercase labels |
 | Subheading | 24px (xl) | General Sans (`font-display`) | 600 | 1.3 | `text-xl font-display` | Modal headings, section headings within panels |
-| Nav/Logo | 20px | General Sans (`font-display`) | 700 | 1.2 | Custom: `text-[20px] font-display font-bold` | Header logo "OffMarket NZ" |
 
-Active sizes in this phase: 12px, 14px, 16px, 24px (4 sizes — within cap). Logo at 20px is a one-off token, not a new size entry.
+Active sizes in this phase: 12px, 14px, 16px, 24px — exactly 4 sizes.
 
 **Weights in this phase (exactly 2 per family):**
-- General Sans: 700 (logo, modal heading) and 600 (subheadings, section titles)
+- General Sans: 700 (logo) and 600 (subheadings, section titles, modal headings)
 - DM Sans: 400 (body, secondary text) and 600 (labels, badge text, button text)
 
 **Tabular nums:** Apply `tabular-nums` utility class wherever numbers appear in components — notification badge count, demand figures in DemandCardGrid, any stat values in EmptyState.
@@ -121,6 +121,8 @@ Accent is NOT used for: header background, footer background, card backgrounds, 
 
 ### Header (`header.tsx`)
 
+**Primary focal point:** The "OffMarket NZ" logo on the left is the dominant visual anchor. All other header elements (nav links, toggle, auth buttons) are secondary weight.
+
 | Property | Value |
 |----------|-------|
 | Background | `bg-surface` |
@@ -128,7 +130,7 @@ Accent is NOT used for: header background, footer background, card backgrounds, 
 | Height | `h-16` (64px) |
 | Max width | `max-w-[1120px] mx-auto` — container switches from `max-w-7xl` to `max-w-[1120px]` |
 | Horizontal padding | `px-4 sm:px-6 lg:px-8` |
-| Logo text | "OffMarket" in `text-accent font-display font-bold text-[20px]` + "NZ" in `text-text-base font-display font-bold text-[20px]` |
+| Logo text | "OffMarket" in `text-accent font-display font-bold text-[20px]` + "NZ" in `text-text-base font-display font-bold text-[20px]`. The `text-[20px]` value is logo-specific and is not a reusable typography scale entry. |
 | Nav links | `text-sm font-sans text-text-secondary hover:text-text-base transition-colors` |
 | Nav link active state | `text-accent` |
 | Dark mode toggle | Right of nav links, left of auth area. Sun icon in light mode, moon icon in dark mode. `useTheme` from `next-themes`. `aria-label="Toggle theme"`. Button uses `.btn-ghost` class, `h-9 w-9` (compact). |
@@ -218,6 +220,8 @@ New CSS class `.badge` variants to add to globals.css:
 
 Border radius on badges: `rounded-sm` (4px) per DESIGN.md — NOT `rounded-full`.
 
+Badge borders (when a bordered variant is needed): use standard CSS `border border-current/20` — a 1px layout constraint, not a spacing token.
+
 ### Modal Shell (globals.css classes)
 
 New classes per CONTEXT.md D-08, D-09. Headless UI Dialog stays as the underlying component.
@@ -269,6 +273,8 @@ New component: `apps/web/src/components/ThemeToggle.tsx`
 | CTA button | `.btn-primary btn-md` |
 
 ### FilterPanel (`browse/FilterPanel.tsx`, `browse/RegionFilterPanel.tsx`)
+
+**Primary focal point:** The filter options list is the dominant visual element. Section headings (`.label` class) act as scannable anchors. The Apply button at the bottom is the single primary action.
 
 | Property | Value |
 |----------|-------|
@@ -347,7 +353,9 @@ This phase does not introduce new user flows — it reskins existing components.
 | ContactBuyerModal primary CTA | `"Send message"` |
 | SaveSearchModal primary CTA | `"Save search"` |
 | PostcardRequestModal primary CTA | `"Send postcard request"` |
-| Any destructive modal confirm | `"Delete"` or `"Remove"` — specific verb, not "Yes" |
+| Destructive confirm — listing deletion | `"Delete listing"` |
+| Destructive confirm — image removal | `"Remove image"` |
+| Destructive confirm — generic fallback | `"Delete"` — only when no specific noun can be inferred from context |
 
 **AI Slop guard on copy:** Do not write "Unlock the power of...", "Find your dream home", or "Get started today". Use direct, specific verbs.
 
