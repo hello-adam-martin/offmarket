@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-29T20:06:51.538Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-29T20:11:09.823Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 8
-  completed_plans: 4
+  completed_plans: 5
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 ## Current Position
 
 Phase: 02 (shared-components) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 Status: Ready to execute
 Last activity: 2026-03-29
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 3 | 3 tasks | 7 files |
 | Phase 02 P01 | 3 | 3 tasks | 4 files |
+| Phase 02 P04 | 10 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,8 @@ Recent decisions affecting current work:
 - [Phase 01-02]: DM Sans weight changed to 'variable' for axes compatibility in next/font
 - [Phase 02-01]: Badge variants expand all @apply utilities inline rather than chaining custom classes
 - [Phase 02-01]: Footer grid changed from grid-cols-2 md:grid-cols-5 to grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 per UI-SPEC
+- [Phase 02-04]: NZRegionMap legend expanded to 4 tiers to match getRegionFill function buckets
+- [Phase 02-04]: Tooltip uses bg-primary text-text-inverse for automatic contrast in both light/dark modes
 
 ### Pending Todos
 
@@ -84,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T20:06:51.536Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-03-29T20:11:09.820Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None

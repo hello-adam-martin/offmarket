@@ -27,18 +27,18 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Shared Components
 
-- [ ] **COMP-01**: Header restyled — DESIGN.md colors, typography, max-width 1120px, dark mode support
-- [ ] **COMP-02**: Footer restyled — DESIGN.md colors, typography, max-width 1120px, dark mode support
-- [ ] **COMP-03**: Dark mode toggle component in header
+- [x] **COMP-01**: Header restyled — DESIGN.md colors, typography, max-width 1120px, dark mode support
+- [x] **COMP-02**: Footer restyled — DESIGN.md colors, typography, max-width 1120px, dark mode support
+- [x] **COMP-03**: Dark mode toggle component in header
 - [ ] **COMP-04**: All modal components restyled (ContactBuyerModal, PaymentModal, UpgradeModal, PostcardRequestModal, SaveSearchModal)
 - [ ] **COMP-05**: Form primitives restyled (inputs, selects, textareas, checkboxes, radio buttons) with focus rings using accent-light
-- [ ] **COMP-06**: Button variants restyled (primary=teal, secondary=outlined, destructive=error red) with correct border-radius md:8px
-- [ ] **COMP-07**: Card components restyled (border-radius md:8px, surface background, border color, grain texture)
-- [ ] **COMP-08**: Badge components restyled (border-radius sm:4px, accent-light background for info badges)
+- [x] **COMP-06**: Button variants restyled (primary=teal, secondary=outlined, destructive=error red) with correct border-radius md:8px
+- [x] **COMP-07**: Card components restyled (border-radius md:8px, surface background, border color, grain texture)
+- [x] **COMP-08**: Badge components restyled (border-radius sm:4px, accent-light background for info badges)
 - [ ] **COMP-09**: EmptyState component restyled to DESIGN.md
 - [ ] **COMP-10**: FilterPanel and RegionFilterPanel restyled
-- [ ] **COMP-11**: DemandCardGrid restyled with DESIGN.md card pattern
-- [ ] **COMP-12**: NZRegionMap styled to match DESIGN.md color palette
+- [x] **COMP-11**: DemandCardGrid restyled with DESIGN.md card pattern
+- [x] **COMP-12**: NZRegionMap styled to match DESIGN.md color palette
 - [ ] **COMP-13**: AddressAutocomplete restyled
 - [ ] **COMP-14**: PropertyImageUpload restyled
 
@@ -147,18 +147,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUN-13 | Phase 1 | Complete |
 | FOUN-14 | Phase 1 | Complete |
 | FOUN-15 | Phase 1 | Complete |
-| COMP-01 | Phase 2 | Pending |
-| COMP-02 | Phase 2 | Pending |
-| COMP-03 | Phase 2 | Pending |
+| COMP-01 | Phase 2 | Complete |
+| COMP-02 | Phase 2 | Complete |
+| COMP-03 | Phase 2 | Complete |
 | COMP-04 | Phase 2 | Pending |
 | COMP-05 | Phase 2 | Pending |
-| COMP-06 | Phase 2 | Pending |
-| COMP-07 | Phase 2 | Pending |
-| COMP-08 | Phase 2 | Pending |
+| COMP-06 | Phase 2 | Complete |
+| COMP-07 | Phase 2 | Complete |
+| COMP-08 | Phase 2 | Complete |
 | COMP-09 | Phase 2 | Pending |
 | COMP-10 | Phase 2 | Pending |
-| COMP-11 | Phase 2 | Pending |
-| COMP-12 | Phase 2 | Pending |
+| COMP-11 | Phase 2 | Complete |
+| COMP-12 | Phase 2 | Complete |
 | COMP-13 | Phase 2 | Pending |
 | COMP-14 | Phase 2 | Pending |
 | PUBL-01 | Phase 3 | Pending |
