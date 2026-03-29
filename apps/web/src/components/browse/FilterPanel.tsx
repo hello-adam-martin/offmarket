@@ -62,7 +62,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
   // When filters are active, show compact full-width bar
   if (hasActiveFilters) {
     return (
-      <div className="sticky top-0 z-10 bg-white border-b border-gray-200 shadow-sm">
+      <div className="sticky top-0 z-10 bg-surface border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main filter row */}
           <div className="flex items-center gap-3 py-3">
@@ -70,7 +70,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
             <select
               value={filters.region || ""}
               onChange={(e) => onChange({ region: e.target.value || null, city: null, suburb: null })}
-              className="text-sm font-medium border-0 bg-transparent text-gray-900 focus:ring-0 cursor-pointer pr-8 py-1"
+              className="text-sm font-medium border-0 bg-transparent text-text-base focus:ring-0 cursor-pointer pr-8 py-1"
             >
               <option value="">All Regions</option>
               {NZ_REGIONS.map((region) => {
@@ -83,7 +83,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
               })}
             </select>
 
-            <div className="h-4 w-px bg-gray-300" />
+            <div className="h-4 w-px bg-border" />
 
             {/* Suburb input - inline */}
             <input
@@ -91,17 +91,17 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
               placeholder="Suburb..."
               value={filters.suburb || ""}
               onChange={(e) => onChange({ suburb: e.target.value.trim() || null })}
-              className="text-sm border-0 bg-transparent text-gray-700 placeholder-gray-400 focus:ring-0 w-28 py-1"
+              className="text-sm border-0 bg-transparent text-text-secondary placeholder:text-text-muted focus:ring-0 w-28 py-1"
             />
 
-            <div className="h-4 w-px bg-gray-300" />
+            <div className="h-4 w-px bg-border" />
 
             {/* Bedrooms - compact */}
             <select
               value={filters.bedroomsMin ?? ""}
               onChange={(e) => onChange({ bedroomsMin: e.target.value ? parseInt(e.target.value, 10) : null })}
               className={`text-sm border-0 bg-transparent focus:ring-0 cursor-pointer pr-6 py-1 ${
-                filters.bedroomsMin ? "text-gray-900 font-medium" : "text-gray-500"
+                filters.bedroomsMin ? "text-text-base font-medium" : "text-text-muted"
               }`}
             >
               {BEDROOM_OPTIONS.map((opt) => (
@@ -111,7 +111,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
               ))}
             </select>
 
-            <div className="h-4 w-px bg-gray-300" />
+            <div className="h-4 w-px bg-border" />
 
             {/* Property type pills - scrollable */}
             <div className="flex-1 overflow-x-auto hide-scrollbar">
@@ -122,10 +122,10 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
                     <button
                       key={type}
                       onClick={() => handlePropertyTypeToggle(type)}
-                      className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
+                      className={`px-2.5 py-1 rounded-sm text-xs font-medium whitespace-nowrap transition-colors ${
                         isSelected
-                          ? "bg-primary-600 text-white"
-                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                          ? "badge-info"
+                          : "bg-surface-raised text-text-secondary hover:bg-border"
                       }`}
                     >
                       {label}
@@ -138,7 +138,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
             {/* Clear button */}
             <button
               onClick={onClear}
-              className="text-sm text-gray-500 hover:text-gray-700 whitespace-nowrap ml-2"
+              className="btn-ghost text-sm whitespace-nowrap ml-2"
             >
               Clear
             </button>
@@ -217,7 +217,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
 
       {/* Property Type Pills - show when region selected */}
       {filters.region && (
-        <div className="mt-4 pt-4 border-t border-gray-100">
+        <div className="mt-4 pt-4 border-t border-border">
           <div className="flex flex-wrap gap-2">
             {Object.entries(PROPERTY_TYPE_LABELS).map(([type, label]) => {
               const isSelected = filters.propertyTypes.includes(type);
@@ -225,10 +225,10 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
                 <button
                   key={type}
                   onClick={() => handlePropertyTypeToggle(type)}
-                  className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-2.5 py-1 rounded-sm text-xs font-medium transition-colors ${
                     isSelected
-                      ? "bg-primary-600 text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      ? "badge-info"
+                      : "bg-surface-raised text-text-secondary hover:bg-border"
                   }`}
                 >
                   {label}

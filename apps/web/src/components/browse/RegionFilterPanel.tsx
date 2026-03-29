@@ -290,18 +290,18 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
   };
 
   return (
-    <div className="bg-white border-b border-gray-200">
+    <div className="bg-surface border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-3 py-3">
           {/* City/Town dropdown */}
           {citiesAndTowns.length > 0 && (
             <>
               <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-500">City/Town:</label>
+                <label className="text-sm text-text-muted">City/Town:</label>
                 <select
                   value={filters.city || ""}
                   onChange={(e) => handleCityChange(e.target.value || null)}
-                  className="text-sm font-medium border border-gray-200 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 px-3 py-1.5"
+                  className="text-sm font-medium border border-border rounded-md bg-surface text-text-base focus:ring-1 focus:ring-accent-light focus:border-accent px-3 py-1.5"
                 >
                   <option value="">All {regionName}</option>
                   {citiesAndTowns.map((location) => (
@@ -311,7 +311,7 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
                   ))}
                 </select>
               </div>
-              <div className="h-4 w-px bg-gray-300" />
+              <div className="h-4 w-px bg-border" />
             </>
           )}
 
@@ -319,11 +319,11 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
           {suburbs.length > 0 && (
             <>
               <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-500">Suburb:</label>
+                <label className="text-sm text-text-muted">Suburb:</label>
                 <select
                   value={filters.suburb || ""}
                   onChange={(e) => onChange({ suburb: e.target.value || null })}
-                  className="text-sm font-medium border border-gray-200 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 px-3 py-1.5"
+                  className="text-sm font-medium border border-border rounded-md bg-surface text-text-base focus:ring-1 focus:ring-accent-light focus:border-accent px-3 py-1.5"
                 >
                   <option value="">All {filters.city}</option>
                   {suburbs.map((suburb) => (
@@ -333,18 +333,18 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
                   ))}
                 </select>
               </div>
-              <div className="h-4 w-px bg-gray-300" />
+              <div className="h-4 w-px bg-border" />
             </>
           )}
 
           {/* Bedrooms dropdown */}
           <div className="flex items-center gap-2">
-            <label className="text-sm text-gray-500">Beds:</label>
+            <label className="text-sm text-text-muted">Beds:</label>
             <select
               value={filters.bedroomsMin ?? ""}
               onChange={(e) => onChange({ bedroomsMin: e.target.value ? parseInt(e.target.value, 10) : null })}
-              className={`text-sm border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 px-3 py-1.5 ${
-                filters.bedroomsMin ? "font-medium text-gray-900" : "text-gray-500"
+              className={`text-sm border border-border rounded-md bg-surface focus:ring-1 focus:ring-accent-light focus:border-accent px-3 py-1.5 ${
+                filters.bedroomsMin ? "font-medium text-text-base" : "text-text-muted"
               }`}
             >
               {BEDROOM_OPTIONS.map((opt) => (
@@ -355,7 +355,7 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
             </select>
           </div>
 
-          <div className="h-4 w-px bg-gray-300" />
+          <div className="h-4 w-px bg-border" />
 
           {/* Property type pills */}
           <div className="flex-1 overflow-x-auto hide-scrollbar">
@@ -366,10 +366,10 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
                   <button
                     key={type}
                     onClick={() => handlePropertyTypeToggle(type)}
-                    className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
+                    className={`px-2.5 py-1 rounded-sm text-xs font-medium whitespace-nowrap transition-colors ${
                       isSelected
-                        ? "bg-primary-600 text-white"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                        ? "badge-info"
+                        : "bg-surface-raised text-text-secondary hover:bg-border"
                     }`}
                   >
                     {label}
@@ -383,7 +383,7 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
           {session && onSaveSearch && (
             <button
               onClick={onSaveSearch}
-              className="flex items-center gap-1 text-sm text-primary-600 hover:text-primary-800 whitespace-nowrap ml-2"
+              className="flex items-center gap-1 text-sm text-accent hover:text-accent-hover whitespace-nowrap ml-2"
               title="Save this search"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -397,7 +397,7 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
           {hasActiveFilters && (
             <button
               onClick={onClear}
-              className="text-sm text-gray-500 hover:text-gray-700 whitespace-nowrap ml-2"
+              className="btn-ghost text-sm whitespace-nowrap ml-2"
             >
               Clear filters
             </button>
