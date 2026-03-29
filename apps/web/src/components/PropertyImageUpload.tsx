@@ -158,11 +158,11 @@ export function PropertyImageUpload({
     <div className="space-y-4">
       {/* Error message */}
       {error && (
-        <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+        <div className="p-3 bg-error/10 border border-error/30 rounded-md text-error text-sm">
           {error}
           <button
             onClick={() => setError(null)}
-            className="ml-2 text-red-500 hover:text-red-700"
+            className="ml-2 text-error hover:text-error/70"
           >
             &times;
           </button>
@@ -175,8 +175,8 @@ export function PropertyImageUpload({
           {images.map((image) => (
             <div
               key={image.id}
-              className={`relative group aspect-square rounded-lg overflow-hidden border-2 ${
-                image.isPrimary ? "border-primary-500" : "border-gray-200"
+              className={`relative group aspect-square rounded-md overflow-hidden border-2 ${
+                image.isPrimary ? "border-accent" : "border-border"
               }`}
             >
               <img
@@ -187,7 +187,7 @@ export function PropertyImageUpload({
 
               {/* Primary badge */}
               {image.isPrimary && (
-                <div className="absolute top-2 left-2 px-2 py-0.5 bg-primary-500 text-white text-xs font-medium rounded">
+                <div className="absolute top-2 left-2 px-2 py-0.5 bg-accent text-text-inverse text-xs font-medium rounded-md">
                   Primary
                 </div>
               )}
@@ -197,8 +197,9 @@ export function PropertyImageUpload({
                 {!image.isPrimary && (
                   <button
                     onClick={() => handleSetPrimary(image.id)}
-                    className="p-2 bg-white rounded-full text-gray-700 hover:bg-gray-100"
+                    className="p-2 bg-surface rounded-md text-text-secondary hover:bg-surface-raised"
                     title="Set as primary"
+                    aria-label="Set as primary image"
                   >
                     <svg
                       className="w-4 h-4"
@@ -215,26 +216,29 @@ export function PropertyImageUpload({
                     </svg>
                   </button>
                 )}
-                <button
-                  onClick={() => handleDelete(image.id)}
-                  className="p-2 bg-white rounded-full text-red-600 hover:bg-red-50"
-                  title="Delete"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                    />
-                  </svg>
-                </button>
               </div>
+
+              {/* Remove button */}
+              <button
+                onClick={() => handleDelete(image.id)}
+                className="absolute top-1 right-1 bg-error text-white rounded-md h-6 w-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-error/90"
+                title="Delete"
+                aria-label="Remove image"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </button>
             </div>
           ))}
         </div>
@@ -243,10 +247,10 @@ export function PropertyImageUpload({
       {/* Upload area */}
       {images.length < maxImages && (
         <div
-          className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+          className={`relative rounded-lg border-2 border-dashed p-8 text-center transition-colors ${
             dragActive
-              ? "border-primary-500 bg-primary-50"
-              : "border-gray-300 hover:border-gray-400"
+              ? "border-accent bg-accent-light/30"
+              : "border-border bg-surface-raised hover:border-accent hover:bg-accent-light/20"
           }`}
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
@@ -266,7 +270,7 @@ export function PropertyImageUpload({
             <div className="flex justify-center">
               <svg
                 className={`w-12 h-12 ${
-                  dragActive ? "text-primary-500" : "text-gray-400"
+                  dragActive ? "text-accent" : "text-text-muted"
                 }`}
                 fill="none"
                 stroke="currentColor"
@@ -285,23 +289,23 @@ export function PropertyImageUpload({
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={uploading}
-                className="text-primary-600 hover:text-primary-800 font-medium"
+                className="text-accent hover:text-accent/80 font-medium"
               >
                 {uploading ? "Uploading..." : "Click to upload"}
               </button>
-              <span className="text-gray-500"> or drag and drop</span>
+              <span className="text-text-secondary"> or drag and drop</span>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-text-secondary">
               PNG, JPG, WebP or HEIC up to 10MB each
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-text-muted">
               {images.length}/{maxImages} images uploaded
             </p>
           </div>
 
           {uploading && (
-            <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
-              <div className="flex items-center gap-2 text-primary-600">
+            <div className="absolute inset-0 bg-surface/80 flex items-center justify-center">
+              <div className="flex items-center gap-2 text-accent">
                 <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24">
                   <circle
                     className="opacity-25"
