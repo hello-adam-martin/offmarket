@@ -36,7 +36,7 @@ key-files:
     - apps/web/src/app/fonts.ts
 
 key-decisions:
-  - "CSS variables placed inside @layer base :root block (not at file root) per Tailwind v3 spec for guaranteed cascade order"
+  - "CSS variables placed OUTSIDE @layer base (at file root) — Tailwind 3.4 purges custom selectors inside @layer, which stripped .dark block entirely"
   - "DM Sans weight changed to 'variable' to allow axes: ['opsz'] — next/font requires variable weight when axes are specified"
 
 patterns-established:
@@ -53,16 +53,12 @@ completed: 2026-03-30
 
 **globals.css rewritten with 18-token CSS variable system (light + dark), grain texture on .card, Inter removed, three DESIGN.md fonts wired to html element, ThemeProvider connected in providers.tsx**
 
-## Status
-
-**CHECKPOINT PENDING** — Task 3 (visual verification) awaiting human approval.
-
 ## Performance
 
-- **Duration:** ~5 min
+- **Duration:** ~8 min
 - **Started:** 2026-03-30
-- **Completed:** 2026-03-30 (pending checkpoint approval)
-- **Tasks:** 2 of 3 complete (checkpoint pending)
+- **Completed:** 2026-03-30
+- **Tasks:** 3/3 complete (checkpoint approved)
 - **Files modified:** 4
 
 ## Accomplishments
@@ -78,6 +74,7 @@ Each task was committed atomically:
 
 1. **Task 1: Rewrite globals.css with CSS variables, grain texture, and design tokens** - `0ebc4ed` (feat)
 2. **Task 2: Wire fonts and ThemeProvider — remove Inter, apply font variables** - `119dd46` (feat)
+3. **Task 3: Visual verification of foundation token layer** - checkpoint approved after dark mode fix `df4cd7d`
 
 ## Files Created/Modified
 - `apps/web/src/app/globals.css` - CSS variables in @layer base, .dark overrides, grain texture on .card, component classes using semantic tokens
@@ -86,7 +83,7 @@ Each task was committed atomically:
 - `apps/web/src/app/fonts.ts` - DM Sans weight fixed to "variable" for axes compatibility
 
 ## Decisions Made
-- CSS variables placed inside `@layer base` `:root` block — Tailwind v3 requires this for correct cascade ordering
+- CSS variables placed OUTSIDE `@layer base` at file root — Tailwind 3.4 purges custom selectors inside `@layer` that don't match its own utilities, which completely stripped the `.dark` block from compiled output
 - DM Sans `weight: "variable"` instead of explicit weight array — required when `axes` is specified in next/font
 
 ## Deviations from Plan
@@ -103,8 +100,18 @@ Each task was committed atomically:
 
 ---
 
-**Total deviations:** 1 auto-fixed (Rule 1 - Bug)
-**Impact on plan:** Required for build correctness. No scope creep.
+**2. [Checkpoint Fix] Moved CSS variables outside @layer base for dark mode**
+- **Found during:** Task 3 (visual verification checkpoint)
+- **Issue:** Dark mode not working — `.dark` block inside `@layer base` was being purged by Tailwind 3.4
+- **Fix:** Moved `:root` and `.dark` blocks outside `@layer base` to file root so they're always included
+- **Files modified:** `apps/web/src/app/globals.css`
+- **Verification:** `--color-bg` computes to `#0f0f1a` when `.dark` class on html; visual confirmation
+- **Committed in:** `df4cd7d`
+
+---
+
+**Total deviations:** 2 auto-fixed (1 Rule 1 Bug, 1 checkpoint fix)
+**Impact on plan:** Both required for correctness. No scope creep.
 
 ## Issues Encountered
 - fonts.ts from Plan 01 had a DM Sans configuration error (axes with explicit weight array) that prevented build — auto-fixed per Rule 1
@@ -113,13 +120,13 @@ Each task was committed atomically:
 None - no external service configuration required.
 
 ## Next Phase Readiness
-- Design token infrastructure complete once visual verification approved
-- Task 3 checkpoint: verify fonts, colors, dark mode, grain texture render correctly in browser
-- On approval, all foundation contracts are live — Phase 2 can begin restyling pages
+- Design token infrastructure complete — visual verification approved
+- All foundation contracts are live — Phase 2 can begin restyling pages
+- Dark mode switches correctly via `.dark` class on html
 
 ---
 *Phase: 01-foundation*
-*Completed: 2026-03-30 (pending checkpoint)*
+*Completed: 2026-03-30*
 
 ## Self-Check: PASSED
 - `apps/web/src/app/globals.css` — FOUND
