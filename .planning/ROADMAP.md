@@ -33,7 +33,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The teal accent (#0d9488) is the active button and link color on every page — the previous sky blue / fuchsia palette is gone
   4. The warm off-white (#fafaf7) background renders in light mode; card backgrounds show the subtle grain texture
   5. Tailwind utilities `bg-surface`, `text-accent`, `border-border` resolve to DESIGN.md values (verifiable in DevTools)
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Install prerequisites, create fonts.ts, rewrite tailwind.config.ts, create ThemeProvider
+- [ ] 01-02-PLAN.md — Rewrite globals.css, wire fonts in layout.tsx, connect ThemeProvider in providers.tsx
 **UI hint**: yes
 
 ### Phase 2: Shared Components
@@ -123,11 +126,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Planning complete | - |
 | 2. Shared Components | 0/TBD | Not started | - |
 | 3. Public Pages | 0/TBD | Not started | - |
 | 4. Buyer Pages | 0/TBD | Not started | - |
