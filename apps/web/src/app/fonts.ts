@@ -11,7 +11,7 @@ export const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   display: "swap",
-  axes: ["ital", "opsz"],
+  axes: ["opsz"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
