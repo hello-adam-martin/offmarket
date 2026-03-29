@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. Tailwind utilities `bg-surface`, `text-accent`, `border-border` resolve to DESIGN.md values (verifiable in DevTools)
 **Plans**: 2 plans
 Plans:
-- [ ] 01-01-PLAN.md — Install prerequisites, create fonts.ts, rewrite tailwind.config.ts, create ThemeProvider
+- [x] 01-01-PLAN.md — Install prerequisites, create fonts.ts, rewrite tailwind.config.ts, create ThemeProvider
 - [ ] 01-02-PLAN.md — Rewrite globals.css, wire fonts in layout.tsx, connect ThemeProvider in providers.tsx
 **UI hint**: yes
 
@@ -130,7 +130,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/2 | Planning complete | - |
+| 1. Foundation | 1/2 | In Progress|  |
 | 2. Shared Components | 0/TBD | Not started | - |
 | 3. Public Pages | 0/TBD | Not started | - |
 | 4. Buyer Pages | 0/TBD | Not started | - |

@@ -10,15 +10,15 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 ### Foundation
 
 - [ ] **FOUN-01**: CSS custom properties defined for all DESIGN.md colors (primary, accent, secondary, neutrals, semantic) in :root and .dark
-- [ ] **FOUN-02**: Tailwind config rewritten with semantic color names mapping to CSS variables (accent, surface, border, text-secondary, etc.)
-- [ ] **FOUN-03**: Tailwind typography scale matches DESIGN.md (3xl through xs with correct font-family, weight, line-height)
-- [ ] **FOUN-04**: Tailwind spacing scale uses 4px base unit with DESIGN.md stops (2xs through 3xl)
-- [ ] **FOUN-05**: Tailwind border-radius scale matches DESIGN.md (sm:4px, md:8px, lg:12px, full:9999px)
-- [ ] **FOUN-06**: General Sans loaded via next/font/local (downloaded from Fontshare, variable woff2)
-- [ ] **FOUN-07**: DM Sans loaded via next/font/google with all required weights (300-700, italic 400)
-- [ ] **FOUN-08**: JetBrains Mono loaded via next/font/google (weights 400, 500)
+- [x] **FOUN-02**: Tailwind config rewritten with semantic color names mapping to CSS variables (accent, surface, border, text-secondary, etc.)
+- [x] **FOUN-03**: Tailwind typography scale matches DESIGN.md (3xl through xs with correct font-family, weight, line-height)
+- [x] **FOUN-04**: Tailwind spacing scale uses 4px base unit with DESIGN.md stops (2xs through 3xl)
+- [x] **FOUN-05**: Tailwind border-radius scale matches DESIGN.md (sm:4px, md:8px, lg:12px, full:9999px)
+- [x] **FOUN-06**: General Sans loaded via next/font/local (downloaded from Fontshare, variable woff2)
+- [x] **FOUN-07**: DM Sans loaded via next/font/google with all required weights (300-700, italic 400)
+- [x] **FOUN-08**: JetBrains Mono loaded via next/font/google (weights 400, 500)
 - [ ] **FOUN-09**: Inter font completely removed from layout.tsx and replaced with General Sans + DM Sans
-- [ ] **FOUN-10**: next-themes installed and ThemeProvider wrapping app with dark mode toggle
+- [x] **FOUN-10**: next-themes installed and ThemeProvider wrapping app with dark mode toggle
 - [ ] **FOUN-11**: Dark mode CSS variables defined per DESIGN.md (bg #0f0f1a, surface #1a1a2e, surface-raised #252540, reduced accent saturation, border #374151)
 - [ ] **FOUN-12**: suppressHydrationWarning on html element to prevent dark mode FOUC
 - [ ] **FOUN-13**: globals.css component classes (.btn-primary, .card, .input) updated to use DESIGN.md tokens
@@ -133,15 +133,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FOUN-01 | Phase 1 | Pending |
-| FOUN-02 | Phase 1 | Pending |
-| FOUN-03 | Phase 1 | Pending |
-| FOUN-04 | Phase 1 | Pending |
-| FOUN-05 | Phase 1 | Pending |
-| FOUN-06 | Phase 1 | Pending |
-| FOUN-07 | Phase 1 | Pending |
-| FOUN-08 | Phase 1 | Pending |
+| FOUN-02 | Phase 1 | Complete |
+| FOUN-03 | Phase 1 | Complete |
+| FOUN-04 | Phase 1 | Complete |
+| FOUN-05 | Phase 1 | Complete |
+| FOUN-06 | Phase 1 | Complete |
+| FOUN-07 | Phase 1 | Complete |
+| FOUN-08 | Phase 1 | Complete |
 | FOUN-09 | Phase 1 | Pending |
-| FOUN-10 | Phase 1 | Pending |
+| FOUN-10 | Phase 1 | Complete |
 | FOUN-11 | Phase 1 | Pending |
 | FOUN-12 | Phase 1 | Pending |
 | FOUN-13 | Phase 1 | Pending |
