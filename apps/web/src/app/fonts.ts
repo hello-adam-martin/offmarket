@@ -13,6 +13,7 @@ export const dmSans = DM_Sans({
   display: "swap",
   axes: ["opsz"],
   weight: "variable",
+  style: ["normal", "italic"],
 });
 
 export const jetbrainsMono = JetBrains_Mono({
