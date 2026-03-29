@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-29T20:11:49.734Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-29T20:12:19.361Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 8
-  completed_plans: 6
+  completed_plans: 7
   percent: 0
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 ## Current Position
 
 Phase: 02 (shared-components) — EXECUTING
-Plan: 4 of 5
+Plan: 5 of 5
 Status: Ready to execute
 Last activity: 2026-03-29
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02 P01 | 3 | 3 tasks | 4 files |
 | Phase 02 P04 | 10 | 2 tasks | 2 files |
 | Phase 02 P03 | 15 | 2 tasks | 3 files |
+| Phase 02 P02 | 8 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 02-04]: Tooltip uses bg-primary text-text-inverse for automatic contrast in both light/dark modes
 - [Phase 02-03]: Property type pills use badge-info for active state (rounded-sm), not rounded-full pills
 - [Phase 02-03]: EmptyState rank numbers: badge-neutral replaces color-coded circles (yellow/orange)
+- [Phase 02-02]: All 5 modals use modal-panel-sm/lg shell classes — no inline panel sizing remains
+- [Phase 02-02]: PostcardRequestModal retains Headless UI Dialog/Transition — modal-panel-sm applied to Dialog.Panel directly
 
 ### Pending Todos
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T20:11:49.731Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-03-29T20:12:19.359Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
