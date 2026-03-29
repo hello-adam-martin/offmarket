@@ -12,7 +12,7 @@ export const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   display: "swap",
   axes: ["opsz"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "variable",
 });
 
 export const jetbrainsMono = JetBrains_Mono({
