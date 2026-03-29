@@ -50,7 +50,13 @@ Plans:
   3. Every form input, select, and textarea shows the teal focus ring and correct border color in both light and dark mode
   4. Button variants are visually distinct: primary is solid teal, secondary is outlined, destructive is error red — all with 8px border radius
   5. Card components show the surface background, 8px border radius, DESIGN.md border color, and grain texture
-**Plans**: TBD
+**Plans**: 5 plans
+Plans:
+- [ ] 02-01-PLAN.md — CSS class additions (btn sizes, badges, modal shell), ThemeToggle, header + footer restyle
+- [ ] 02-02-PLAN.md — Restyle all 5 modals with modal shell classes and semantic tokens
+- [ ] 02-03-PLAN.md — Restyle FilterPanel, RegionFilterPanel, EmptyState (AI slop removal)
+- [ ] 02-04-PLAN.md — Restyle DemandCardGrid (.card + tabular-nums) and NZRegionMap (teal fill system)
+- [ ] 02-05-PLAN.md — Restyle AddressAutocomplete and PropertyImageUpload
 **UI hint**: yes
 
 ### Phase 3: Public Pages
@@ -132,7 +138,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
-| 2. Shared Components | 0/TBD | Not started | - |
+| 2. Shared Components | 0/5 | Not started | - |
 | 3. Public Pages | 0/TBD | Not started | - |
 | 4. Buyer Pages | 0/TBD | Not started | - |
 | 5. Owner Pages | 0/TBD | Not started | - |
