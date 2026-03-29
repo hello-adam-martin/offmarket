@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Header() {
   const { data: session, status } = useSession();
@@ -38,52 +39,53 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white border-b border-gray-200">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-surface border-b border-border">
+      <nav className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-primary-600">
+              <span className="text-[20px] font-bold font-display text-accent">
                 OffMarket
               </span>
-              <span className="text-xl font-bold text-gray-900">NZ</span>
+              <span className="text-[20px] font-bold font-display text-text-base">NZ</span>
             </Link>
             <div className="hidden sm:ml-8 sm:flex sm:space-x-4">
               <Link
                 href="/explore"
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+                className="inline-flex items-center px-3 py-2 text-sm font-sans text-text-secondary hover:text-text-base transition-colors"
               >
                 Explorer
               </Link>
               <Link
                 href="/buyer/create"
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+                className="inline-flex items-center px-3 py-2 text-sm font-sans text-text-secondary hover:text-text-base transition-colors"
               >
                 Register Interest
               </Link>
               <Link
                 href="/owner"
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+                className="inline-flex items-center px-3 py-2 text-sm font-sans text-text-secondary hover:text-text-base transition-colors"
               >
                 For Owners
               </Link>
             </div>
           </div>
 
-          <div className="hidden sm:flex sm:items-center sm:space-x-4">
+          <div className="hidden sm:flex sm:items-center sm:space-x-2">
+            <ThemeToggle />
             {status === "loading" ? (
-              <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse" />
+              <div className="w-8 h-8 rounded-full bg-surface-raised animate-pulse" />
             ) : session ? (
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
                 <Link
                   href="/dashboard"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900"
+                  className="text-sm font-medium text-text-secondary hover:text-text-base transition-colors px-2 py-1"
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/saved-searches"
-                  className="p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100"
+                  className="p-2 text-text-secondary hover:text-text-base rounded-md hover:bg-surface-raised transition-colors"
                   title="Saved Searches"
                 >
                   <svg
@@ -102,7 +104,7 @@ export function Header() {
                 </Link>
                 <Link
                   href="/notifications"
-                  className="relative p-2 text-gray-600 hover:text-gray-900 rounded-full hover:bg-gray-100"
+                  className="relative p-2 text-text-secondary hover:text-text-base rounded-md hover:bg-surface-raised transition-colors"
                 >
                   <svg
                     className="w-5 h-5"
@@ -118,7 +120,7 @@ export function Header() {
                     />
                   </svg>
                   {unreadCount > 0 && (
-                    <span className="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full">
+                    <span className="absolute top-0 right-0 bg-accent text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center tabular-nums">
                       {unreadCount > 9 ? "9+" : unreadCount}
                     </span>
                   )}
@@ -131,9 +133,9 @@ export function Header() {
                 </button>
                 <Link
                   href="/profile"
-                  className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center hover:bg-primary-200 transition-colors"
+                  className="w-8 h-8 rounded-full bg-accent-light flex items-center justify-center hover:bg-accent/20 transition-colors"
                 >
-                  <span className="text-sm font-medium text-primary-700">
+                  <span className="text-sm font-medium text-accent">
                     {session.user?.name?.charAt(0) ||
                       session.user?.email?.charAt(0) ||
                       "U"}
@@ -153,12 +155,15 @@ export function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center sm:hidden">
+          <div className="flex items-center gap-2 sm:hidden">
+            <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+              className="btn-ghost h-9 w-9 p-0 inline-flex items-center justify-center"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
               {mobileMenuOpen ? (
                 <svg
                   className="h-6 w-6"
@@ -194,23 +199,23 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="sm:hidden pb-4">
-            <div className="space-y-1">
+          <div className="sm:hidden bg-surface border-b border-border">
+            <div className="space-y-1 p-4">
               <Link
                 href="/explore"
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block py-2 text-sm text-text-secondary hover:text-text-base"
               >
                 Explorer
               </Link>
               <Link
                 href="/buyer/create"
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block py-2 text-sm text-text-secondary hover:text-text-base"
               >
                 Register Interest
               </Link>
               <Link
                 href="/owner"
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block py-2 text-sm text-text-secondary hover:text-text-base"
               >
                 For Owners
               </Link>
@@ -218,30 +223,30 @@ export function Header() {
                 <>
                   <Link
                     href="/dashboard"
-                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                    className="block py-2 text-sm text-text-secondary hover:text-text-base"
                   >
                     Dashboard
                   </Link>
                   <Link
                     href="/saved-searches"
-                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                    className="block py-2 text-sm text-text-secondary hover:text-text-base"
                   >
                     Saved Searches
                   </Link>
                   <Link
                     href="/notifications"
-                    className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                    className="block py-2 text-sm text-text-secondary hover:text-text-base"
                   >
                     Notifications
                     {unreadCount > 0 && (
-                      <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold text-white bg-red-500 rounded-full">
+                      <span className="ml-2 inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold text-white bg-accent rounded-full tabular-nums">
                         {unreadCount > 9 ? "9+" : unreadCount}
                       </span>
                     )}
                   </Link>
                   <button
                     onClick={() => signOut()}
-                    className="block w-full text-left px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                    className="block w-full text-left py-2 text-sm text-text-secondary hover:text-text-base"
                   >
                     Sign Out
                   </button>
@@ -249,7 +254,7 @@ export function Header() {
               ) : (
                 <Link
                   href="/auth/signin"
-                  className="block px-3 py-2 text-base font-medium text-primary-600 hover:text-primary-700 hover:bg-gray-50 rounded-md"
+                  className="block py-2 text-sm text-accent hover:text-text-base"
                 >
                   Sign In
                 </Link>
