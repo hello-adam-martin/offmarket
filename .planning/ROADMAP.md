@@ -70,7 +70,7 @@ Plans:
   4. Legal pages (privacy, terms) and help/FAQ use DESIGN.md typography hierarchy with correct heading and body font rendering
 **Plans**: 3 plans
 Plans:
-- [ ] 03-01-PLAN.md — Homepage full restyle: data-forward hero with live stats, AI slop removal, section cleanup
+- [x] 03-01-PLAN.md — Homepage full restyle: data-forward hero with live stats, AI slop removal, section cleanup
 - [ ] 03-02-PLAN.md — Auth/signin page and Help/FAQ page restyle with semantic tokens
 - [x] 03-03-PLAN.md — Legal pages (privacy, terms), explore/region wrappers, and DemandChecker token fixes
 **UI hint**: yes
