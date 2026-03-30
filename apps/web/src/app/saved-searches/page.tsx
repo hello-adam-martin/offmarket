@@ -57,6 +57,7 @@ export default function SavedSearchesPage() {
   };
 
   const deleteSavedSearch = async (id: string) => {
+    if (!confirm("Delete this saved search?")) return;
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/saved-searches/${id}`,
@@ -143,12 +144,12 @@ export default function SavedSearchesPage() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-6" />
+          <div className="h-6 bg-surface-raised rounded-sm w-1/3 mb-6" />
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="card h-24" />
+              <div key={i} className="card-compact h-24 bg-surface-raised" />
             ))}
           </div>
         </div>
@@ -158,12 +159,12 @@ export default function SavedSearchesPage() {
 
   if (!session) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl font-display font-semibold text-primary mb-4">
             Sign in to View Saved Searches
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to save and manage your searches.
           </p>
           <Link
@@ -178,11 +179,11 @@ export default function SavedSearchesPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Saved Searches</h1>
-          <p className="text-sm text-gray-600 mt-1">
+          <h1 className="text-xl font-display font-semibold text-primary">Saved Searches</h1>
+          <p className="text-sm text-secondary mt-1">
             Get notified when new demand matches your criteria
           </p>
         </div>
@@ -192,33 +193,31 @@ export default function SavedSearchesPage() {
       </div>
 
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 mb-6">
+        <div className="p-4 bg-error-light border border-error rounded-md text-error mb-6">
           {error}
         </div>
       )}
 
       {savedSearches.length === 0 ? (
         <div className="card text-center py-12">
-          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
-            <svg
-              className="w-6 h-6 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-              />
-            </svg>
-          </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
-            No saved searches yet
+          <svg
+            className="w-5 h-5 text-muted mx-auto mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+            />
+          </svg>
+          <h2 className="text-xl font-display font-semibold text-primary mb-2">
+            No saved searches
           </h2>
-          <p className="text-gray-600 mb-6">
-            Save your search criteria to get notified when new demand appears.
+          <p className="text-secondary mb-6">
+            Save a search to get notified when matching properties appear.
           </p>
           <Link href="/explore" className="btn-primary">
             Start Exploring
@@ -229,72 +228,51 @@ export default function SavedSearchesPage() {
           {savedSearches.map((search) => (
             <div
               key={search.id}
-              className="card flex items-start gap-4"
+              className="card-compact flex items-start gap-4"
             >
-              <div
-                className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
-                  search.type === "DEMAND"
-                    ? "bg-green-100"
-                    : "bg-blue-100"
-                }`}
+              <svg
+                className="w-5 h-5 text-muted shrink-0 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 {search.type === "DEMAND" ? (
-                  <svg
-                    className="w-5 h-5 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
                 ) : (
-                  <svg
-                    className="w-5 h-5 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
                 )}
-              </div>
+              </svg>
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-medium text-gray-900">{search.name}</h3>
-                    <p className="text-sm text-gray-600 mt-0.5">
+                    <h3 className="font-medium text-primary">{search.name}</h3>
+                    <p className="text-sm text-secondary mt-0.5">
                       {formatSearchCriteria(search)}
                     </p>
                   </div>
-                  <span
-                    className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-                      search.type === "DEMAND"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-blue-100 text-blue-700"
-                    }`}
-                  >
+                  <span className="badge-info shrink-0">
                     {search.type === "DEMAND" ? "Demand" : "Property"}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4 mt-3">
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-muted">
                     Saved {formatRelativeTime(search.createdAt)}
                   </p>
                   <Link
                     href={buildSearchUrl(search)}
-                    className="text-xs text-primary-600 hover:text-primary-800"
+                    className="text-xs text-accent hover:text-accent-hover"
                   >
                     Run Search
                   </Link>
@@ -304,8 +282,8 @@ export default function SavedSearchesPage() {
                     }
                     className={`text-xs flex items-center gap-1 ${
                       search.notifyOnNew
-                        ? "text-green-600"
-                        : "text-gray-500 hover:text-gray-700"
+                        ? "text-success"
+                        : "text-muted hover:text-secondary"
                     }`}
                   >
                     <svg
@@ -325,9 +303,9 @@ export default function SavedSearchesPage() {
                   </button>
                   <button
                     onClick={() => deleteSavedSearch(search.id)}
-                    className="text-xs text-gray-500 hover:text-red-600"
+                    className="text-xs text-muted hover:text-error"
                   >
-                    Delete
+                    Delete Search
                   </button>
                 </div>
               </div>
@@ -337,9 +315,9 @@ export default function SavedSearchesPage() {
       )}
 
       {/* Tips */}
-      <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-        <h3 className="font-medium text-blue-900 mb-2">Tip</h3>
-        <p className="text-sm text-blue-800">
+      <div className="mt-8 p-4 bg-accent-light border border-accent text-accent rounded-md">
+        <h3 className="font-medium mb-2">Tip</h3>
+        <p className="text-sm">
           When browsing the Explorer, look for the &quot;Save Search&quot; button to quickly
           save your current filters. You&apos;ll get notified when new buyer demand
           matches your criteria.
