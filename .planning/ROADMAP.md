@@ -12,12 +12,12 @@ A pixel-perfect design system implementation across 45+ pages of an existing Nex
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Tailwind config, CSS variables, fonts, and dark mode provider wired atomically
+- [x] **Phase 1: Foundation** - Tailwind config, CSS variables, fonts, and dark mode provider wired atomically (completed 2026-03-29)
 - [x] **Phase 2: Shared Components** - Header, footer, modals, form primitives, cards, and all shared UI restyled (completed 2026-03-29)
 - [x] **Phase 3: Public Pages** - Homepage, explore, region, auth, and legal pages restyled and blacklist-clean (completed 2026-03-30)
 - [x] **Phase 4: Buyer Pages** - Create ad, my ads, and postcards pages restyled (completed 2026-03-30)
 - [x] **Phase 5: Owner Pages** - Register property, my properties, and property detail pages restyled (completed 2026-03-30)
-- [ ] **Phase 6: User App Pages** - Dashboard, profile, inquiries, notifications, upgrade, and all user-facing app pages restyled
+- [x] **Phase 6: User App Pages** - Dashboard, profile, inquiries, notifications, upgrade, and all user-facing app pages restyled (completed 2026-03-30)
 - [ ] **Phase 7: Admin Pages** - Admin dashboard, user management, billing, email templates, and postcards admin restyled
 - [ ] **Phase 8: Cross-Cutting Audit** - Full-site verification of max-width, dark mode, accent color, typography hierarchy, AI slop, accessibility, and responsiveness
 
@@ -159,11 +159,11 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In Progress|  |
+| 1. Foundation | 3/3 | Complete   | 2026-03-29 |
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
-| 6. User App Pages | 4/5 | In Progress|  |
+| 6. User App Pages | 5/5 | Complete   | 2026-03-30 |
 | 7. Admin Pages | 0/TBD | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |
