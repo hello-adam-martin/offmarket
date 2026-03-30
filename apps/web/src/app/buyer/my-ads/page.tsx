@@ -78,10 +78,10 @@ export default function MyWantedAdsPage() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-          <div className="h-4 bg-gray-200 rounded w-2/3 mb-8" />
+          <div className="h-8 bg-surface-raised rounded w-1/3 mb-4" />
+          <div className="h-4 bg-surface-raised rounded w-2/3 mb-8" />
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="card h-32" />
@@ -94,12 +94,12 @@ export default function MyWantedAdsPage() {
 
   if (!session) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-semibold font-display text-primary mb-4">
             Sign in to View Your Interests
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to view and manage your buyer interests.
           </p>
           <Link
@@ -114,11 +114,11 @@ export default function MyWantedAdsPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Buyer Interests</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl font-semibold font-display text-primary">My Buyer Interests</h1>
+          <p className="text-secondary">
             Manage your property searches and view matches.
           </p>
         </div>
@@ -128,17 +128,17 @@ export default function MyWantedAdsPage() {
       </div>
 
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 mb-6">
+        <div className="p-4 bg-error-light border border-error rounded-lg text-error mb-6">
           {error}
         </div>
       )}
 
       {ads.length === 0 ? (
         <div className="card text-center py-12">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2">
             No buyer interests yet
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             Register your first buyer interest to let property owners know what
             you&apos;re looking for.
           </p>
@@ -159,11 +159,11 @@ export default function MyWantedAdsPage() {
                 <div className="flex-1">
                   <Link
                     href={`/wanted/${ad.id}`}
-                    className="text-lg font-semibold text-gray-900 hover:text-primary-600 mb-1 block"
+                    className="text-lg font-semibold text-primary hover:text-accent mb-1 block"
                   >
                     {ad.title}
                   </Link>
-                  <p className="text-primary-600 font-medium mb-2">
+                  <p className="text-accent font-medium tabular-nums mb-2">
                     {formatNZD(ad.budget)}
                   </p>
 
@@ -174,7 +174,7 @@ export default function MyWantedAdsPage() {
                         {ad.targetAddresses?.slice(0, 3).map((addr, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800"
+                            className="badge-info gap-1"
                           >
                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -183,7 +183,7 @@ export default function MyWantedAdsPage() {
                           </span>
                         ))}
                         {ad.targetAddresses?.length > 3 && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                          <span className="badge-neutral">
                             +{ad.targetAddresses.length - 3} more
                           </span>
                         )}
@@ -193,13 +193,13 @@ export default function MyWantedAdsPage() {
                         {ad.targetLocations?.slice(0, 3).map((loc, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800"
+                            className="badge-info"
                           >
                             {loc.name}
                           </span>
                         ))}
                         {ad.targetLocations?.length > 3 && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                          <span className="badge-neutral">
                             +{ad.targetLocations.length - 3} more
                           </span>
                         )}
@@ -207,7 +207,7 @@ export default function MyWantedAdsPage() {
                     )}
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center gap-4 text-sm text-muted">
                     {parseJsonArray(ad.propertyTypes).length > 0 && (
                       <span>{parseJsonArray(ad.propertyTypes).join(", ")}</span>
                     )}
@@ -228,21 +228,21 @@ export default function MyWantedAdsPage() {
                   <div className="text-center">
                     {ad.targetType === "SPECIFIC_ADDRESS" ? (
                       <>
-                        <div className="w-10 h-10 mx-auto rounded-full bg-amber-100 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-10 h-10 mx-auto rounded-full bg-accent-light flex items-center justify-center">
+                          <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                           </svg>
                         </div>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-muted mt-1">
                           Specific
                         </p>
                       </>
                     ) : (
                       <>
-                        <p className="text-2xl font-bold text-primary-600">
+                        <p className="text-2xl font-semibold text-accent tabular-nums">
                           {ad.matchCount}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted">
                           {ad.matchCount === 1 ? "match" : "matches"}
                         </p>
                       </>
@@ -252,7 +252,7 @@ export default function MyWantedAdsPage() {
                   {/* Actions */}
                   <button
                     onClick={() => deleteAd(ad.id)}
-                    className="text-sm text-red-600 hover:text-red-800"
+                    className="text-sm text-error hover:text-error"
                   >
                     Delete
                   </button>
