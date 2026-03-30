@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-03-30
+revised: 2026-03-30
 ---
 
 # Phase 6 — UI Design Contract: User App Pages
@@ -53,23 +54,26 @@ Source: DESIGN.md Spacing section; tailwind.config.ts spacing extension.
 
 ## Typography
 
+Phase 6 contains no h1/hero elements — all headings are subsection-level or lower. Maximum 4 sizes declared.
+
 | Role | Font | Size | Weight | Line Height | Class |
 |------|------|------|--------|-------------|-------|
 | Body text | DM Sans | 16px (md) | 400 | 1.6 | `text-md font-sans` |
 | Secondary / metadata | DM Sans | 14px (sm) | 400 | 1.5 | `text-sm font-sans` |
 | Labels / badges | DM Sans | 12px (xs) | 600 | 1.4 | `text-xs font-semibold uppercase tracking-wide` |
-| Subsection headings | General Sans | 24px (xl) | 600 | 1.3 | `text-xl font-display` |
-| Section headings | General Sans | 32px (2xl) | 700 | 1.2 | `text-2xl font-display` |
+| Headings / stat values | General Sans | 24px (xl) | 600 | 1.3 | `text-xl font-display` |
 | Data / numbers | DM Sans | 16–24px (md–xl) | 700 | 1.3 | `tabular-nums font-bold` |
 | Mono / claim codes | JetBrains Mono | 14–16px | 400–500 | 1.5 | `font-mono tabular-nums` |
 
 Rules:
-- All h1–h3 use `font-display` (General Sans). All body, labels, data use `font-sans` (DM Sans).
+- 32px (2xl) is NOT used in Phase 6. No h1 or section-title headings exist in user app pages.
+- All headings (h2, h3, subsection titles) use `text-xl font-display` (24px General Sans 600).
+- All body, labels, data use `font-sans` (DM Sans).
 - All numeric displays (prices, counts, percentages, claim codes) must have `tabular-nums` on the containing element.
 - Timestamps use `text-sm text-muted`.
-- Two weights only in body: 400 (regular) and 600 (semibold/labels). Bold (700) reserved for stat values and headings.
+- Two weights only in body: 400 (regular) and 600 (semibold/labels). Bold (700) reserved for stat values only.
 
-Source: DESIGN.md Typography section; tailwind.config.ts fontSize config.
+Source: DESIGN.md Typography section; tailwind.config.ts fontSize config. 32px removed per checker — no h1/hero elements in user app pages.
 
 ---
 
@@ -139,7 +143,7 @@ All components below are already implemented in prior phases. Phase 6 uses them 
 | `.btn-primary` | globals.css | Upgrade CTA, inquiry reply submit, primary actions |
 | `.btn-secondary` | globals.css | "Mark Complete" in inquiry thread, secondary actions |
 | `.btn-ghost` | globals.css | Back links, tertiary navigation |
-| `.btn-destructive` | globals.css | Destructive confirmations (decline inquiry) |
+| `.btn-destructive` | globals.css | Destructive confirmations (decline inquiry, delete search) |
 | `.input` | globals.css | Reply textarea, profile form fields, search inputs |
 | `.label` | globals.css | Form field labels throughout profile page |
 | `.badge-info` | globals.css | Pro member badge, "Recommended" tag on pricing card, feature tags |
@@ -158,6 +162,8 @@ Source: CONTEXT.md Reusable Assets; globals.css; RESEARCH.md CSS Component Class
 
 ### Dashboard (USER-01)
 
+**Focal point:** The upgrade CTA card (free users) or usage stat row (pro users) — first element below the page heading to draw the eye.
+
 **Layout:** `max-w-content` centered container. Stat cards in responsive grid (sm: 1col, md: 2col, lg: 4col). Quick actions below as horizontal card list.
 
 **Stat cards:** `.card` class. Numbers in `tabular-nums font-bold text-xl font-display`. Label in `.label`. No icon containers.
@@ -175,6 +181,8 @@ Source: CONTEXT.md D-11, D-12, D-13, D-14.
 ---
 
 ### Profile / Settings (USER-02)
+
+**Focal point:** The first editable form section (name/email fields) — page begins with the most commonly edited data immediately visible.
 
 **Layout:** `max-w-content`. Sections as `.card` with `mb-6` gaps. Form fields use `.input` + `.label` pattern.
 
@@ -205,6 +213,8 @@ Source: CONTEXT.md D-10; RESEARCH.md STATUS_LABELS pattern.
 ---
 
 ### Inquiry Detail / Thread (USER-04)
+
+**Focal point:** The message thread scroll container — occupies the majority of the viewport. Status badge and action buttons (Accept/Decline/Complete) are the secondary focal element at the top of the thread panel.
 
 **Message bubbles:**
 - Own messages: `bg-accent text-white rounded-lg rounded-br-sm p-3` (12px padding)
@@ -247,6 +257,8 @@ Source: CONTEXT.md D-20, D-28; RESEARCH.md Pattern: Gradient Card Removal, Icon-
 ---
 
 ### Property View (USER-06)
+
+**Focal point:** The demand card (`border-l-4 border-accent`) in the sidebar — the primary data value proposition of the page. All other content supports this card.
 
 **Layout:** `max-w-content`. Follows Phase 5 property detail patterns.
 
@@ -362,10 +374,10 @@ Phase 6 is a restyling pass — existing copy is retained. AI slop violations (g
 | Claim page — success heading | "Property claimed successfully" |
 | Reply form placeholder | "Write your reply…" |
 | Profile save button | "Save changes" |
-| Destructive: decline inquiry | "Decline inquiry — this cannot be undone." Confirm via `btn-destructive` labeled "Decline" |
-| Destructive: delete saved search | "Delete this saved search?" Confirm via `btn-destructive` labeled "Delete" |
+| Destructive: decline inquiry | "Decline this inquiry? This cannot be undone." Confirm via `btn-destructive` labeled "Decline Inquiry" |
+| Destructive: delete saved search | "Delete this saved search?" Confirm via `btn-destructive` labeled "Delete Search" |
 
-Source: REQUIREMENTS.md USER-01 through USER-10 success criteria; CONTEXT.md.
+Source: REQUIREMENTS.md USER-01 through USER-10 success criteria; CONTEXT.md. Destructive button labels updated to verb+noun per checker recommendation.
 
 ---
 
