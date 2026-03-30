@@ -47,13 +47,13 @@ interface Pagination {
   pages: number;
 }
 
-const STATUS_LABELS: Record<string, { label: string; color: string }> = {
-  PENDING: { label: "Pending", color: "bg-yellow-100 text-yellow-800" },
-  APPROVED: { label: "Approved", color: "bg-blue-100 text-blue-800" },
-  REJECTED: { label: "Rejected", color: "bg-red-100 text-red-800" },
-  SENT: { label: "Sent", color: "bg-green-100 text-green-800" },
-  DELIVERED: { label: "Delivered", color: "bg-green-100 text-green-800" },
-  FAILED: { label: "Failed", color: "bg-red-100 text-red-800" },
+const STATUS_LABELS: Record<string, { label: string; badgeClass: string }> = {
+  PENDING: { label: "Pending", badgeClass: "badge-warning" },
+  APPROVED: { label: "Approved", badgeClass: "badge-info" },
+  REJECTED: { label: "Rejected", badgeClass: "badge-error" },
+  SENT: { label: "Sent", badgeClass: "badge-success" },
+  DELIVERED: { label: "Delivered", badgeClass: "badge-success" },
+  FAILED: { label: "Failed", badgeClass: "badge-error" },
 };
 
 const STATUS_OPTIONS = ["ALL", "PENDING", "APPROVED", "REJECTED", "SENT", "DELIVERED", "FAILED"];
@@ -290,10 +290,10 @@ export default function AdminPostcardsPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Postcard Requests</h1>
+        <h1 className="text-xl font-display font-semibold text-text-base">Postcard Requests</h1>
         <button
           onClick={handleExportCSV}
-          className="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+          className="btn-secondary btn-md"
         >
           Export CSV
         </button>
@@ -302,33 +302,33 @@ export default function AdminPostcardsPage() {
       {/* Stats */}
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-sm text-gray-500">Total</p>
-            <p className="text-2xl font-bold text-gray-900">{stats.total}</p>
+          <div className="card-compact">
+            <p className="text-sm text-text-muted">Total</p>
+            <p className="text-2xl font-bold text-text-base tabular-nums">{stats.total}</p>
           </div>
-          <div className="bg-yellow-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-yellow-700">Pending</p>
-            <p className="text-2xl font-bold text-yellow-800">{stats.pending}</p>
+          <div className="card-compact">
+            <p className="text-sm text-warning">Pending</p>
+            <p className="text-2xl font-bold text-warning tabular-nums">{stats.pending}</p>
           </div>
-          <div className="bg-blue-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-blue-700">Approved</p>
-            <p className="text-2xl font-bold text-blue-800">{stats.approved}</p>
+          <div className="card-compact">
+            <p className="text-sm text-accent">Approved</p>
+            <p className="text-2xl font-bold text-accent tabular-nums">{stats.approved}</p>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-green-700">Sent</p>
-            <p className="text-2xl font-bold text-green-800">{stats.sent}</p>
+          <div className="card-compact">
+            <p className="text-sm text-success">Sent</p>
+            <p className="text-2xl font-bold text-success tabular-nums">{stats.sent}</p>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-green-700">Delivered</p>
-            <p className="text-2xl font-bold text-green-800">{stats.delivered}</p>
+          <div className="card-compact">
+            <p className="text-sm text-success">Delivered</p>
+            <p className="text-2xl font-bold text-success tabular-nums">{stats.delivered}</p>
           </div>
-          <div className="bg-red-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-red-700">Rejected</p>
-            <p className="text-2xl font-bold text-red-800">{stats.rejected}</p>
+          <div className="card-compact">
+            <p className="text-sm text-error">Rejected</p>
+            <p className="text-2xl font-bold text-error tabular-nums">{stats.rejected}</p>
           </div>
-          <div className="bg-primary-50 p-4 rounded-lg shadow">
-            <p className="text-sm text-primary-700">Revenue</p>
-            <p className="text-2xl font-bold text-primary-800">
+          <div className="card-compact">
+            <p className="text-sm text-text-secondary">Revenue</p>
+            <p className="text-2xl font-bold text-text-base font-mono tabular-nums">
               ${(stats.revenuePaid / 100).toFixed(2)}
             </p>
           </div>
@@ -336,15 +336,15 @@ export default function AdminPostcardsPage() {
       )}
 
       {/* Filters */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {STATUS_OPTIONS.map((status) => (
           <button
             key={status}
             onClick={() => setStatusFilter(status)}
-            className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
+            className={`btn-sm transition-colors ${
               statusFilter === status
-                ? "bg-primary-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "btn-primary"
+                : "btn-secondary"
             }`}
           >
             {status === "ALL" ? "All" : STATUS_LABELS[status]?.label || status}
@@ -353,137 +353,127 @@ export default function AdminPostcardsPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="card overflow-x-auto p-0">
+        <table className="min-w-full">
+          <thead>
+            <tr className="border-b border-border">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Recipient
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Buyer
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Details
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Date
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="divide-y divide-border">
             {loading ? (
               [...Array(5)].map((_, i) => (
                 <tr key={i}>
                   <td colSpan={6} className="px-6 py-4">
-                    <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                    <div className="h-4 bg-surface-raised rounded animate-pulse"></div>
                   </td>
                 </tr>
               ))
             ) : postcards.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-6 py-8 text-center text-gray-500">
-                  No postcards found
+                <td colSpan={6} className="px-6 py-8 text-center text-text-secondary">
+                  No postcard requests found
                 </td>
               </tr>
             ) : (
               postcards.map((postcard) => {
                 const statusInfo = STATUS_LABELS[postcard.status] || {
                   label: postcard.status,
-                  color: "bg-gray-100 text-gray-800",
+                  badgeClass: "badge-neutral",
                 };
 
                 return (
-                  <tr key={postcard.id}>
+                  <tr key={postcard.id} className="hover:bg-surface-raised transition-colors">
                     <td className="px-6 py-4">
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-text-base">
                           {postcard.recipientAddress}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-text-secondary">
                           {[postcard.recipientSuburb, postcard.recipientCity]
                             .filter(Boolean)
                             .join(", ")}
                         </p>
-                        <p className="text-xs text-gray-400 font-mono mt-1">
+                        <p className="text-xs text-text-muted font-mono mt-1 tabular-nums">
                           Code: {postcard.claimCode}
                         </p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div>
-                        <p className="font-medium text-gray-900">
+                        <p className="font-medium text-text-base">
                           {postcard.buyerName}
                         </p>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-text-secondary">
                           {postcard.buyerEmail}
                         </p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="text-sm text-gray-900">{postcard.wantedAdTitle}</p>
+                      <p className="text-sm text-text-base">{postcard.wantedAdTitle}</p>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {postcard.showBudget && (
-                          <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded">
-                            Budget
-                          </span>
+                          <span className="badge-neutral">Budget</span>
                         )}
                         {postcard.showFinanceStatus && (
-                          <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded">
-                            Finance
-                          </span>
+                          <span className="badge-neutral">Finance</span>
                         )}
                         {postcard.showTimeline && (
-                          <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded">
-                            Timeline
-                          </span>
+                          <span className="badge-neutral">Timeline</span>
                         )}
                         {postcard.customMessage && (
-                          <span className="text-xs px-1.5 py-0.5 bg-gray-100 rounded">
-                            Message
-                          </span>
+                          <span className="badge-neutral">Message</span>
                         )}
                       </div>
                       {postcard.costInCents > 0 && (
-                        <p className="text-xs text-green-600 mt-1">
+                        <p className="text-xs text-success font-mono tabular-nums mt-1">
                           ${(postcard.costInCents / 100).toFixed(2)}
                         </p>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span
-                        className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${statusInfo.color}`}
-                      >
+                      <span className={statusInfo.badgeClass}>
                         {statusInfo.label}
                       </span>
                       {postcard.rejectionReason && (
-                        <p className="text-xs text-red-600 mt-1">
+                        <p className="text-xs text-error mt-1">
                           {postcard.rejectionReason}
                         </p>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-text-secondary tabular-nums">
                       {formatRelativeTime(postcard.createdAt)}
                       {postcard.sentAt && (
-                        <p className="text-xs text-green-600">
+                        <p className="text-xs text-success">
                           Sent {formatRelativeTime(postcard.sentAt)}
                         </p>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                    <td className="px-6 py-4 whitespace-nowrap text-right">
                       <div className="flex flex-col gap-1 items-end">
                         {postcard.status === "PENDING" && (
                           <>
                             <button
                               onClick={() => handleApprove(postcard.id)}
                               disabled={actionLoading === postcard.id}
-                              className="text-green-600 hover:text-green-800 disabled:opacity-50"
+                              className="btn-secondary btn-sm disabled:opacity-50"
                             >
                               {actionLoading === postcard.id ? "..." : "Approve"}
                             </button>
@@ -492,7 +482,7 @@ export default function AdminPostcardsPage() {
                                 setSelectedPostcard(postcard);
                                 setShowRejectModal(true);
                               }}
-                              className="text-red-600 hover:text-red-800"
+                              className="btn-destructive btn-sm"
                             >
                               Reject
                             </button>
@@ -502,7 +492,7 @@ export default function AdminPostcardsPage() {
                           <button
                             onClick={() => handleMarkSent(postcard.id)}
                             disabled={actionLoading === postcard.id}
-                            className="text-blue-600 hover:text-blue-800 disabled:opacity-50"
+                            className="btn-secondary btn-sm disabled:opacity-50"
                           >
                             {actionLoading === postcard.id ? "..." : "Mark Sent"}
                           </button>
@@ -511,7 +501,7 @@ export default function AdminPostcardsPage() {
                           <button
                             onClick={() => handleMarkDelivered(postcard.id)}
                             disabled={actionLoading === postcard.id}
-                            className="text-green-600 hover:text-green-800 disabled:opacity-50"
+                            className="btn-secondary btn-sm disabled:opacity-50"
                           >
                             {actionLoading === postcard.id ? "..." : "Mark Delivered"}
                           </button>
@@ -527,8 +517,8 @@ export default function AdminPostcardsPage() {
 
         {/* Pagination */}
         {pagination && pagination.pages > 1 && (
-          <div className="px-6 py-3 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-            <p className="text-sm text-gray-500">
+          <div className="px-6 py-3 bg-surface-raised border-t border-border flex items-center justify-between">
+            <p className="text-sm text-text-secondary tabular-nums">
               Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
               {Math.min(pagination.page * pagination.limit, pagination.total)} of{" "}
               {pagination.total} postcards
@@ -537,14 +527,14 @@ export default function AdminPostcardsPage() {
               <button
                 onClick={() => fetchPostcards(pagination.page - 1)}
                 disabled={pagination.page === 1}
-                className="px-3 py-1 text-sm border rounded hover:bg-gray-100 disabled:opacity-50"
+                className="btn-secondary btn-sm disabled:opacity-50"
               >
                 Previous
               </button>
               <button
                 onClick={() => fetchPostcards(pagination.page + 1)}
                 disabled={pagination.page === pagination.pages}
-                className="px-3 py-1 text-sm border rounded hover:bg-gray-100 disabled:opacity-50"
+                className="btn-secondary btn-sm disabled:opacity-50"
               >
                 Next
               </button>
@@ -587,27 +577,27 @@ export default function AdminPostcardsPage() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="modal-panel-sm">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-semibold text-gray-900 mb-4"
+                    className="text-lg font-semibold text-text-base mb-4"
                   >
                     Reject Postcard Request
                   </Dialog.Title>
 
                   {selectedPostcard && (
-                    <div className="mb-4 p-3 bg-gray-50 rounded-lg">
-                      <p className="font-medium text-gray-900">
+                    <div className="mb-4 card-compact bg-surface-raised">
+                      <p className="font-medium text-text-base">
                         {selectedPostcard.recipientAddress}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-text-secondary">
                         From: {selectedPostcard.buyerName}
                       </p>
                     </div>
                   )}
 
                   <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-text-secondary mb-1">
                       Rejection reason (optional)
                     </label>
                     <textarea
@@ -615,7 +605,7 @@ export default function AdminPostcardsPage() {
                       onChange={(e) => setRejectionReason(e.target.value)}
                       placeholder="Provide a reason for the rejection..."
                       rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className="input resize-y"
                     />
                   </div>
 
@@ -626,14 +616,14 @@ export default function AdminPostcardsPage() {
                         setSelectedPostcard(null);
                         setRejectionReason("");
                       }}
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50"
+                      className="flex-1 btn-secondary btn-md"
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleReject}
                       disabled={actionLoading === selectedPostcard?.id}
-                      className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
+                      className="flex-1 btn-destructive btn-md disabled:opacity-50"
                     >
                       {actionLoading === selectedPostcard?.id
                         ? "Rejecting..."

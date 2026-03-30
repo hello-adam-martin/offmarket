@@ -100,20 +100,20 @@ export default function EmailTemplatesPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Email Templates</h1>
+        <h1 className="text-xl font-display font-semibold text-text-base">Email Templates</h1>
         <button
           onClick={() => setShowCreateModal(true)}
-          className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+          className="btn-primary btn-md"
         >
           Create Template
         </button>
       </div>
 
       {templates.length === 0 && !loading ? (
-        <div className="bg-white rounded-lg shadow p-8 text-center">
-          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
+        <div className="card p-8 text-center">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-surface-raised flex items-center justify-center">
             <svg
-              className="w-6 h-6 text-gray-400"
+              className="w-6 h-6 text-text-muted"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -126,86 +126,80 @@ export default function EmailTemplatesPage() {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+          <h3 className="text-lg font-medium text-text-base mb-2">
             No email templates yet
           </h3>
-          <p className="text-gray-500 mb-4">
+          <p className="text-text-secondary mb-4">
             Create templates to customize the emails sent by OffMarket NZ.
           </p>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+            className="btn-primary btn-md"
           >
             Create First Template
           </button>
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <div className="card overflow-x-auto p-0">
+          <table className="min-w-full">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                   Template
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                   Subject
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                   Updated
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-semibold text-text-muted uppercase tracking-wide">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-border">
               {loading ? (
                 [...Array(3)].map((_, i) => (
                   <tr key={i}>
                     <td colSpan={5} className="px-6 py-4">
-                      <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                      <div className="h-4 bg-surface-raised rounded animate-pulse"></div>
                     </td>
                   </tr>
                 ))
               ) : (
                 templates.map((template) => (
-                  <tr key={template.id}>
+                  <tr key={template.id} className="hover:bg-surface-raised transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div>
-                        <p className="font-medium text-gray-900 font-mono text-sm">
+                        <p className="font-semibold text-text-base font-mono text-sm">
                           {template.name}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-text-muted">
                           {templateDescriptions[template.name] || "Custom template"}
                         </p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="text-sm text-gray-900 truncate max-w-xs">
+                      <p className="text-sm text-text-base truncate max-w-xs">
                         {template.subject}
                       </p>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span
-                        className={`px-2 py-1 text-xs font-medium rounded ${
-                          template.isActive
-                            ? "bg-green-100 text-green-700"
-                            : "bg-gray-100 text-gray-700"
-                        }`}
-                      >
+                      <span className={template.isActive ? "badge-success" : "badge-neutral"}>
                         {template.isActive ? "Active" : "Inactive"}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-text-secondary tabular-nums">
                       {formatRelativeTime(template.updatedAt)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-right">
                       <Link
                         href={`/admin/email-templates/${template.name}`}
-                        className="text-primary-600 hover:text-primary-800"
+                        className="btn-secondary btn-sm"
                       >
                         Edit
                       </Link>
@@ -221,22 +215,22 @@ export default function EmailTemplatesPage() {
       {/* Create Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-lg mx-4">
+          <div className="modal-panel-lg">
             <form onSubmit={handleCreate}>
               <div className="p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                <h2 className="text-xl font-semibold text-text-base mb-4">
                   Create Email Template
                 </h2>
 
                 {error && (
-                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-sm text-red-700">
-                    {error}
+                  <div className="mb-4 card border-l-4 border-error p-3">
+                    <p className="text-sm text-text-base">{error}</p>
                   </div>
                 )}
 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-text-secondary mb-1">
                       Template Name
                     </label>
                     <input
@@ -247,16 +241,16 @@ export default function EmailTemplatesPage() {
                       }
                       placeholder="e.g., new_inquiry"
                       pattern="^[a-z_]+$"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono text-sm"
+                      className="input font-mono text-sm"
                       required
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-text-muted mt-1">
                       Lowercase letters and underscores only
                     </p>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-text-secondary mb-1">
                       Subject
                     </label>
                     <input
@@ -266,13 +260,13 @@ export default function EmailTemplatesPage() {
                         setNewTemplate({ ...newTemplate, subject: e.target.value })
                       }
                       placeholder="e.g., New inquiry for {{propertyAddress}}"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className="input"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-text-secondary mb-1">
                       HTML Content
                     </label>
                     <textarea
@@ -282,28 +276,28 @@ export default function EmailTemplatesPage() {
                       }
                       placeholder="<p>Hello,</p><p>{{message}}</p>"
                       rows={6}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono text-sm"
+                      className="input min-h-[150px] font-mono text-sm resize-y"
                       required
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-text-muted mt-1">
                       Use {"{{variableName}}"} for dynamic content
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="px-6 py-4 bg-gray-50 rounded-b-lg flex justify-end gap-3">
+              <div className="px-6 py-4 bg-surface-raised rounded-b-lg flex justify-end gap-3">
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="px-4 py-2 text-sm text-gray-700 hover:text-gray-900"
+                  className="btn-ghost btn-md"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={creating}
-                  className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
+                  className="btn-primary btn-md disabled:opacity-50"
                 >
                   {creating ? "Creating..." : "Create Template"}
                 </button>

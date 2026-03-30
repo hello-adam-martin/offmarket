@@ -125,11 +125,11 @@ export default function EditEmailTemplatePage() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="h-8 w-48 bg-gray-200 rounded animate-pulse"></div>
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="h-8 w-48 bg-surface-raised rounded animate-pulse"></div>
+        <div className="card">
           <div className="space-y-4">
-            <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
-            <div className="h-40 bg-gray-200 rounded animate-pulse"></div>
+            <div className="h-10 bg-surface-raised rounded animate-pulse"></div>
+            <div className="h-40 bg-surface-raised rounded animate-pulse"></div>
           </div>
         </div>
       </div>
@@ -141,15 +141,15 @@ export default function EditEmailTemplatePage() {
       <div className="space-y-6">
         <Link
           href="/admin/email-templates"
-          className="inline-flex items-center gap-1 text-gray-600 hover:text-gray-900"
+          className="inline-flex items-center gap-1 text-text-secondary hover:text-text-base"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Templates
         </Link>
-        <div className="bg-white rounded-lg shadow p-8 text-center">
-          <p className="text-red-600">{error}</p>
+        <div className="card p-8 text-center">
+          <p className="text-error">{error}</p>
         </div>
       </div>
     );
@@ -171,35 +171,35 @@ export default function EditEmailTemplatePage() {
         <div className="flex items-center gap-4">
           <Link
             href="/admin/email-templates"
-            className="inline-flex items-center gap-1 text-gray-600 hover:text-gray-900"
+            className="inline-flex items-center gap-1 text-text-secondary hover:text-text-base"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Back
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">
-            <span className="font-mono text-primary-600">{templateName}</span>
+          <h1 className="text-xl font-display font-semibold text-text-base">
+            <span className="font-mono text-accent">{templateName}</span>
           </h1>
         </div>
       </div>
 
       <form onSubmit={handleSave} className="space-y-6">
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            {error}
+          <div className="card border-l-4 border-error">
+            <p className="text-sm text-text-base">{error}</p>
           </div>
         )}
 
         {success && (
-          <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
-            Template saved successfully!
+          <div className="card border-l-4 border-success">
+            <p className="text-sm text-text-base">Template saved successfully!</p>
           </div>
         )}
 
-        <div className="bg-white rounded-lg shadow p-6 space-y-6">
+        <div className="card space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Template Settings</h2>
+            <h2 className="text-lg font-semibold text-text-base">Template Settings</h2>
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -207,14 +207,14 @@ export default function EditEmailTemplatePage() {
                 onChange={(e) =>
                   setFormData({ ...formData, isActive: e.target.checked })
                 }
-                className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                className="rounded border-border text-accent focus:ring-accent"
               />
-              <span className="text-sm text-gray-700">Active</span>
+              <span className="text-sm text-text-secondary">Active</span>
             </label>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-secondary mb-1">
               Subject
             </label>
             <input
@@ -223,21 +223,21 @@ export default function EditEmailTemplatePage() {
               onChange={(e) =>
                 setFormData({ ...formData, subject: e.target.value })
               }
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="input"
               required
             />
           </div>
 
           {availableVariables.length > 0 && (
-            <div className="p-3 bg-blue-50 rounded-lg">
-              <p className="text-sm font-medium text-blue-800 mb-2">
+            <div className="card-compact bg-surface-raised">
+              <p className="text-sm font-medium text-text-base mb-2">
                 Available Variables:
               </p>
               <div className="flex flex-wrap gap-2">
                 {availableVariables.map((variable) => (
                   <code
                     key={variable}
-                    className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs cursor-pointer hover:bg-blue-200"
+                    className="px-2 py-1 bg-surface rounded border border-border text-accent text-xs cursor-pointer hover:bg-surface-raised font-mono"
                     onClick={() => {
                       navigator.clipboard.writeText(`{{${variable}}}`);
                     }}
@@ -247,18 +247,21 @@ export default function EditEmailTemplatePage() {
                   </code>
                 ))}
               </div>
+              <p className="text-xs text-text-muted mt-2">
+                Available variables: use {"{{variableName}}"} syntax — replaced at send time
+              </p>
             </div>
           )}
 
           <div>
             <div className="flex items-center justify-between mb-1">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-text-secondary">
                 HTML Content
               </label>
               <button
                 type="button"
                 onClick={handlePreview}
-                className="text-sm text-primary-600 hover:text-primary-800"
+                className="btn-secondary btn-sm"
               >
                 Preview
               </button>
@@ -269,13 +272,13 @@ export default function EditEmailTemplatePage() {
                 setFormData({ ...formData, htmlContent: e.target.value })
               }
               rows={12}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono text-sm"
+              className="input min-h-[300px] font-mono text-sm resize-y"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-secondary mb-1">
               Plain Text Fallback (optional)
             </label>
             <textarea
@@ -284,7 +287,7 @@ export default function EditEmailTemplatePage() {
                 setFormData({ ...formData, textContent: e.target.value })
               }
               rows={6}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent font-mono text-sm"
+              className="input font-mono text-sm resize-y"
             />
           </div>
         </div>
@@ -292,14 +295,14 @@ export default function EditEmailTemplatePage() {
         <div className="flex justify-end gap-3">
           <Link
             href="/admin/email-templates"
-            className="px-4 py-2 text-gray-700 hover:text-gray-900"
+            className="btn-ghost btn-md"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50"
+            className="btn-primary btn-md disabled:opacity-50"
           >
             {saving ? "Saving..." : "Save Template"}
           </button>
@@ -309,25 +312,25 @@ export default function EditEmailTemplatePage() {
       {/* Preview Modal */}
       {previewHtml !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[80vh] overflow-hidden">
-            <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-              <h3 className="font-semibold text-gray-900">Email Preview</h3>
+          <div className="modal-panel-lg max-h-[80vh] overflow-hidden">
+            <div className="p-4 border-b border-border flex items-center justify-between">
+              <h3 className="font-semibold text-text-base">Email Preview</h3>
               <button
                 onClick={() => setPreviewHtml(null)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-text-muted hover:text-text-secondary"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <div className="p-4 bg-gray-50">
-              <p className="text-sm text-gray-600">
-                <strong>Subject:</strong> {formData.subject}
+            <div className="p-4 bg-surface-raised">
+              <p className="text-sm text-text-secondary">
+                <strong className="text-text-base">Subject:</strong> {formData.subject}
               </p>
             </div>
             <div
-              className="p-6 overflow-auto max-h-96"
+              className="p-6 overflow-auto max-h-96 font-sans text-sm text-text-base"
               dangerouslySetInnerHTML={{ __html: previewHtml }}
             />
           </div>
