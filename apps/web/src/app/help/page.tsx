@@ -118,15 +118,15 @@ export default function HelpPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Help & FAQ</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+    <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mb-8">
+        <h1 className="text-2xl font-display font-bold text-text-base mb-4">Help &amp; FAQ</h1>
+        <p className="text-lg text-text-secondary max-w-2xl">
           Find answers to common questions about using OffMarket NZ. Can&apos;t find
           what you&apos;re looking for? Contact us at{" "}
           <a
             href="mailto:support@offmarket.co.nz"
-            className="text-primary-600 hover:text-primary-800"
+            className="text-accent hover:text-accent-hover"
           >
             support@offmarket.co.nz
           </a>
@@ -134,7 +134,7 @@ export default function HelpPage() {
       </div>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap gap-2 justify-center mb-8">
+      <div className="flex flex-wrap gap-2 justify-start mb-8">
         {(["all", "general", "buyers", "owners"] as const).map((category) => (
           <button
             key={category}
@@ -142,10 +142,10 @@ export default function HelpPage() {
               setActiveCategory(category);
               setOpenIndex(null);
             }}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wide min-h-[44px] transition-colors ${
               activeCategory === category
-                ? "bg-primary-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-accent text-white"
+                : "bg-surface-raised text-text-secondary border border-border hover:bg-surface hover:text-text-base"
             }`}
           >
             {categoryLabels[category]}
@@ -167,12 +167,12 @@ export default function HelpPage() {
               <div className="flex items-start gap-3">
                 {activeCategory === "all" && (
                   <span
-                    className={`text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0 ${
+                    className={`text-xs font-medium px-2 py-0.5 rounded-sm flex-shrink-0 ${
                       faq.category === "general"
-                        ? "bg-gray-100 text-gray-700"
+                        ? "badge-neutral"
                         : faq.category === "buyers"
-                          ? "bg-blue-100 text-blue-700"
-                          : "bg-green-100 text-green-700"
+                          ? "badge-info"
+                          : "badge-success"
                     }`}
                   >
                     {faq.category === "general"
@@ -182,11 +182,11 @@ export default function HelpPage() {
                         : "Owners"}
                   </span>
                 )}
-                <span className="font-medium text-gray-900">{faq.question}</span>
+                <span className="font-medium text-text-base">{faq.question}</span>
               </div>
               <svg
-                className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${
-                  openIndex === index ? "rotate-180" : ""
+                className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                  openIndex === index ? "rotate-180 text-accent" : "text-text-muted"
                 }`}
                 fill="none"
                 stroke="currentColor"
@@ -201,8 +201,8 @@ export default function HelpPage() {
               </svg>
             </button>
             {openIndex === index && (
-              <div className="px-4 pb-4 text-gray-600">
-                <div className="pl-0 sm:pl-12 border-t border-gray-100 pt-3">
+              <div className="px-4 pb-4 text-text-secondary">
+                <div className="pl-0 sm:pl-12 border-t border-border pt-3">
                   {faq.answer}
                 </div>
               </div>
@@ -213,9 +213,9 @@ export default function HelpPage() {
 
       {/* Quick Actions */}
       <div className="mt-12 grid sm:grid-cols-2 gap-4">
-        <div className="card p-6 text-center">
+        <div className="card p-6">
           <svg
-            className="w-8 h-8 text-primary-600 mx-auto mb-3"
+            className="w-8 h-8 text-accent mb-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -227,8 +227,8 @@ export default function HelpPage() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <h3 className="font-semibold text-gray-900 mb-2">Looking to Buy?</h3>
-          <p className="text-sm text-gray-600 mb-4">
+          <h3 className="font-semibold text-text-base mb-2">Looking to Buy?</h3>
+          <p className="text-sm text-text-secondary mb-4">
             Register your interest and we&apos;ll notify you when matching properties become available.
           </p>
           <Link href="/buyer/create" className="btn-primary text-sm">
@@ -236,9 +236,9 @@ export default function HelpPage() {
           </Link>
         </div>
 
-        <div className="card p-6 text-center">
+        <div className="card p-6">
           <svg
-            className="w-8 h-8 text-primary-600 mx-auto mb-3"
+            className="w-8 h-8 text-accent mb-3"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -250,8 +250,8 @@ export default function HelpPage() {
               d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             />
           </svg>
-          <h3 className="font-semibold text-gray-900 mb-2">Own Property?</h3>
-          <p className="text-sm text-gray-600 mb-4">
+          <h3 className="font-semibold text-text-base mb-2">Own Property?</h3>
+          <p className="text-sm text-text-secondary mb-4">
             See how many buyers are looking for properties like yours.
           </p>
           <Link href="/owner/register" className="btn-primary text-sm">
@@ -261,11 +261,11 @@ export default function HelpPage() {
       </div>
 
       {/* Contact Section */}
-      <div className="mt-12 text-center p-8 bg-gray-100 rounded-xl">
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+      <div className="mt-12 p-8 bg-surface-raised rounded-lg">
+        <h2 className="text-xl font-semibold text-text-base mb-2">
           Still have questions?
         </h2>
-        <p className="text-gray-600 mb-4">
+        <p className="text-text-secondary mb-4">
           Our support team is here to help you.
         </p>
         <a
