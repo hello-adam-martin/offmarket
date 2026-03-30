@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Owner Pages** - Register property, my properties, and property detail pages restyled (completed 2026-03-30)
 - [x] **Phase 6: User App Pages** - Dashboard, profile, inquiries, notifications, upgrade, and all user-facing app pages restyled (completed 2026-03-30)
 - [x] **Phase 7: Admin Pages** - Admin dashboard, user management, billing, email templates, and postcards admin restyled (completed 2026-03-30)
-- [ ] **Phase 8: Cross-Cutting Audit** - Full-site verification of max-width, dark mode, accent color, typography hierarchy, AI slop, accessibility, and responsiveness
+- [x] **Phase 8: Cross-Cutting Audit** - Full-site verification of max-width, dark mode, accent color, typography hierarchy, AI slop, accessibility, and responsiveness (completed 2026-03-30)
 
 ## Phase Details
 
@@ -149,7 +149,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 08-01-PLAN.md — Fix browse components, header/footer max-width, dark mode tokens, accent shades, and AI slop
-- [ ] 08-02-PLAN.md — Typography sweep: add font-display to all h1/h2/h3 across 29 files
+- [x] 08-02-PLAN.md — Typography sweep: add font-display to all h1/h2/h3 across 29 files
 **UI hint**: yes
 
 ## Progress
@@ -166,4 +166,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
 | 6. User App Pages | 5/5 | Complete   | 2026-03-30 |
 | 7. Admin Pages | 2/2 | Complete   | 2026-03-30 |
-| 8. Cross-Cutting Audit | 1/2 | In Progress|  |
+| 8. Cross-Cutting Audit | 2/2 | Complete   | 2026-03-30 |

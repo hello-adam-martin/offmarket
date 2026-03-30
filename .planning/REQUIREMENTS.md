@@ -94,7 +94,7 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 - [x] **XCUT-01**: All pages use max-width 1120px content container (not 1280px)
 - [x] **XCUT-02**: All pages support dark mode with correct surface colors
 - [x] **XCUT-03**: All interactive elements use teal accent (#0d9488) with hover (#0f766e)
-- [ ] **XCUT-04**: All text uses correct DESIGN.md hierarchy (General Sans for h1-h3, DM Sans for body)
+- [x] **XCUT-04**: All text uses correct DESIGN.md hierarchy (General Sans for h1-h3, DM Sans for body)
 - [x] **XCUT-05**: No AI slop blacklist violations remain in any page
 - [ ] **XCUT-06**: All pages pass WCAG AA contrast ratios in both light and dark mode
 - [ ] **XCUT-07**: All pages responsive across sm/md/lg/xl breakpoints
@@ -196,7 +196,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | XCUT-01 | Phase 8 | Complete |
 | XCUT-02 | Phase 8 | Complete |
 | XCUT-03 | Phase 8 | Complete |
-| XCUT-04 | Phase 8 | Pending |
+| XCUT-04 | Phase 8 | Complete |
 | XCUT-05 | Phase 8 | Complete |
 | XCUT-06 | Phase 8 | Pending |
 | XCUT-07 | Phase 8 | Pending |
