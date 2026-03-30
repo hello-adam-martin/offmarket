@@ -52,8 +52,8 @@ export default function AdminLayout({
 
   if (status === "loading" || isAdmin === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-bg">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
       </div>
     );
   }
@@ -67,20 +67,21 @@ export default function AdminLayout({
     { href: "/admin/users", label: "Users", icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" },
     { href: "/admin/billing", label: "Billing", icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" },
     { href: "/admin/email-templates", label: "Email Templates", icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+    { href: "/admin/postcards", label: "Postcards", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-bg">
       {/* Admin Header */}
-      <div className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="bg-primary text-text-inverse">
+        <div className="px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/admin" className="font-bold text-lg">
+            <Link href="/admin" className="font-display font-semibold text-lg text-text-inverse">
               Admin Panel
             </Link>
-            <span className="text-gray-400 text-sm">OffMarket NZ</span>
+            <span className="text-sm text-text-muted">OffMarket NZ</span>
           </div>
-          <Link href="/" className="text-sm text-gray-300 hover:text-white">
+          <Link href="/" className="text-sm text-text-muted hover:text-text-inverse transition-colors">
             Back to Site
           </Link>
         </div>
@@ -88,39 +89,42 @@ export default function AdminLayout({
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white shadow-sm min-h-[calc(100vh-52px)]">
+        <aside className="w-64 bg-surface border-r border-border min-h-[calc(100vh-52px)]">
           <nav className="p-4 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                  pathname === item.href
-                    ? "bg-primary-50 text-primary-700"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center gap-3 px-3 py-2 rounded-md transition-colors text-sm font-medium ${
+                    isActive
+                      ? "bg-accent-light text-accent"
+                      : "text-text-secondary hover:bg-surface-raised hover:text-text-base"
+                  }`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d={item.icon}
-                  />
-                </svg>
-                {item.label}
-              </Link>
-            ))}
+                  <svg
+                    className={`w-5 h-5 ${isActive ? "text-accent" : "text-text-muted"}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={item.icon}
+                    />
+                  </svg>
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         </aside>
 
         {/* Main content */}
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-6 bg-bg">{children}</main>
       </div>
     </div>
   );
