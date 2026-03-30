@@ -135,7 +135,7 @@ export default function MyWantedAdsPage() {
 
       {ads.length === 0 ? (
         <div className="card text-center py-12">
-          <h2 className="text-xl font-semibold text-primary mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2 font-display">
             No buyer interests yet
           </h2>
           <p className="text-secondary mb-6">

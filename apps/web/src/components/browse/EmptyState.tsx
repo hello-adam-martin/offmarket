@@ -183,7 +183,7 @@ export function EmptyState({ regionCounts }: EmptyStateProps) {
 
           {/* Quick Actions */}
           <div className="bg-surface-raised rounded-lg p-4">
-            <h3 className="label mb-3">Quick Actions</h3>
+            <h3 className="label mb-3 font-display">Quick Actions</h3>
             <div className="space-y-2">
               <a
                 href="/buyer/create"

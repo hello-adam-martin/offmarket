@@ -27,7 +27,7 @@ export function MarketSummaryBar({ areaSummary, propertySummary, filters, region
     <div className="card mb-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-text-base">{locationLabel}</h2>
+          <h2 className="text-lg font-semibold text-text-base font-display">{locationLabel}</h2>
           <p className="text-sm text-text-secondary">Market Overview</p>
         </div>
 

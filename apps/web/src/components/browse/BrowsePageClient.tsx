@@ -288,7 +288,7 @@ export function BrowsePageClient() {
           {/* Area Demand Section */}
           {areaDemand && areaDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-lg font-semibold text-text-base mb-4">What Buyers Are Looking For</h2>
+              <h2 className="text-lg font-semibold text-text-base mb-4 font-display">What Buyers Are Looking For</h2>
               <DemandCardGrid data={areaDemand.data} />
               {areaDemand.meta.totalPages > 1 && (
                 <Pagination
@@ -303,7 +303,7 @@ export function BrowsePageClient() {
           {/* Property Demand Section */}
           {propertyDemand && propertyDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-lg font-semibold text-text-base mb-4">
+              <h2 className="text-lg font-semibold text-text-base mb-4 font-display">
                 Specific Properties with Buyer Interest
               </h2>
               <PropertyCardGrid data={propertyDemand.data} />

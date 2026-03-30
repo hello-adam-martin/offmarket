@@ -158,7 +158,7 @@ export default function MyPostcardsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-primary mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2 font-display">
             Postcard Direct Mail is a Pro Feature
           </h2>
           <p className="text-secondary mb-6">
@@ -176,7 +176,7 @@ export default function MyPostcardsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-primary mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2 font-display">
             No postcards yet
           </h2>
           <p className="text-secondary mb-6">
@@ -210,7 +210,7 @@ export default function MyPostcardsPage() {
                       )}
                     </div>
 
-                    <h3 className="font-semibold text-primary mb-1">
+                    <h3 className="font-semibold text-primary mb-1 font-display">
                       {postcard.recipientAddress}
                     </h3>
                     {(postcard.recipientSuburb || postcard.recipientCity) && (
@@ -282,7 +282,7 @@ export default function MyPostcardsPage() {
 
       {/* Info section */}
       <div className="mt-8 p-4 bg-surface-raised rounded-lg">
-        <h3 className="font-medium text-primary mb-2">How Postcards Work</h3>
+        <h3 className="font-medium text-primary mb-2 font-display">How Postcards Work</h3>
         <ul className="text-sm text-secondary space-y-1">
           <li>1. Request a postcard when registering interest in a specific property</li>
           <li>2. Our team reviews your request for quality</li>

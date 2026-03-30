@@ -56,7 +56,7 @@ export function UpgradeModal({
       <div className="modal-panel-sm relative">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
-          <h3 className="text-lg font-semibold text-text-base">
+          <h3 className="text-lg font-semibold text-text-base font-display">
             {getTitle()}
           </h3>
           <button

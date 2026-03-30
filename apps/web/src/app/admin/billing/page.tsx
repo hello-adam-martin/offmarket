@@ -152,7 +152,7 @@ export default function BillingDashboardPage() {
 
       {/* Subscriptions Stats */}
       <div>
-        <h2 className="text-lg font-semibold text-text-base mb-4">
+        <h2 className="text-lg font-semibold text-text-base mb-4 font-display">
           Subscriptions
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -185,7 +185,7 @@ export default function BillingDashboardPage() {
 
       {/* Revenue Stats */}
       <div>
-        <h2 className="text-lg font-semibold text-text-base mb-4">Revenue</h2>
+        <h2 className="text-lg font-semibold text-text-base mb-4 font-display">Revenue</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="card">
             <p className="text-sm text-text-secondary mb-1">Monthly Recurring</p>
@@ -213,7 +213,7 @@ export default function BillingDashboardPage() {
       {/* Escrow Stats */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-text-base">
+          <h2 className="text-lg font-semibold text-text-base font-display">
             Escrow Deposits
           </h2>
           <button
@@ -299,7 +299,7 @@ export default function BillingDashboardPage() {
 
       {/* Quick Actions */}
       <div className="card">
-        <h2 className="text-lg font-semibold text-text-base mb-4">
+        <h2 className="text-lg font-semibold text-text-base mb-4 font-display">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

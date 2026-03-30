@@ -369,7 +369,7 @@ export default function EscrowsPage() {
 
       {/* Legend */}
       <div className="card">
-        <h3 className="text-sm font-semibold text-text-base mb-3">
+        <h3 className="text-sm font-semibold text-text-base mb-3 font-display">
           Status Legend
         </h3>
         <div className="flex flex-wrap gap-4 text-sm">

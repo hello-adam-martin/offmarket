@@ -227,7 +227,7 @@ export default function HelpPage() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <h3 className="font-semibold text-text-base mb-2">Looking to Buy?</h3>
+          <h3 className="font-semibold text-text-base mb-2 font-display">Looking to Buy?</h3>
           <p className="text-sm text-text-secondary mb-4">
             Register your interest and we&apos;ll notify you when matching properties become available.
           </p>
@@ -250,7 +250,7 @@ export default function HelpPage() {
               d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             />
           </svg>
-          <h3 className="font-semibold text-text-base mb-2">Own Property?</h3>
+          <h3 className="font-semibold text-text-base mb-2 font-display">Own Property?</h3>
           <p className="text-sm text-text-secondary mb-4">
             See how many buyers are looking for properties like yours.
           </p>
@@ -262,7 +262,7 @@ export default function HelpPage() {
 
       {/* Contact Section */}
       <div className="mt-12 p-8 bg-surface-raised rounded-lg">
-        <h2 className="text-xl font-semibold text-text-base mb-2">
+        <h2 className="text-xl font-semibold text-text-base mb-2 font-display">
           Still have questions?
         </h2>
         <p className="text-text-secondary mb-4">

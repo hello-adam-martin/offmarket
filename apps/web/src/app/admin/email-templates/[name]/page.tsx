@@ -199,7 +199,7 @@ export default function EditEmailTemplatePage() {
 
         <div className="card space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-text-base">Template Settings</h2>
+            <h2 className="text-lg font-semibold text-text-base font-display">Template Settings</h2>
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -314,7 +314,7 @@ export default function EditEmailTemplatePage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="modal-panel-lg max-h-[80vh] overflow-hidden">
             <div className="p-4 border-b border-border flex items-center justify-between">
-              <h3 className="font-semibold text-text-base">Email Preview</h3>
+              <h3 className="font-semibold text-text-base font-display">Email Preview</h3>
               <button
                 onClick={() => setPreviewHtml(null)}
                 className="text-text-muted hover:text-text-secondary"

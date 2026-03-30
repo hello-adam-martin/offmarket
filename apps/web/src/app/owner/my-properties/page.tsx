@@ -99,7 +99,7 @@ export default function MyPropertiesPage() {
     return (
       <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-primary mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4 font-display">
             Sign in to View Your Properties
           </h1>
           <p className="text-secondary mb-6">
@@ -121,7 +121,7 @@ export default function MyPropertiesPage() {
     <div className="max-w-content mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-primary">My Properties</h1>
+          <h1 className="text-2xl font-bold text-primary font-display">My Properties</h1>
           <p className="text-secondary">
             See buyer demand for your properties.
           </p>
@@ -139,7 +139,7 @@ export default function MyPropertiesPage() {
 
       {properties.length === 0 ? (
         <div className="card text-center py-12">
-          <h2 className="text-xl font-semibold text-primary mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2 font-display">
             No properties registered
           </h2>
           <p className="text-secondary mb-6">
@@ -164,7 +164,7 @@ export default function MyPropertiesPage() {
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div className="flex-1">
-                  <h2 className="text-lg font-semibold text-primary mb-1">
+                  <h2 className="text-lg font-semibold text-primary mb-1 font-display">
                     {property.address}
                   </h2>
                   <p className="text-secondary text-sm mb-2">

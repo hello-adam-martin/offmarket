@@ -256,7 +256,7 @@ export default function SavedSearchesPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-medium text-primary">{search.name}</h3>
+                    <h3 className="font-medium text-primary font-display">{search.name}</h3>
                     <p className="text-sm text-secondary mt-0.5">
                       {formatSearchCriteria(search)}
                     </p>
@@ -316,7 +316,7 @@ export default function SavedSearchesPage() {
 
       {/* Tips */}
       <div className="mt-8 p-4 bg-accent-light border border-accent text-accent rounded-md">
-        <h3 className="font-medium mb-2">Tip</h3>
+        <h3 className="font-medium mb-2 font-display">Tip</h3>
         <p className="text-sm">
           When browsing the Explorer, look for the &quot;Save Search&quot; button to quickly
           save your current filters. You&apos;ll get notified when new buyer demand

@@ -105,7 +105,7 @@ export default function AdminDashboardPage() {
       {/* Recent Users */}
       <div className="card overflow-hidden p-0">
         <div className="px-6 py-4 border-b border-border">
-          <h2 className="text-lg font-semibold text-text-base">Recent Users</h2>
+          <h2 className="text-lg font-semibold text-text-base font-display">Recent Users</h2>
         </div>
         <div className="divide-y divide-border">
           {stats?.recentUsers.map((user) => (

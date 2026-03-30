@@ -216,7 +216,7 @@ export function PaymentModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <div>
-            <h2 className="text-xl font-bold text-text-base">
+            <h2 className="text-xl font-bold text-text-base font-display">
               Contact {buyerName || "Buyer"}
             </h2>
             <p className="text-text-secondary text-sm mt-1">
@@ -240,7 +240,7 @@ export function PaymentModal({
               <svg className="h-6 w-6 text-green-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <h3 className="text-lg font-medium text-text-base mb-2">Payment Successful!</h3>
+              <h3 className="text-lg font-medium text-text-base mb-2 font-display">Payment Successful!</h3>
               <p className="text-text-secondary">You can now contact this buyer directly.</p>
             </div>
           ) : loading ? (
@@ -253,7 +253,7 @@ export function PaymentModal({
               <svg className="h-6 w-6 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-              <h3 className="text-lg font-medium text-text-base mb-2">Error</h3>
+              <h3 className="text-lg font-medium text-text-base mb-2 font-display">Error</h3>
               <p className="text-text-secondary mb-4">{error}</p>
               <button onClick={fetchPaymentIntent} className="btn-secondary">
                 Try Again

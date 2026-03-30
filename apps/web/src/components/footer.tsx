@@ -54,7 +54,7 @@ export function Footer() {
 
           {/* For Buyers */}
           <div>
-            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4">For Buyers</h3>
+            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4 font-display">For Buyers</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/browse" className="text-sm text-text-secondary hover:text-text-base transition-colors">
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* For Owners */}
           <div>
-            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4">For Owners</h3>
+            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4 font-display">For Owners</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/owner" className="text-sm text-text-secondary hover:text-text-base transition-colors">
@@ -103,7 +103,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4">Company</h3>
+            <h3 className="text-xs font-semibold text-text-base uppercase tracking-wide mb-4 font-display">Company</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/about" className="text-sm text-text-secondary hover:text-text-base transition-colors">

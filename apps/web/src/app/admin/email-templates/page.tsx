@@ -126,7 +126,7 @@ export default function EmailTemplatesPage() {
               />
             </svg>
           </div>
-          <h3 className="text-lg font-medium text-text-base mb-2">
+          <h3 className="text-lg font-medium text-text-base mb-2 font-display">
             No email templates yet
           </h3>
           <p className="text-text-secondary mb-4">
@@ -218,7 +218,7 @@ export default function EmailTemplatesPage() {
           <div className="modal-panel-lg">
             <form onSubmit={handleCreate}>
               <div className="p-6">
-                <h2 className="text-xl font-semibold text-text-base mb-4">
+                <h2 className="text-xl font-semibold text-text-base mb-4 font-display">
                   Create Email Template
                 </h2>
 

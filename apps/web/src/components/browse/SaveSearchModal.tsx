@@ -70,7 +70,7 @@ export function SaveSearchModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
           <div>
-            <h2 className="text-xl font-bold text-text-base">Save This Search</h2>
+            <h2 className="text-xl font-bold text-text-base font-display">Save This Search</h2>
             <p className="text-sm text-text-secondary mt-1">
               Get notified when new buyer demand matches your criteria.
             </p>

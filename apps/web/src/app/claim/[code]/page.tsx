@@ -226,7 +226,7 @@ export default function ClaimPage({ params }: { params: Promise<{ code: string }
 
           {/* Buyer Info */}
           <div className="border-t border-border pt-6">
-            <h2 className="font-semibold text-primary mb-4">
+            <h2 className="font-semibold text-primary mb-4 font-display">
               About the Interested Buyer
             </h2>
 

@@ -400,7 +400,7 @@ function UpgradePageContent() {
         </h2>
         <div className="space-y-6">
           <div>
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               What are specific address alerts?
             </h3>
             <p className="text-secondary">
@@ -409,7 +409,7 @@ function UpgradePageContent() {
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               Can I cancel anytime?
             </h3>
             <p className="text-secondary">
@@ -418,7 +418,7 @@ function UpgradePageContent() {
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               How do priority notifications work?
             </h3>
             <p className="text-secondary">
