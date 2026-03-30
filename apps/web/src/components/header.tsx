@@ -40,7 +40,7 @@ export function Header() {
 
   return (
     <header className="bg-surface border-b border-border">
-      <nav className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex items-center">

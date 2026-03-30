@@ -297,7 +297,7 @@ export default async function HomePage() {
             Free for buyers. Affordable for owners.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Free Tier */}
             <div className="card border-2 border-border">
               <h3 className="text-xl font-display font-bold text-text-base mb-2">Buyer - Free</h3>
