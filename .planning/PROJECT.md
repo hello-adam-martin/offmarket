@@ -36,10 +36,10 @@ Every page and component visually matches DESIGN.md — typography, color, spaci
 - [x] Restyle all public pages (homepage, explore, region, help, privacy, terms, auth) — Validated in Phase 3: Public Pages
 - [x] Restyle all buyer pages (create ad, my ads, postcards) — Validated in Phase 4: Buyer Pages
 - [x] Restyle all owner pages (register property, my properties, property detail) — Validated in Phase 5: Owner Pages
-- [ ] Restyle all user pages (dashboard, profile, inquiries, wanted ad detail, property detail, saved searches, notifications, upgrade, claim)
+- [x] Restyle all user pages (dashboard, profile, inquiries, wanted ad detail, property detail, saved searches, notifications, upgrade, claim) — Validated in Phase 6: User App Pages
 - [x] Restyle all admin pages (dashboard, users, billing settings/subscriptions/escrows, email templates, postcards) — Validated in Phase 7: Admin Pages
 - [x] Restyle all shared components (Header, Footer, modals, forms, buttons, cards, empty states, filters) — Validated in Phase 2: Shared Components
-- [ ] Enforce AI slop blacklist from DESIGN.md (no purple gradients, no blob patterns, no icon-in-circle cards, left-align hero text, no generic copy)
+- [x] Enforce AI slop blacklist from DESIGN.md (no purple gradients, no blob patterns, no icon-in-circle cards, left-align hero text, no generic copy) — Validated in Phase 8: Cross-Cutting Audit
 
 ### Out of Scope
 
@@ -94,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after Phase 7: Admin Pages completion*
+*Last updated: 2026-03-30 after Phase 8: Cross-Cutting Audit completion — all phases complete*
