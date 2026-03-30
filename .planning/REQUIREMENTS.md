@@ -70,8 +70,8 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 - [x] **USER-02**: Profile/settings page restyled
 - [x] **USER-03**: Inquiries listing page restyled
 - [x] **USER-04**: Inquiry detail page restyled — message thread, reply form
-- [ ] **USER-05**: Wanted ad detail page restyled — match list, property cards, demand data with tabular-nums
-- [ ] **USER-06**: Property view page restyled
+- [x] **USER-05**: Wanted ad detail page restyled — match list, property cards, demand data with tabular-nums
+- [x] **USER-06**: Property view page restyled
 - [x] **USER-07**: Saved searches page restyled
 - [x] **USER-08**: Notifications page restyled
 - [x] **USER-09**: Upgrade/pricing page restyled — tier comparison, CTA buttons
@@ -178,8 +178,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | USER-02 | Phase 6 | Complete |
 | USER-03 | Phase 6 | Complete |
 | USER-04 | Phase 6 | Complete |
-| USER-05 | Phase 6 | Pending |
-| USER-06 | Phase 6 | Pending |
+| USER-05 | Phase 6 | Complete |
+| USER-06 | Phase 6 | Complete |
 | USER-07 | Phase 6 | Complete |
 | USER-08 | Phase 6 | Complete |
 | USER-09 | Phase 6 | Complete |
