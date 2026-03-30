@@ -197,10 +197,10 @@ export default function CreateWantedAdPage() {
 
   if (status === "loading") {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-          <div className="h-4 bg-gray-200 rounded w-2/3 mb-8" />
+          <div className="h-8 bg-surface-raised rounded w-1/3 mb-4" />
+          <div className="h-4 bg-surface-raised rounded w-2/3 mb-8" />
           <div className="card h-96" />
         </div>
       </div>
@@ -209,12 +209,12 @@ export default function CreateWantedAdPage() {
 
   if (!session) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4">
             Sign in to Register Your Interest
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to tell property owners what you&apos;re
             looking for.
           </p>
@@ -232,34 +232,34 @@ export default function CreateWantedAdPage() {
   // Success state UI
   if (showSuccess) {
     return (
-      <div className="max-w-xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-20 h-20 bg-success-light rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-10 h-10 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
 
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-primary mb-2">
             Interest Registered!
           </h1>
-          <p className="text-gray-600 mb-8">
-            Your interest in <span className="font-medium text-gray-900">{createdAddress}</span> has been saved.
+          <p className="text-secondary mb-8">
+            Your interest in <span className="font-medium text-primary">{createdAddress}</span> has been saved.
           </p>
 
           {/* Postcard option */}
-          <div className="bg-gradient-to-r from-primary-50 to-primary-100 border border-primary-200 rounded-xl p-6 mb-8 text-left">
+          <div className="bg-surface-raised border border-border rounded-lg p-6 mb-8 text-left">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-white rounded-lg shadow-sm shrink-0">
-                <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-3 bg-surface rounded-md border border-border shrink-0">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 mb-1">
+                <h3 className="font-semibold text-primary mb-1">
                   Want to go the extra mile?
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-secondary mb-4">
                   Send a physical postcard directly to the property owner. It&apos;s a powerful way to stand out and show you&apos;re serious about their property.
                 </p>
                 <button
@@ -277,7 +277,7 @@ export default function CreateWantedAdPage() {
             <Link href="/buyer/my-ads" className="btn-secondary">
               View My Interests
             </Link>
-            <Link href="/buyer/create" className="btn-outline">
+            <Link href="/buyer/create" className="btn-secondary">
               Add Another Property
             </Link>
           </div>
@@ -301,10 +301,10 @@ export default function CreateWantedAdPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Register Buyer Interest</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl font-bold text-primary font-display">Register Buyer Interest</h1>
+        <p className="text-secondary">
           Describe your ideal property and let owners know you&apos;re looking.
         </p>
       </div>
@@ -312,39 +312,39 @@ export default function CreateWantedAdPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Location - First */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4">
             Target Location *
           </h2>
 
           <div className="space-y-4">
             {/* Usage Summary */}
             {usage && (
-              <div className="flex flex-wrap gap-3 p-3 bg-gray-50 rounded-lg text-sm">
+              <div className="flex flex-wrap gap-3 p-3 bg-surface-raised rounded-md text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-600">Interests:</span>
+                  <span className="text-secondary">Interests:</span>
                   {usage.wantedAds.isUnlimited ? (
-                    <span className="font-medium text-primary-600">Unlimited</span>
+                    <span className="font-medium text-accent">Unlimited</span>
                   ) : (
-                    <span className={`font-medium ${usage.wantedAds.remaining === 0 ? "text-red-600" : "text-gray-900"}`}>
+                    <span className={`font-medium tabular-nums ${usage.wantedAds.remaining === 0 ? "text-error" : "text-primary"}`}>
                       {usage.wantedAds.remaining} of {usage.wantedAds.limit} remaining
                     </span>
                   )}
                 </div>
-                <span className="text-gray-300">|</span>
+                <span className="text-muted">|</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-600">Specific addresses:</span>
+                  <span className="text-secondary">Specific addresses:</span>
                   {usage.specificAddresses.isUnlimited ? (
-                    <span className="font-medium text-primary-600">Unlimited</span>
+                    <span className="font-medium text-accent">Unlimited</span>
                   ) : (
-                    <span className={`font-medium ${usage.specificAddresses.remaining === 0 ? "text-red-600" : "text-gray-900"}`}>
+                    <span className={`font-medium tabular-nums ${usage.specificAddresses.remaining === 0 ? "text-error" : "text-primary"}`}>
                       {usage.specificAddresses.remaining} of {usage.specificAddresses.limit} remaining
                     </span>
                   )}
                 </div>
                 {!usage.wantedAds.isUnlimited && (
                   <>
-                    <span className="text-gray-300">|</span>
-                    <Link href="/upgrade" className="text-primary-600 hover:text-primary-700 font-medium">
+                    <span className="text-muted">|</span>
+                    <Link href="/upgrade" className="text-accent hover:text-accent-hover font-medium">
                       Upgrade for more
                     </Link>
                   </>
@@ -365,22 +365,22 @@ export default function CreateWantedAdPage() {
                   }}
                   className={`p-4 rounded-lg border-2 text-left transition-all ${
                     targetType === "AREA"
-                      ? "border-primary-500 bg-primary-50 ring-2 ring-primary-200"
-                      : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                      ? "border-accent bg-accent-light ring-2 ring-accent-light"
+                      : "border-border hover:border-border hover:bg-surface-raised"
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg ${targetType === "AREA" ? "bg-primary-100" : "bg-gray-100"}`}>
-                      <svg className={`w-5 h-5 ${targetType === "AREA" ? "text-primary-600" : "text-gray-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className={`p-2 rounded-lg ${targetType === "AREA" ? "bg-accent-light" : "bg-surface-raised"}`}>
+                      <svg className={`w-5 h-5 ${targetType === "AREA" ? "text-accent" : "text-muted"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
                     <div>
-                      <p className={`font-medium ${targetType === "AREA" ? "text-primary-700" : "text-gray-900"}`}>
+                      <p className={`font-medium ${targetType === "AREA" ? "text-accent" : "text-primary"}`}>
                         General Area
                       </p>
-                      <p className="text-sm text-gray-500 mt-0.5">
+                      <p className="text-sm text-muted mt-0.5">
                         Looking anywhere in a suburb, city, or region
                       </p>
                     </div>
@@ -404,30 +404,30 @@ export default function CreateWantedAdPage() {
                   }}
                   className={`p-4 rounded-lg border-2 text-left transition-all ${
                     targetType === "SPECIFIC_ADDRESS"
-                      ? "border-primary-500 bg-primary-50 ring-2 ring-primary-200"
+                      ? "border-accent bg-accent-light ring-2 ring-accent-light"
                       : usage && !usage.specificAddresses.isUnlimited && usage.specificAddresses.remaining === 0
-                        ? "border-gray-200 bg-gray-50 opacity-75"
-                        : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                        ? "border-border bg-surface-raised opacity-75"
+                        : "border-border hover:border-border hover:bg-surface-raised"
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg ${targetType === "SPECIFIC_ADDRESS" ? "bg-primary-100" : "bg-gray-100"}`}>
-                      <svg className={`w-5 h-5 ${targetType === "SPECIFIC_ADDRESS" ? "text-primary-600" : "text-gray-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className={`p-2 rounded-lg ${targetType === "SPECIFIC_ADDRESS" ? "bg-accent-light" : "bg-surface-raised"}`}>
+                      <svg className={`w-5 h-5 ${targetType === "SPECIFIC_ADDRESS" ? "text-accent" : "text-muted"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                       </svg>
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <p className={`font-medium ${targetType === "SPECIFIC_ADDRESS" ? "text-primary-700" : "text-gray-900"}`}>
+                        <p className={`font-medium ${targetType === "SPECIFIC_ADDRESS" ? "text-accent" : "text-primary"}`}>
                           Specific Property
                         </p>
                         {usage && !usage.specificAddresses.isUnlimited && usage.specificAddresses.remaining === 0 && (
-                          <span className="text-xs px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded">
+                          <span className="badge-warning">
                             Limit reached
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-500 mt-0.5">
+                      <p className="text-sm text-muted mt-0.5">
                         You have a particular property in mind
                       </p>
                     </div>
@@ -440,15 +440,15 @@ export default function CreateWantedAdPage() {
             {targetType === "SPECIFIC_ADDRESS" && locations.length > 0 ? (
               <div>
                 <label className="label">Property Address</label>
-                <div className="flex items-center gap-2 p-3 bg-primary-50 border border-primary-200 rounded-lg">
-                  <svg className="w-5 h-5 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-2 p-3 bg-accent-light border border-accent rounded-lg">
+                  <svg className="w-5 h-5 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
-                  <span className="flex-1 font-medium text-primary-800">{locations[0].name}</span>
+                  <span className="flex-1 font-medium text-accent">{locations[0]?.name}</span>
                   <button
                     type="button"
                     onClick={() => setLocations([])}
-                    className="text-primary-600 hover:text-primary-800 text-sm"
+                    className="text-accent hover:text-accent-hover text-sm"
                   >
                     Change
                   </button>
@@ -496,7 +496,7 @@ export default function CreateWantedAdPage() {
                   </button>
                 </div>
                 {targetType !== "SPECIFIC_ADDRESS" && (
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-muted mt-1">
                     Quick add: {NZ_REGIONS.slice(0, 5).map((r) => r.name).join(", ")}
                     ...
                   </p>
@@ -510,14 +510,14 @@ export default function CreateWantedAdPage() {
                 {locations.map((loc, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm"
+                    className="badge-info gap-1"
                   >
-                    <span className="text-xs text-primary-600">{loc.type}:</span>
+                    <span className="text-xs text-accent">{loc.type}:</span>
                     {loc.name}
                     <button
                       type="button"
                       onClick={() => removeLocation(index)}
-                      className="ml-1 text-primary-600 hover:text-primary-800"
+                      className="ml-1 text-accent hover:text-accent-hover"
                     >
                       &times;
                     </button>
@@ -530,7 +530,7 @@ export default function CreateWantedAdPage() {
 
         {/* Budget */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4">
             Budget *
           </h2>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -539,7 +539,7 @@ export default function CreateWantedAdPage() {
                 Your budget
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted">$</span>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -551,7 +551,7 @@ export default function CreateWantedAdPage() {
                   }}
                   placeholder="1,000,000"
                   required
-                  className="input pl-7"
+                  className="input pl-7 tabular-nums"
                 />
               </div>
             </div>
@@ -578,7 +578,7 @@ export default function CreateWantedAdPage() {
 
         {/* Basic Info */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4">
             {targetType === "SPECIFIC_ADDRESS" ? "Why This Property?" : "Basic Information"}
           </h2>
           <div className="space-y-4">
@@ -613,7 +613,7 @@ export default function CreateWantedAdPage() {
                 className="input"
               />
               {targetType === "SPECIFIC_ADDRESS" && (
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-muted mt-1">
                   Be specific about what attracts you to this property - it helps owners take your interest seriously.
                 </p>
               )}
@@ -624,7 +624,7 @@ export default function CreateWantedAdPage() {
         {/* Property Requirements - Only for General Area */}
         {targetType !== "SPECIFIC_ADDRESS" && (
           <div className="card">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+            <h2 className="text-lg font-semibold text-primary mb-4">
               Property Requirements
             </h2>
             <div className="space-y-4">
@@ -636,10 +636,10 @@ export default function CreateWantedAdPage() {
                       key={type.value}
                       type="button"
                       onClick={() => togglePropertyType(type.value)}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                      className={`transition-colors cursor-pointer ${
                         propertyTypes.includes(type.value)
-                          ? "bg-primary-600 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          ? "badge-info"
+                          : "badge-neutral hover:bg-surface-raised"
                       }`}
                     >
                       {type.label}
@@ -713,10 +713,10 @@ export default function CreateWantedAdPage() {
                       key={feature.value}
                       type="button"
                       onClick={() => toggleFeature(feature.value)}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                      className={`transition-colors cursor-pointer ${
                         features.includes(feature.value)
-                          ? "bg-primary-600 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          ? "badge-info"
+                          : "badge-neutral hover:bg-surface-raised"
                       }`}
                     >
                       {feature.label}
@@ -729,7 +729,7 @@ export default function CreateWantedAdPage() {
         )}
 
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+          <div className="p-4 bg-error-light border border-error rounded-md text-error">
             {error}
           </div>
         )}
