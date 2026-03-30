@@ -33,7 +33,7 @@ Every page and component visually matches DESIGN.md — typography, color, spaci
 - [x] Implement DESIGN.md spacing system (4px base unit, comfortable density) — Validated in Phase 1: Foundation
 - [x] Implement DESIGN.md layout system (12-col grid, breakpoints, max-width, border-radius scale) — Validated in Phase 1: Foundation
 - [x] Implement dark mode (redesigned surfaces, reduced accent saturation, proper dark borders) — Validated in Phase 1: Foundation
-- [ ] Restyle all public pages (homepage, explore, region, help, privacy, terms, auth)
+- [x] Restyle all public pages (homepage, explore, region, help, privacy, terms, auth) — Validated in Phase 3: Public Pages
 - [ ] Restyle all buyer pages (create ad, my ads, postcards)
 - [ ] Restyle all owner pages (register property, my properties, property detail)
 - [ ] Restyle all user pages (dashboard, profile, inquiries, wanted ad detail, property detail, saved searches, notifications, upgrade, claim)
