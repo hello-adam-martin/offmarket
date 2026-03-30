@@ -148,7 +148,7 @@ Plans:
   5. Every page renders correctly at sm (640px), md (768px), lg (1024px), and xl (1280px) breakpoints
 **Plans**: 2 plans
 Plans:
-- [ ] 08-01-PLAN.md — Fix browse components, header/footer max-width, dark mode tokens, accent shades, and AI slop
+- [x] 08-01-PLAN.md — Fix browse components, header/footer max-width, dark mode tokens, accent shades, and AI slop
 - [ ] 08-02-PLAN.md — Typography sweep: add font-display to all h1/h2/h3 across 29 files
 **UI hint**: yes
 
@@ -166,4 +166,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
 | 6. User App Pages | 5/5 | Complete   | 2026-03-30 |
 | 7. Admin Pages | 2/2 | Complete   | 2026-03-30 |
-| 8. Cross-Cutting Audit | 0/TBD | Not started | - |
+| 8. Cross-Cutting Audit | 1/2 | In Progress|  |
