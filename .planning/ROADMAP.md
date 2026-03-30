@@ -68,7 +68,11 @@ Plans:
   2. The explore/browse page shows DESIGN.md card grid with demand data, teal filter controls, and correct empty state
   3. The auth/signin page uses DESIGN.md form layout with no centered-text layout, correct input styling, and Google OAuth button
   4. Legal pages (privacy, terms) and help/FAQ use DESIGN.md typography hierarchy with correct heading and body font rendering
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 03-01-PLAN.md — Homepage full restyle: data-forward hero with live stats, AI slop removal, section cleanup
+- [ ] 03-02-PLAN.md — Auth/signin page and Help/FAQ page restyle with semantic tokens
+- [ ] 03-03-PLAN.md — Legal pages (privacy, terms), explore/region wrappers, and DemandChecker token fixes
 **UI hint**: yes
 
 ### Phase 4: Buyer Pages
@@ -139,7 +143,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
-| 3. Public Pages | 0/TBD | Not started | - |
+| 3. Public Pages | 0/3 | Not started | - |
 | 4. Buyer Pages | 0/TBD | Not started | - |
 | 5. Owner Pages | 0/TBD | Not started | - |
 | 6. User App Pages | 0/TBD | Not started | - |
