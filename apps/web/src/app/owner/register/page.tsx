@@ -89,10 +89,10 @@ export default function RegisterPropertyPage() {
 
   if (status === "loading") {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-          <div className="h-4 bg-gray-200 rounded w-2/3 mb-8" />
+          <div className="h-8 bg-surface-raised rounded w-1/3 mb-4" />
+          <div className="h-4 bg-surface-raised rounded w-2/3 mb-8" />
           <div className="card h-96" />
         </div>
       </div>
@@ -101,12 +101,12 @@ export default function RegisterPropertyPage() {
 
   if (!session) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4">
             Sign in to Register Your Property
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to register your property and see buyer
             demand.
           </p>
@@ -122,12 +122,12 @@ export default function RegisterPropertyPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">
+        <h1 className="text-2xl font-bold text-primary">
           Register Your Property
         </h1>
-        <p className="text-gray-600">
+        <p className="text-secondary">
           Add your property details to see how many buyers are interested.
         </p>
       </div>
@@ -135,7 +135,7 @@ export default function RegisterPropertyPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Address */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-base font-bold text-primary mb-4">
             Property Address
           </h2>
           <div className="space-y-4">
@@ -174,7 +174,7 @@ export default function RegisterPropertyPage() {
                 placeholder="Start typing an address..."
                 required
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted mt-1">
                 Start typing to search for NZ addresses
               </p>
             </div>
@@ -245,7 +245,7 @@ export default function RegisterPropertyPage() {
 
         {/* Property Details */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-base font-bold text-primary mb-4">
             Property Details
           </h2>
           <div className="space-y-4">
@@ -311,7 +311,7 @@ export default function RegisterPropertyPage() {
 
         {/* Size */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-base font-bold text-primary mb-4">
             Property Size
           </h2>
           <div className="grid grid-cols-3 gap-4">
@@ -363,17 +363,17 @@ export default function RegisterPropertyPage() {
 
         {/* Features */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Features</h2>
+          <h2 className="text-base font-bold text-primary mb-4">Features</h2>
           <div className="flex flex-wrap gap-2">
             {FEATURES.map((feature) => (
               <button
                 key={feature.value}
                 type="button"
                 onClick={() => toggleFeature(feature.value)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                className={`px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
                   features.includes(feature.value)
-                    ? "bg-primary-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "badge-info"
+                    : "badge-neutral hover:opacity-80"
                 }`}
               >
                 {feature.label}
@@ -384,10 +384,10 @@ export default function RegisterPropertyPage() {
 
         {/* Valuation */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-base font-bold text-primary mb-4">
             Valuation (Optional)
           </h2>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-sm text-secondary mb-4">
             Adding valuations helps match your property with buyers in the right
             budget range.
           </p>
@@ -405,7 +405,7 @@ export default function RegisterPropertyPage() {
                 min="0"
                 className="input"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted mt-1 tabular-nums">
                 {estimatedValue &&
                   `$${parseInt(estimatedValue).toLocaleString()},000`}
               </p>
@@ -423,7 +423,7 @@ export default function RegisterPropertyPage() {
                 min="0"
                 className="input"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted mt-1 tabular-nums">
                 {rvValue && `$${parseInt(rvValue).toLocaleString()},000`}
               </p>
             </div>
@@ -431,7 +431,7 @@ export default function RegisterPropertyPage() {
         </div>
 
         {error && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+          <div className="p-4 bg-error-light border border-error rounded-lg text-error">
             {error}
           </div>
         )}
