@@ -116,7 +116,7 @@ Plans:
 Plans:
 - [x] 06-01-PLAN.md — Restyle dashboard (stat cards, upgrade CTA, quick actions) and profile/settings page
 - [x] 06-02-PLAN.md — Update STATUS_LABELS and restyle inquiries listing + inquiry detail/thread
-- [ ] 06-03-PLAN.md — Restyle wanted ad detail (889 lines) and property view page
+- [x] 06-03-PLAN.md — Restyle wanted ad detail (889 lines) and property view page
 - [x] 06-04-PLAN.md — Restyle saved searches and notifications pages (icon-in-circle removal)
 - [x] 06-05-PLAN.md — Restyle upgrade/pricing page and claim flow (most AI slop)
 **UI hint**: yes
