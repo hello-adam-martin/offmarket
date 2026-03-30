@@ -211,7 +211,7 @@ export default function CreateWantedAdPage() {
     return (
       <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-primary mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4 font-display">
             Sign in to Register Your Interest
           </h1>
           <p className="text-secondary mb-6">
@@ -240,7 +240,7 @@ export default function CreateWantedAdPage() {
             </svg>
           </div>
 
-          <h1 className="text-2xl font-bold text-primary mb-2">
+          <h1 className="text-2xl font-bold text-primary mb-2 font-display">
             Interest Registered!
           </h1>
           <p className="text-secondary mb-8">
@@ -256,7 +256,7 @@ export default function CreateWantedAdPage() {
                 </svg>
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-primary mb-1">
+                <h3 className="font-semibold text-primary mb-1 font-display">
                   Want to go the extra mile?
                 </h3>
                 <p className="text-sm text-secondary mb-4">
@@ -312,7 +312,7 @@ export default function CreateWantedAdPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Location - First */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-primary mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4 font-display">
             Target Location *
           </h2>
 
@@ -530,7 +530,7 @@ export default function CreateWantedAdPage() {
 
         {/* Budget */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-primary mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4 font-display">
             Budget *
           </h2>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -578,7 +578,7 @@ export default function CreateWantedAdPage() {
 
         {/* Basic Info */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-primary mb-4">
+          <h2 className="text-lg font-semibold text-primary mb-4 font-display">
             {targetType === "SPECIFIC_ADDRESS" ? "Why This Property?" : "Basic Information"}
           </h2>
           <div className="space-y-4">
@@ -624,7 +624,7 @@ export default function CreateWantedAdPage() {
         {/* Property Requirements - Only for General Area */}
         {targetType !== "SPECIFIC_ADDRESS" && (
           <div className="card">
-            <h2 className="text-lg font-semibold text-primary mb-4">
+            <h2 className="text-lg font-semibold text-primary mb-4 font-display">
               Property Requirements
             </h2>
             <div className="space-y-4">

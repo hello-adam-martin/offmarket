@@ -225,7 +225,7 @@ export default async function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Privacy First
               </h3>
               <p className="text-text-secondary">
@@ -235,7 +235,7 @@ export default async function HomePage() {
             </div>
 
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Beat the Market
               </h3>
               <p className="text-text-secondary">
@@ -245,7 +245,7 @@ export default async function HomePage() {
             </div>
 
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Direct Connection
               </h3>
               <p className="text-text-secondary">
@@ -255,7 +255,7 @@ export default async function HomePage() {
             </div>
 
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Save on Fees
               </h3>
               <p className="text-text-secondary">
@@ -265,7 +265,7 @@ export default async function HomePage() {
             </div>
 
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Escrow Protection
               </h3>
               <p className="text-text-secondary">
@@ -275,7 +275,7 @@ export default async function HomePage() {
             </div>
 
             <div className="card">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 NZ Focused
               </h3>
               <p className="text-text-secondary">
@@ -427,7 +427,7 @@ export default async function HomePage() {
 
           <div className="space-y-6">
             <div className="border-b border-border pb-6">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 How is this different from Trade Me Property or realestate.co.nz?
               </h3>
               <p className="text-text-secondary">
@@ -439,7 +439,7 @@ export default async function HomePage() {
             </div>
 
             <div className="border-b border-border pb-6">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Is my property address visible to buyers?
               </h3>
               <p className="text-text-secondary">
@@ -450,7 +450,7 @@ export default async function HomePage() {
             </div>
 
             <div className="border-b border-border pb-6">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 What happens if a buyer doesn&apos;t respond to my inquiry?
               </h3>
               <p className="text-text-secondary">
@@ -461,7 +461,7 @@ export default async function HomePage() {
             </div>
 
             <div className="border-b border-border pb-6">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Do I need to be ready to sell right now?
               </h3>
               <p className="text-text-secondary">
@@ -472,7 +472,7 @@ export default async function HomePage() {
             </div>
 
             <div className="pb-6">
-              <h3 className="text-lg font-semibold text-text-base mb-2">
+              <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
                 Can I use this as a buyer and an owner?
               </h3>
               <p className="text-text-secondary">

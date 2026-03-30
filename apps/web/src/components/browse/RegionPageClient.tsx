@@ -358,7 +358,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-text-base mb-2">
+          <h1 className="text-3xl font-bold text-text-base mb-2 font-display">
             Buyer Demand in {filters.suburb || filters.city || regionName}
           </h1>
           <p className="text-text-secondary">
@@ -397,7 +397,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
             {/* Property Types */}
             {propertyTypeBreakdown.length > 0 && (
               <div className="card p-4">
-                <h3 className="font-semibold text-text-base mb-3">Property Types Wanted</h3>
+                <h3 className="font-semibold text-text-base mb-3 font-display">Property Types Wanted</h3>
                 <div className="space-y-2">
                   {propertyTypeBreakdown.map(({ type, label, count }) => (
                     <div key={type} className="flex items-center justify-between">
@@ -422,7 +422,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
             {/* Popular Locations */}
             {popularLocations.length > 0 && (
               <div className="card p-4">
-                <h3 className="font-semibold text-text-base mb-3">Popular Locations</h3>
+                <h3 className="font-semibold text-text-base mb-3 font-display">Popular Locations</h3>
                 <div className="space-y-2">
                   {popularLocations.map(({ name, count }, index) => (
                     <div key={name} className="flex items-center justify-between">
@@ -445,7 +445,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
             {/* Bedroom Demand */}
             {bedroomDemand.length > 0 && (
               <div className="card p-4">
-                <h3 className="font-semibold text-text-base mb-3">Bedroom Requirements</h3>
+                <h3 className="font-semibold text-text-base mb-3 font-display">Bedroom Requirements</h3>
                 <div className="flex flex-wrap gap-2">
                   {bedroomDemand.map(({ beds, count }) => (
                     <div
@@ -464,7 +464,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           {/* Area Demand Section */}
           {areaDemand && areaDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-text-base mb-4">
+              <h2 className="text-xl font-semibold text-text-base mb-4 font-display">
                 What Buyers Are Looking For
               </h2>
               <DemandCardGrid data={areaDemand.data} />
@@ -481,7 +481,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           {/* Property Demand Section */}
           {propertyDemand && propertyDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-text-base mb-4">
+              <h2 className="text-xl font-semibold text-text-base mb-4 font-display">
                 Specific Properties with Buyer Interest
               </h2>
               <PropertyCardGrid data={propertyDemand.data} />
@@ -503,7 +503,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold text-text-base mb-2">
+          <h3 className="text-lg font-semibold text-text-base mb-2 font-display">
             No buyer demand yet in {regionName}
           </h3>
           <p className="text-text-secondary mb-6">
@@ -525,7 +525,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           <div className="bg-surface-raised rounded-xl p-6 mt-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold text-text-base">
+                <h3 className="text-lg font-semibold text-text-base font-display">
                   Own property in {regionName}?
                 </h3>
                 <p className="text-text-secondary">

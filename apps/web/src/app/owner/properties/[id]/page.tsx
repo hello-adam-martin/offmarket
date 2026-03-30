@@ -186,7 +186,7 @@ export default function PropertyDetailPage() {
     return (
       <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-primary mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4 font-display">
             Sign in Required
           </h1>
           <p className="text-secondary mb-6">
@@ -207,7 +207,7 @@ export default function PropertyDetailPage() {
     return (
       <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-primary mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4 font-display">
             Property Not Found
           </h1>
           <p className="text-secondary mb-6">
@@ -253,7 +253,7 @@ export default function PropertyDetailPage() {
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           {/* Property Info */}
           <div className="flex-1">
-            <h1 className="text-2xl md:text-3xl font-bold text-primary">
+            <h1 className="text-2xl md:text-3xl font-bold text-primary font-display">
               {property.address}
             </h1>
             {location && (
@@ -340,7 +340,7 @@ export default function PropertyDetailPage() {
           {/* Demand Summary */}
           <div className="flex-shrink-0 lg:w-64 card border-l-4 border-accent">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-semibold text-primary">Buyer Demand</h2>
+              <h2 className="text-sm font-semibold text-primary font-display">Buyer Demand</h2>
             </div>
             <p className="text-xl font-bold text-accent tabular-nums mb-1">
               {demand?.totalBuyers || 0}
@@ -373,7 +373,7 @@ export default function PropertyDetailPage() {
       <div className="card mb-6">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold text-primary">Property Photos</h2>
+            <h2 className="text-lg font-semibold text-primary font-display">Property Photos</h2>
             <p className="text-sm text-secondary">
               Add photos to share with interested buyers
             </p>
@@ -426,7 +426,7 @@ export default function PropertyDetailPage() {
           {demand && demand.directInterest && demand.directInterest.length > 0 && (
             <div className="card border-l-4 border-accent">
               <div className="mb-4">
-                <h2 className="text-lg font-semibold text-primary">
+                <h2 className="text-lg font-semibold text-primary font-display">
                   Direct Interest ({demand.directInterestCount})
                 </h2>
                 <p className="text-sm text-secondary">
@@ -471,7 +471,7 @@ export default function PropertyDetailPage() {
           <div className="card">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-lg font-semibold text-primary">
+                <h2 className="text-lg font-semibold text-primary font-display">
                   Criteria Matches {demand?.criteriaMatchCount ? `(${demand.criteriaMatchCount})` : ""}
                 </h2>
                 <p className="text-sm text-secondary">

@@ -103,7 +103,7 @@ export default function RegisterPropertyPage() {
     return (
       <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-primary mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4 font-display">
             Sign in to Register Your Property
           </h1>
           <p className="text-secondary mb-6">
@@ -124,7 +124,7 @@ export default function RegisterPropertyPage() {
   return (
     <div className="max-w-content mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-primary">
+        <h1 className="text-2xl font-bold text-primary font-display">
           Register Your Property
         </h1>
         <p className="text-secondary">
@@ -135,7 +135,7 @@ export default function RegisterPropertyPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Address */}
         <div className="card">
-          <h2 className="text-base font-bold text-primary mb-4">
+          <h2 className="text-base font-bold text-primary mb-4 font-display">
             Property Address
           </h2>
           <div className="space-y-4">
@@ -245,7 +245,7 @@ export default function RegisterPropertyPage() {
 
         {/* Property Details */}
         <div className="card">
-          <h2 className="text-base font-bold text-primary mb-4">
+          <h2 className="text-base font-bold text-primary mb-4 font-display">
             Property Details
           </h2>
           <div className="space-y-4">
@@ -311,7 +311,7 @@ export default function RegisterPropertyPage() {
 
         {/* Size */}
         <div className="card">
-          <h2 className="text-base font-bold text-primary mb-4">
+          <h2 className="text-base font-bold text-primary mb-4 font-display">
             Property Size
           </h2>
           <div className="grid grid-cols-3 gap-4">
@@ -363,7 +363,7 @@ export default function RegisterPropertyPage() {
 
         {/* Features */}
         <div className="card">
-          <h2 className="text-base font-bold text-primary mb-4">Features</h2>
+          <h2 className="text-base font-bold text-primary mb-4 font-display">Features</h2>
           <div className="flex flex-wrap gap-2">
             {FEATURES.map((feature) => (
               <button
@@ -384,7 +384,7 @@ export default function RegisterPropertyPage() {
 
         {/* Valuation */}
         <div className="card">
-          <h2 className="text-base font-bold text-primary mb-4">
+          <h2 className="text-base font-bold text-primary mb-4 font-display">
             Valuation (Optional)
           </h2>
           <p className="text-sm text-secondary mb-4">

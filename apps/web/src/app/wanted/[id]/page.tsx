@@ -274,7 +274,7 @@ export default function WantedAdDetailPage({
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                           </svg>
                           <div className="flex-1">
-                            <h2 className="text-base font-semibold text-primary">{addr.address}</h2>
+                            <h2 className="text-base font-semibold text-primary font-display">{addr.address}</h2>
                             <p className="text-sm text-muted">
                               {[addr.suburb, addr.city, addr.region].filter(Boolean).join(", ")}
                             </p>
@@ -362,7 +362,7 @@ export default function WantedAdDetailPage({
                         {propData?.capitalValue && (
                           <div className="mt-4">
                             <div className="flex items-center justify-between mb-3">
-                              <h3 className="text-sm font-medium text-secondary">Council Valuation</h3>
+                              <h3 className="text-sm font-medium text-secondary font-display">Council Valuation</h3>
                               {propData.valuationDate && (
                                 <span className="text-xs text-muted">
                                   {new Date(propData.valuationDate).toLocaleDateString("en-NZ", {
@@ -438,7 +438,7 @@ export default function WantedAdDetailPage({
                         {/* Features */}
                         {propData?.features && propData.features.length > 0 && (
                           <div className="mt-4 pt-4 border-t border-border">
-                            <h3 className="text-sm font-medium text-secondary mb-2">Property Features</h3>
+                            <h3 className="text-sm font-medium text-secondary mb-2 font-display">Property Features</h3>
                             <div className="flex flex-wrap gap-2">
                               {propData.features.map((feature, j) => (
                                 <span
@@ -464,7 +464,7 @@ export default function WantedAdDetailPage({
                 </div>
               ) : (
                 <div className="card">
-                  <h2 className="text-base font-semibold text-primary mb-4">
+                  <h2 className="text-base font-semibold text-primary mb-4 font-display">
                     Property of Interest
                   </h2>
                   <div className="p-4 bg-surface-raised rounded-md text-center">
@@ -484,7 +484,7 @@ export default function WantedAdDetailPage({
               {/* Description */}
               {ad.description && (
                 <div className="card">
-                  <h2 className="text-base font-semibold text-primary mb-3">
+                  <h2 className="text-base font-semibold text-primary mb-3 font-display">
                     Message to Owner
                   </h2>
                   <p className="text-secondary whitespace-pre-wrap">{ad.description}</p>
@@ -493,7 +493,7 @@ export default function WantedAdDetailPage({
 
               {/* Budget info */}
               <div className="card">
-                <h2 className="text-base font-semibold text-primary mb-4">
+                <h2 className="text-base font-semibold text-primary mb-4 font-display">
                   Buyer Details
                 </h2>
                 <div className="space-y-3">
@@ -513,7 +513,7 @@ export default function WantedAdDetailPage({
               {/* Communication with Owner - only show for owner viewing their own ad */}
               {isOwner && (
                 <div className="card">
-                  <h2 className="text-base font-semibold text-primary mb-4">
+                  <h2 className="text-base font-semibold text-primary mb-4 font-display">
                     Communication with Owner
                   </h2>
 
@@ -649,7 +649,7 @@ export default function WantedAdDetailPage({
               {/* Description */}
               {ad.description && (
                 <div className="card">
-                  <h2 className="text-base font-semibold text-primary mb-3">
+                  <h2 className="text-base font-semibold text-primary mb-3 font-display">
                     Description
                   </h2>
                   <p className="text-secondary whitespace-pre-wrap">{ad.description}</p>
@@ -658,7 +658,7 @@ export default function WantedAdDetailPage({
 
               {/* Property Requirements - Only for AREA or BOTH types */}
               <div className="card">
-                <h2 className="text-base font-semibold text-primary mb-4">
+                <h2 className="text-base font-semibold text-primary mb-4 font-display">
                   Property Requirements
                 </h2>
                 <div className="space-y-4">
@@ -752,7 +752,7 @@ export default function WantedAdDetailPage({
 
               {/* Target Locations */}
               <div className="card">
-                <h2 className="text-base font-semibold text-primary mb-4">
+                <h2 className="text-base font-semibold text-primary mb-4 font-display">
                   Target Locations
                 </h2>
                 <p className="text-sm text-secondary mb-3">
@@ -839,7 +839,7 @@ export default function WantedAdDetailPage({
           {!isOwner && (
             <>
               <div className="card">
-                <h2 className="text-base font-semibold text-primary mb-4">
+                <h2 className="text-base font-semibold text-primary mb-4 font-display">
                   About the Buyer
                 </h2>
                 <div className="flex items-center gap-3 mb-4">
@@ -867,7 +867,7 @@ export default function WantedAdDetailPage({
 
               {/* CTA for Owners */}
               <div className="card border-l-4 border-accent">
-                <h3 className="font-semibold text-primary mb-2">
+                <h3 className="font-semibold text-primary mb-2 font-display">
                   Own a matching property?
                 </h3>
                 <p className="text-sm text-secondary mb-4">

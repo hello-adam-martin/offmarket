@@ -6,7 +6,7 @@ export default function OwnerPage() {
     <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Hero */}
       <div className="mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-display">
           Discover Hidden Demand for Your Property
         </h1>
         <p className="text-base text-secondary">
@@ -22,7 +22,7 @@ export default function OwnerPage() {
 
       {/* Quick Check */}
       <div className="mb-12">
-        <h2 className="text-xl font-semibold text-primary mb-6">
+        <h2 className="text-xl font-semibold text-primary mb-6 font-display">
           Check Demand Instantly
         </h2>
         <DemandChecker />
@@ -45,7 +45,7 @@ export default function OwnerPage() {
             />
           </svg>
           <div>
-            <h3 className="text-base font-bold text-primary mb-1">100% Private</h3>
+            <h3 className="text-base font-bold text-primary mb-1 font-display">100% Private</h3>
             <p className="text-sm text-secondary">
               Your property is never publicly listed. Only you can see the detailed
               demand data.
@@ -68,7 +68,7 @@ export default function OwnerPage() {
             />
           </svg>
           <div>
-            <h3 className="text-base font-bold text-primary mb-1">See Real Demand</h3>
+            <h3 className="text-base font-bold text-primary mb-1 font-display">See Real Demand</h3>
             <p className="text-sm text-secondary">
               View actual buyer budgets and requirements. Know what your property
               is worth to real buyers.
@@ -91,7 +91,7 @@ export default function OwnerPage() {
             />
           </svg>
           <div>
-            <h3 className="text-base font-bold text-primary mb-1">Connect on Your Terms</h3>
+            <h3 className="text-base font-bold text-primary mb-1 font-display">Connect on Your Terms</h3>
             <p className="text-sm text-secondary">
               Reach out to interested buyers only when you&apos;re ready. No
               pressure, no agents.
@@ -102,7 +102,7 @@ export default function OwnerPage() {
 
       {/* CTA */}
       <div className="card bg-surface-raised border-border text-center py-10">
-        <h2 className="text-2xl font-bold text-primary mb-4">
+        <h2 className="text-2xl font-bold text-primary mb-4 font-display">
           Ready to See Who Wants Your Property?
         </h2>
         <p className="text-secondary mb-6">
@@ -121,12 +121,12 @@ export default function OwnerPage() {
 
       {/* FAQ */}
       <div className="mt-12">
-        <h2 className="text-xl font-semibold text-primary mb-6">
+        <h2 className="text-xl font-semibold text-primary mb-6 font-display">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           <div className="card">
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               Is my property address publicly visible?
             </h3>
             <p className="text-secondary text-sm">
@@ -136,7 +136,7 @@ export default function OwnerPage() {
             </p>
           </div>
           <div className="card">
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               Do I have to sell if there&apos;s interest?
             </h3>
             <p className="text-secondary text-sm">
@@ -146,7 +146,7 @@ export default function OwnerPage() {
             </p>
           </div>
           <div className="card">
-            <h3 className="font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-2 font-display">
               What information can buyers see about me?
             </h3>
             <p className="text-secondary text-sm">
