@@ -97,7 +97,10 @@ Plans:
   1. The register property form shows DESIGN.md layout with image upload component, address autocomplete, and correct input styling end-to-end
   2. The my properties listing shows property cards with DESIGN.md card pattern, status badges, and correct empty state
   3. The property detail page shows demand display and match scores with tabular-nums — numeric data is visually distinct and readable
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
+- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
 **UI hint**: yes
 
 ### Phase 6: User App Pages
@@ -109,7 +112,10 @@ Plans:
   2. The upgrade/pricing page shows tier comparison with DESIGN.md card pattern, teal CTA on the recommended plan, and no AI slop layout patterns
   3. The inquiry message thread shows DESIGN.md surface colors, correct reply form input styling, and readable typography hierarchy
   4. Notifications and saved searches pages show DESIGN.md list styling with correct empty states
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
+- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
 **UI hint**: yes
 
 ### Phase 7: Admin Pages
@@ -121,7 +127,10 @@ Plans:
   2. The billing pages (subscriptions, escrows, overview, settings) show financial data with tabular-nums and semantically correct status badges (success green, error red, warning amber — not mixed up)
   3. The user management table shows DESIGN.md table styling with correct action button variants
   4. Email template editor and postcards admin pages render DESIGN.md form and card patterns
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
+- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
 **UI hint**: yes
 
 ### Phase 8: Cross-Cutting Audit
@@ -134,7 +143,10 @@ Plans:
   3. No page contains any AI slop blacklist violation: no purple gradients, no blob/SVG patterns, no icon-in-circle cards, no centered hero text, no generic "Find Your Dream Home" copy
   4. Every page passes WCAG AA contrast ratios in both light and dark mode (verifiable via browser accessibility audit)
   5. Every page renders correctly at sm (640px), md (768px), lg (1024px), and xl (1280px) breakpoints
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
+- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
 **UI hint**: yes
 
 ## Progress
@@ -148,7 +160,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
-| 5. Owner Pages | 0/TBD | Not started | - |
+| 5. Owner Pages | 0/2 | Not started | - |
 | 6. User App Pages | 0/TBD | Not started | - |
 | 7. Admin Pages | 0/TBD | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |
