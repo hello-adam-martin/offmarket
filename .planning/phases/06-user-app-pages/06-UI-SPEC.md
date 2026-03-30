@@ -62,8 +62,8 @@ Phase 6 contains no h1/hero elements — all headings are subsection-level or lo
 | Secondary / metadata | DM Sans | 14px (sm) | 400 | 1.5 | `text-sm font-sans` |
 | Labels / badges | DM Sans | 12px (xs) | 600 | 1.4 | `text-xs font-semibold uppercase tracking-wide` |
 | Headings / stat values | General Sans | 24px (xl) | 600 | 1.3 | `text-xl font-display` |
-| Data / numbers | DM Sans | 16–24px (md–xl) | 700 | 1.3 | `tabular-nums font-bold` |
-| Mono / claim codes | JetBrains Mono | 14–16px | 400–500 | 1.5 | `font-mono tabular-nums` |
+| Data / numbers | DM Sans | 16–24px (md–xl) | 600 | 1.3 | `tabular-nums font-semibold` |
+| Mono / claim codes | JetBrains Mono | 14–16px | 400 | 1.5 | `font-mono tabular-nums` |
 
 Rules:
 - 32px (2xl) is NOT used in Phase 6. No h1 or section-title headings exist in user app pages.
@@ -71,9 +71,9 @@ Rules:
 - All body, labels, data use `font-sans` (DM Sans).
 - All numeric displays (prices, counts, percentages, claim codes) must have `tabular-nums` on the containing element.
 - Timestamps use `text-sm text-muted`.
-- Two weights only in body: 400 (regular) and 600 (semibold/labels). Bold (700) reserved for stat values only.
+- Two weights only: 400 (regular) and 600 (semibold/labels/headings/stats). Stat values use `font-semibold` (600) — heavier than headings is achieved through `text-xl` size contrast, not weight.
 
-Source: DESIGN.md Typography section; tailwind.config.ts fontSize config. 32px removed per checker — no h1/hero elements in user app pages.
+Source: DESIGN.md Typography section; tailwind.config.ts fontSize config. 32px removed per checker — no h1/hero elements in user app pages. Weights revised to 400/600 only per checker pass 2.
 
 ---
 
@@ -166,7 +166,7 @@ Source: CONTEXT.md Reusable Assets; globals.css; RESEARCH.md CSS Component Class
 
 **Layout:** `max-w-content` centered container. Stat cards in responsive grid (sm: 1col, md: 2col, lg: 4col). Quick actions below as horizontal card list.
 
-**Stat cards:** `.card` class. Numbers in `tabular-nums font-bold text-xl font-display`. Label in `.label`. No icon containers.
+**Stat cards:** `.card` class. Numbers in `tabular-nums font-semibold text-xl font-display`. Label in `.label`. No icon containers.
 
 **Upgrade CTA card (free users):** `.card` + `border-l-4 border-accent`. No gradient background. Children: "Free Plan" `badge-neutral`, usage count `tabular-nums`, progress bar, "Upgrade" `btn-primary`. Remove: `bg-gradient-to-r from-purple-50 via-primary-50 to-accent-50`.
 
@@ -197,6 +197,8 @@ Source: CONTEXT.md Claude's Discretion — follow Phase 4-5 `.input`/`.card`/`.l
 ---
 
 ### Inquiries Listing (USER-03)
+
+**Focal point:** Filter tabs row + unread count badges — the primary interaction surface that controls which inquiries are visible. Unread `badge-info` counts on tabs create immediate visual hierarchy.
 
 **Layout:** `max-w-content`. Filter tabs use `bg-surface-raised` container, active tab `bg-surface border-b-2 border-accent text-accent`.
 
@@ -240,7 +242,7 @@ Source: CONTEXT.md D-07, D-08, D-09, D-10.
 
 **Layout:** `max-w-content`. Two-column at lg: main content left (2/3), sidebar right (1/3). Single column below lg.
 
-**Demand panel:** `.card` + `border-l-4 border-accent` (matches Phase 5 owner detail pattern). Match total in `text-xl tabular-nums font-bold font-display`.
+**Demand panel:** `.card` + `border-l-4 border-accent` (matches Phase 5 owner detail pattern). Match total in `text-xl tabular-nums font-semibold font-display`.
 
 **Match score:** `text-accent` only — no color tiers (matches Phase 5 D-05 decision: single text-accent color for all scores).
 
@@ -248,7 +250,7 @@ Source: CONTEXT.md D-07, D-08, D-09, D-10.
 
 **Address header:** Remove icon-in-circle container. Use inline icon `w-5 h-5 text-muted` before address text.
 
-**Stat values:** `tabular-nums font-bold text-xl font-display`.
+**Stat values:** `tabular-nums font-semibold text-xl font-display`.
 
 **Gradient card removal:** Replace any `bg-gradient-to-br` demand cards with flat `.card`.
 
@@ -272,6 +274,8 @@ Source: CONTEXT.md D-21, D-23, D-24, D-29; RESEARCH.md.
 
 ### Saved Searches (USER-07)
 
+**Focal point:** The saved search card list — each `.card-compact` item is the primary content unit. Cards with the most recent match activity should appear at top; the list itself is the main interaction surface for managing searches.
+
 **Layout:** `max-w-content`. List of saved search cards.
 
 **List items:** `.card-compact` per item. No icon-in-circle wrappers on type indicators.
@@ -287,6 +291,8 @@ Source: CONTEXT.md D-29; RESEARCH.md Pattern: Icon-in-Circle Removal.
 ---
 
 ### Notifications (USER-08)
+
+**Focal point:** Unread notification items at the top of the list — distinguished by `bg-surface` (vs `bg-background` for read items) and a left border `border-l-2 border-accent`. The unread/read visual split is the primary hierarchy signal.
 
 **Layout:** `max-w-content`. Chronological list with type filtering tabs.
 
@@ -310,6 +316,8 @@ Source: CONTEXT.md D-26; RESEARCH.md Pattern: Icon-in-Circle Removal.
 
 ### Upgrade / Pricing (USER-09)
 
+**Focal point:** The Pro pricing card with `border-2 border-accent` — the asymmetric border weight immediately distinguishes it from the Free card and anchors the user's attention on the recommended tier.
+
 **Layout:** `max-w-content`. Left-aligned header (not centered). Two-column card grid at md+: Free card left, Pro card right. Single column below md.
 
 **Billing toggle:** Outer container `bg-surface-raised rounded-md p-1 inline-flex`. Active tab `bg-surface rounded-sm text-accent font-medium shadow-sm`. Inactive tab `text-text-secondary`. Savings badge `badge-success`.
@@ -322,7 +330,7 @@ Source: CONTEXT.md D-26; RESEARCH.md Pattern: Icon-in-Circle Removal.
 - Available: checkmark icon `text-accent` + `text-primary` feature text
 - Unavailable: X icon `text-muted` + `text-muted` feature text
 
-**Price display:** `tabular-nums font-bold` on price numbers. Monthly/yearly price swaps on toggle.
+**Price display:** `tabular-nums font-semibold` on price numbers. Monthly/yearly price swaps on toggle.
 
 **Alert banners (top of page):**
 - Success (upgrade complete): `bg-success-light border border-success text-success rounded-md p-4`
