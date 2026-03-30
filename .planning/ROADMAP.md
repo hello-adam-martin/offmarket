@@ -132,8 +132,8 @@ Plans:
   4. Email template editor and postcards admin pages render DESIGN.md form and card patterns
 **Plans**: 2 plans
 Plans:
-- [ ] 07-01-PLAN.md — TBD
-- [ ] 07-02-PLAN.md — TBD
+- [ ] 07-01-PLAN.md — Restyle admin layout shell, dashboard, users table, and billing overview
+- [ ] 07-02-PLAN.md — Restyle billing detail pages (subscriptions, escrows, settings), email templates, and postcards admin
 **UI hint**: yes
 
 ### Phase 8: Cross-Cutting Audit
@@ -165,5 +165,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
 | 6. User App Pages | 5/5 | Complete   | 2026-03-30 |
-| 7. Admin Pages | 0/TBD | Not started | - |
+| 7. Admin Pages | 0/2 | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |
