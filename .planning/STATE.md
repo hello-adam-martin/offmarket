@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 5 UI-SPEC approved
-last_updated: "2026-03-30T06:02:05.524Z"
+status: executing
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-30T06:23:04.919Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 8
   completed_phases: 4
-  total_plans: 13
-  completed_plans: 13
+  total_plans: 15
+  completed_plans: 14
   percent: 0
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** Every page and component visually matches DESIGN.md — typography, color, spacing, layout, dark mode
-**Current focus:** Phase 04 — buyer-pages
+**Current focus:** Phase 05 — owner-pages
 
 ## Current Position
 
-Phase: 5
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 05 (owner-pages) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -63,6 +63,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-public-pages P02 | 18 | 2 tasks | 4 files |
 | Phase 04-buyer-pages P02 | 5 | 2 tasks | 2 files |
 | Phase 04-buyer-pages P01 | 5 | 1 tasks | 1 files |
+| Phase 05-owner-pages P01 | 117s | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,7 @@ Recent decisions affecting current work:
 - [Phase 04-02]: Fallback status badge uses badge-neutral for consistency; free postcard badge uses badge-success (positive outcome)
 - [Phase 04-01]: btn-outline replaced with btn-secondary — btn-outline was never defined in globals.css
 - [Phase 04-01]: max-w-content used for all buyer page containers (1120px) replacing max-w-3xl/max-w-xl per D-12
+- [Phase 05-01]: Hero left-aligned (D-07): removed text-center from owner landing hero, benefits flattened to flex rows (D-08), CTA card flat bg-surface-raised no gradient (D-09), feature badges badge-info/badge-neutral (D-17), error tokens bg-error-light/text-error (D-26)
 
 ### Pending Todos
 
@@ -110,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T06:02:05.521Z
-Stopped at: Phase 5 UI-SPEC approved
-Resume file: .planning/phases/05-owner-pages/05-UI-SPEC.md
+Last session: 2026-03-30T06:23:04.916Z
+Stopped at: Completed 05-01-PLAN.md
+Resume file: None

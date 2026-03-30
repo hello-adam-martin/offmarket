@@ -99,7 +99,7 @@ Plans:
   3. The property detail page shows demand display and match scores with tabular-nums — numeric data is visually distinct and readable
 **Plans**: 2 plans
 Plans:
-- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
+- [x] 05-01-PLAN.md — Restyle owner landing page and register property form
 - [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
 **UI hint**: yes
 
@@ -160,7 +160,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
-| 5. Owner Pages | 0/2 | Not started | - |
+| 5. Owner Pages | 1/2 | In Progress|  |
 | 6. User App Pages | 0/TBD | Not started | - |
 | 7. Admin Pages | 0/TBD | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |

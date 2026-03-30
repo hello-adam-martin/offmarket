@@ -60,7 +60,7 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Owner Pages
 
-- [ ] **OWNR-01**: Register property page restyled — form layout, image upload, address fields
+- [x] **OWNR-01**: Register property page restyled — form layout, image upload, address fields
 - [ ] **OWNR-02**: My properties listing page restyled
 - [ ] **OWNR-03**: Property detail page restyled — demand display, match scores, inquiry actions
 
@@ -171,7 +171,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BUYR-01 | Phase 4 | Complete |
 | BUYR-02 | Phase 4 | Complete |
 | BUYR-03 | Phase 4 | Complete |
-| OWNR-01 | Phase 5 | Pending |
+| OWNR-01 | Phase 5 | Complete |
 | OWNR-02 | Phase 5 | Pending |
 | OWNR-03 | Phase 5 | Pending |
 | USER-01 | Phase 6 | Pending |
