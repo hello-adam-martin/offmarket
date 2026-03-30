@@ -257,12 +257,12 @@ export function BrowsePageClient() {
         />
       )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-            <p className="mt-2 text-gray-600">Loading demand data...</p>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
+            <p className="mt-2 text-text-secondary">Loading demand data...</p>
           </div>
         )}
 
@@ -288,7 +288,7 @@ export function BrowsePageClient() {
           {/* Area Demand Section */}
           {areaDemand && areaDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">What Buyers Are Looking For</h2>
+              <h2 className="text-lg font-semibold text-text-base mb-4">What Buyers Are Looking For</h2>
               <DemandCardGrid data={areaDemand.data} />
               {areaDemand.meta.totalPages > 1 && (
                 <Pagination
@@ -303,7 +303,7 @@ export function BrowsePageClient() {
           {/* Property Demand Section */}
           {propertyDemand && propertyDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              <h2 className="text-lg font-semibold text-text-base mb-4">
                 Specific Properties with Buyer Interest
               </h2>
               <PropertyCardGrid data={propertyDemand.data} />
@@ -322,7 +322,7 @@ export function BrowsePageClient() {
         {/* No Results for Filters */}
         {hasFilters && !loading && !showResults && (
           <div className="card text-center py-12">
-            <p className="text-gray-500 mb-4">No buyer demand found for this area yet.</p>
+            <p className="text-text-muted mb-4">No buyer demand found for this area yet.</p>
             <button onClick={handleClearFilters} className="btn-secondary">
               Clear Filters
             </button>

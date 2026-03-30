@@ -63,7 +63,7 @@ export function FilterPanel({ filters, regionCounts, onChange, onClear }: Filter
   if (hasActiveFilters) {
     return (
       <div className="sticky top-0 z-10 bg-surface border-b border-border shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main filter row */}
           <div className="flex items-center gap-3 py-3">
             {/* Region dropdown - compact */}

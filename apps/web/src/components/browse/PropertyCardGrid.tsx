@@ -27,26 +27,26 @@ export function PropertyCardGrid({ data }: PropertyCardGridProps) {
           <Link
             key={i}
             href={`/property/${encodedAddress}`}
-            className="card border-primary-200 bg-gradient-to-br from-white to-primary-50 hover:border-primary-400 hover:shadow-md transition-all"
+            className="card hover:border-accent hover:shadow-md transition-all"
           >
             <div className="flex items-start justify-between gap-2">
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-gray-900 truncate">{property.address}</p>
-                <p className="text-sm text-gray-600 truncate">
+                <p className="font-medium text-text-base truncate">{property.address}</p>
+                <p className="text-sm text-text-secondary truncate">
                   {[property.suburb, property.city].filter(Boolean).join(", ")}
                 </p>
               </div>
               <div className="text-right shrink-0">
-                <p className="text-2xl font-bold text-primary-600">{property.buyerCount}</p>
-                <p className="text-xs text-gray-500">
+                <p className="text-2xl font-bold text-accent">{property.buyerCount}</p>
+                <p className="text-xs text-text-muted">
                   {property.buyerCount === 1 ? "buyer" : "buyers"}
                 </p>
               </div>
             </div>
-            <div className="mt-3 pt-3 border-t border-primary-100">
-              <p className="text-sm text-gray-600">
+            <div className="mt-3 pt-3 border-t border-border">
+              <p className="text-sm text-text-secondary">
                 Budgets:{" "}
-                <span className="font-medium text-gray-900">{formatBudgets(property.budgets)}</span>
+                <span className="font-medium text-text-base">{formatBudgets(property.budgets)}</span>
               </p>
             </div>
           </Link>

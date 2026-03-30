@@ -291,7 +291,7 @@ export function RegionFilterPanel({ regionName, filters, onChange, onClear, onSa
 
   return (
     <div className="bg-surface border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-3 py-3">
           {/* City/Town dropdown */}
           {citiesAndTowns.length > 0 && (

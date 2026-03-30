@@ -286,10 +286,10 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600" />
-          <p className="mt-2 text-gray-600">Loading demand data...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-accent" />
+          <p className="mt-2 text-text-secondary">Loading demand data...</p>
         </div>
       </div>
     );
@@ -308,49 +308,49 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
         onSaveSearch={session ? () => setShowSaveModal(true) : undefined}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <nav className="mb-6">
           <ol className="flex items-center gap-2 text-sm">
             <li>
-              <Link href="/explore" className="text-gray-500 hover:text-primary-600">
+              <Link href="/explore" className="text-text-muted hover:text-accent">
                 Explorer
               </Link>
             </li>
-            <li className="text-gray-400">/</li>
+            <li className="text-text-muted">/</li>
             {filters.city || filters.suburb ? (
               <li>
                 <button
                   onClick={() => handleFilterChange({ city: null, suburb: null })}
-                  className="text-gray-500 hover:text-primary-600"
+                  className="text-text-muted hover:text-accent"
                 >
                   {regionName}
                 </button>
               </li>
             ) : (
-              <li className="text-gray-900 font-medium">{regionName}</li>
+              <li className="text-text-base font-medium">{regionName}</li>
             )}
             {filters.city && (
               <>
-                <li className="text-gray-400">/</li>
+                <li className="text-text-muted">/</li>
                 {filters.suburb ? (
                   <li>
                     <button
                       onClick={() => handleFilterChange({ suburb: null })}
-                      className="text-gray-500 hover:text-primary-600"
+                      className="text-text-muted hover:text-accent"
                     >
                       {filters.city}
                     </button>
                   </li>
                 ) : (
-                  <li className="text-gray-900 font-medium">{filters.city}</li>
+                  <li className="text-text-base font-medium">{filters.city}</li>
                 )}
               </>
             )}
             {filters.suburb && (
               <>
-                <li className="text-gray-400">/</li>
-                <li className="text-gray-900 font-medium">{filters.suburb}</li>
+                <li className="text-text-muted">/</li>
+                <li className="text-text-base font-medium">{filters.suburb}</li>
               </>
             )}
           </ol>
@@ -358,10 +358,10 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold text-text-base mb-2">
             Buyer Demand in {filters.suburb || filters.city || regionName}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-text-secondary">
             {filterDescription
               ? `Showing results for: ${filterDescription}`
               : "Discover what property buyers are looking for in this region"}
@@ -370,23 +370,23 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-3xl font-bold text-primary-600">{regionCount}</p>
-          <p className="text-sm text-gray-500">Active Buyers</p>
+        <div className="card p-4">
+          <p className="text-3xl font-bold text-accent">{regionCount}</p>
+          <p className="text-sm text-text-muted">Active Buyers</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-3xl font-bold text-accent-600">{areaDemand?.summary?.totalGroups || 0}</p>
-          <p className="text-sm text-gray-500">Buyer Groups</p>
+        <div className="card p-4">
+          <p className="text-3xl font-bold text-accent">{areaDemand?.summary?.totalGroups || 0}</p>
+          <p className="text-sm text-text-muted">Buyer Groups</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-3xl font-bold text-gray-900">
+        <div className="card p-4">
+          <p className="text-3xl font-bold text-text-base">
             {areaDemand?.summary?.avgBudget ? formatNZD(areaDemand.summary.avgBudget) : "$0"}
           </p>
-          <p className="text-sm text-gray-500">Avg Budget</p>
+          <p className="text-sm text-text-muted">Avg Budget</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-3xl font-bold text-gray-900">{propertyDemand?.summary?.totalProperties || 0}</p>
-          <p className="text-sm text-gray-500">Specific Properties</p>
+        <div className="card p-4">
+          <p className="text-3xl font-bold text-text-base">{propertyDemand?.summary?.totalProperties || 0}</p>
+          <p className="text-sm text-text-muted">Specific Properties</p>
         </div>
       </div>
 
@@ -396,22 +396,22 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           <div className="grid lg:grid-cols-3 gap-6 mb-8">
             {/* Property Types */}
             {propertyTypeBreakdown.length > 0 && (
-              <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="font-semibold text-gray-900 mb-3">Property Types Wanted</h3>
+              <div className="card p-4">
+                <h3 className="font-semibold text-text-base mb-3">Property Types Wanted</h3>
                 <div className="space-y-2">
                   {propertyTypeBreakdown.map(({ type, label, count }) => (
                     <div key={type} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-700">{label}</span>
+                      <span className="text-sm text-text-base">{label}</span>
                       <div className="flex items-center gap-2">
-                        <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="w-24 h-2 bg-surface-raised rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-primary-500 rounded-full"
+                            className="h-full bg-accent rounded-full"
                             style={{
                               width: `${(count / (propertyTypeBreakdown[0]?.count || 1)) * 100}%`,
                             }}
                           />
                         </div>
-                        <span className="text-xs text-gray-500 w-8 text-right">{count}</span>
+                        <span className="text-xs text-text-muted w-8 text-right">{count}</span>
                       </div>
                     </div>
                   ))}
@@ -421,21 +421,21 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
             {/* Popular Locations */}
             {popularLocations.length > 0 && (
-              <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="font-semibold text-gray-900 mb-3">Popular Locations</h3>
+              <div className="card p-4">
+                <h3 className="font-semibold text-text-base mb-3">Popular Locations</h3>
                 <div className="space-y-2">
                   {popularLocations.map(({ name, count }, index) => (
                     <div key={name} className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span className={`
                           w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold
-                          ${index === 0 ? "bg-yellow-100 text-yellow-700" : "bg-gray-100 text-gray-600"}
+                          ${index === 0 ? "bg-secondary-light text-secondary" : "bg-surface-raised text-text-secondary"}
                         `}>
                           {index + 1}
                         </span>
-                        <span className="text-sm text-gray-700">{name}</span>
+                        <span className="text-sm text-text-base">{name}</span>
                       </div>
-                      <span className="text-xs text-gray-500">{count} buyers</span>
+                      <span className="text-xs text-text-muted">{count} buyers</span>
                     </div>
                   ))}
                 </div>
@@ -444,16 +444,16 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
             {/* Bedroom Demand */}
             {bedroomDemand.length > 0 && (
-              <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="font-semibold text-gray-900 mb-3">Bedroom Requirements</h3>
+              <div className="card p-4">
+                <h3 className="font-semibold text-text-base mb-3">Bedroom Requirements</h3>
                 <div className="flex flex-wrap gap-2">
                   {bedroomDemand.map(({ beds, count }) => (
                     <div
                       key={beds}
-                      className="px-3 py-2 bg-gray-50 rounded-lg text-center"
+                      className="px-3 py-2 bg-surface-raised rounded-lg text-center"
                     >
-                      <p className="text-lg font-bold text-gray-900">{count}</p>
-                      <p className="text-xs text-gray-500">{beds}</p>
+                      <p className="text-lg font-bold text-text-base">{count}</p>
+                      <p className="text-xs text-text-muted">{beds}</p>
                     </div>
                   ))}
                 </div>
@@ -464,7 +464,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           {/* Area Demand Section */}
           {areaDemand && areaDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              <h2 className="text-xl font-semibold text-text-base mb-4">
                 What Buyers Are Looking For
               </h2>
               <DemandCardGrid data={areaDemand.data} />
@@ -481,7 +481,7 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
           {/* Property Demand Section */}
           {propertyDemand && propertyDemand.data.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              <h2 className="text-xl font-semibold text-text-base mb-4">
                 Specific Properties with Buyer Interest
               </h2>
               <PropertyCardGrid data={propertyDemand.data} />
@@ -497,16 +497,16 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
         </>
       ) : (
         /* No Data State */
-        <div className="bg-white rounded-xl border border-gray-200 p-8 text-center">
-          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="card p-8 text-center">
+          <div className="w-16 h-16 bg-surface-raised rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg font-semibold text-text-base mb-2">
             No buyer demand yet in {regionName}
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-text-secondary mb-6">
             Be the first to express interest in properties in this region.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -522,13 +522,13 @@ export function RegionPageClient({ regionName }: RegionPageClientProps) {
 
         {/* CTA Section */}
         {hasData && (
-          <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 mt-8">
+          <div className="bg-surface-raised rounded-xl p-6 mt-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-lg font-semibold text-text-base">
                   Own property in {regionName}?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-text-secondary">
                   Check if any buyers are looking for your specific property.
                 </p>
               </div>
