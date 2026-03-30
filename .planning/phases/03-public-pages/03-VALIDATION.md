@@ -2,8 +2,8 @@
 phase: 3
 slug: public-pages
 status: draft
-nyquist_compliant: false
-wave_0_complete: false
+nyquist_compliant: true
+wave_0_complete: true
 created: 2026-03-30
 ---
 
@@ -19,15 +19,15 @@ created: 2026-03-30
 |----------|-------|
 | **Framework** | Visual inspection + grep verification (no unit test framework for CSS-only changes) |
 | **Config file** | none — visual/structural verification only |
-| **Quick run command** | `cd apps/web && npx next build 2>&1 | tail -5` |
-| **Full suite command** | `cd apps/web && npx next build && echo "BUILD_OK"` |
+| **Quick run command** | `pnpm --filter @offmarket/web build 2>&1 | tail -5` |
+| **Full suite command** | `pnpm --filter @offmarket/web build && echo "BUILD_OK"` |
 | **Estimated runtime** | ~30 seconds |
 
 ---
 
 ## Sampling Rate
 
-- **After every task commit:** Run `cd apps/web && npx next build 2>&1 | tail -5`
+- **After every task commit:** Run `pnpm --filter @offmarket/web build 2>&1 | tail -5`
 - **After every plan wave:** Run full build + grep verification commands
 - **Before `/gsd:verify-work`:** Full build must pass + all grep checks green
 - **Max feedback latency:** 30 seconds
@@ -39,13 +39,11 @@ created: 2026-03-30
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
 | 03-01-01 | 01 | 1 | PUBL-01 | grep | `grep -c 'bg-gradient' apps/web/src/app/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-01-02 | 01 | 1 | PUBL-01 | grep | `grep -c 'max-w-7xl' apps/web/src/app/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-02-01 | 02 | 1 | PUBL-02 | grep | `grep -c 'max-w-7xl' apps/web/src/app/explore/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-02-02 | 02 | 1 | PUBL-03 | grep | `grep -c 'bg-gray' apps/web/src/app/explore/\[region\]/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-03-01 | 03 | 1 | PUBL-07 | grep | `grep -c 'border-gray' apps/web/src/app/auth/signin/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-04-01 | 04 | 1 | PUBL-04 | grep | `grep -c 'prose-gray' apps/web/src/app/help/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-04-02 | 04 | 1 | PUBL-05 | grep | `grep -c 'text-gray' apps/web/src/app/privacy/page.tsx` (must be 0) | N/A | ⬜ pending |
-| 03-04-03 | 04 | 1 | PUBL-06 | grep | `grep -c 'text-gray' apps/web/src/app/terms/page.tsx` (must be 0) | N/A | ⬜ pending |
+| 03-01-02 | 01 | 1 | PUBL-01 | grep | `grep -c 'max-w-7xl' apps/web/src/app/page.tsx` (must be 0) + `grep -c 'font-display' apps/web/src/app/page.tsx` (must be > 0) + `grep -c 'gray-' apps/web/src/app/page.tsx` (must be 0) | N/A | ⬜ pending |
+| 03-02-01 | 02 | 1 | PUBL-07 | grep | `grep -c 'border-gray' apps/web/src/app/auth/signin/page.tsx` (must be <= 1, Google button only) | N/A | ⬜ pending |
+| 03-02-02 | 02 | 1 | PUBL-04 | grep | `grep -c 'justify-center' apps/web/src/app/help/page.tsx` (must be 0) + `grep -c 'rounded-full' apps/web/src/app/help/page.tsx` (must be 0) + `grep -c 'gray-' apps/web/src/app/help/page.tsx` (must be 0) | N/A | ⬜ pending |
+| 03-03-01 | 03 | 1 | PUBL-05, PUBL-06 | grep | `grep -c 'gray-' apps/web/src/app/privacy/page.tsx` (must be 0) + `grep -c 'prose' apps/web/src/app/privacy/page.tsx` (must be 0) + `grep -c 'gray-' apps/web/src/app/terms/page.tsx` (must be 0) + `grep -c 'prose' apps/web/src/app/terms/page.tsx` (must be 0) | N/A | ⬜ pending |
+| 03-03-02 | 03 | 1 | PUBL-02, PUBL-03 | grep | `grep -c 'max-w-7xl' apps/web/src/app/explore/page.tsx` (must be 0) + `grep -c 'gray-' apps/web/src/app/explore/page.tsx` (must be 0) + `grep -c 'gray-' apps/web/src/components/demand-checker.tsx` (must be 0) | N/A | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -53,7 +51,7 @@ created: 2026-03-30
 
 ## Wave 0 Requirements
 
-Existing infrastructure covers all phase requirements. No test framework installation needed — this phase is CSS/markup only. Verification is via build success + grep for banned patterns.
+Existing infrastructure covers all phase requirements. No test framework installation needed — this phase is CSS/markup only. Verification is via build success + grep for banned patterns. All tasks have automated verify commands in their plan files.
 
 ---
 
@@ -69,11 +67,11 @@ Existing infrastructure covers all phase requirements. No test framework install
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 30s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags
+- [x] Feedback latency < 30s
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** approved
