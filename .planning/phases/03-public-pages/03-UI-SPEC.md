@@ -35,18 +35,17 @@ Declared values (base unit: 4px — source: DESIGN.md):
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| 2xs | 2px | Fine separators only (hairline borders, icon gaps) |
 | xs | 4px | Icon gaps, tight inline padding |
 | sm | 8px | Compact element spacing (step number gutter, badge padding) |
 | md | 16px | Default element spacing, form field padding, card internal padding |
 | lg | 24px | Section internal padding, card generous padding |
 | xl | 32px | Between-component spacing, layout gaps |
 | 2xl | 48px | Between-section spacing on homepage |
-| 3xl | 64px | Page-level vertical rhythm (`py-16` = 64px, `py-24` = 96px for hero) |
+| 3xl | 64px | Page-level vertical rhythm (`py-16` = 64px) |
 
 Exceptions:
 - Touch targets: minimum 44px enforced via `min-h-[44px]` on all interactive buttons (WCAG 2.5.5). Not a spacing token.
-- Hero section vertical padding: `py-16 md:py-24` (64px/96px) — intentionally generous per DESIGN.md editorial layout guidance.
+- Hairline separators: use CSS `border` (1px default) — not a spacing token.
 - Legal page section separators: `mb-8` (32px) between h2 sections, `mb-4` (16px) between paragraphs.
 
 **Source:** Phase 1 UI-SPEC.md (Spacing section); DESIGN.md Spacing section.
@@ -55,21 +54,20 @@ Exceptions:
 
 ## Typography
 
-Phase 3 uses a subset of the full 7-stop scale declared in Phase 1. Individual pages use no more than 4 sizes simultaneously.
+Phase 3 declares 4 active sizes. Sizes 12px, 14px, and 18px are part of the system-wide scale established in Phase 1 but are not primary sizes for Phase 3 pages.
 
 | Role | Size | Font Family | Weight | Line Height | Usage in Phase 3 |
 |------|------|-------------|--------|-------------|------------------|
 | Display | 48px (3xl) | General Sans (`font-display`) | 700 | 1.1 | Homepage hero headline only |
 | Heading | 32px (2xl) | General Sans (`font-display`) | 700 | 1.2 | Homepage section headings (h2), legal page h1, help page h1 |
-| Subheading | 24px (xl) | General Sans (`font-display`) | 600 | 1.3 | Homepage subsections, legal page h2, auth card heading |
-| Section sub | 18px (lg) | DM Sans (`font-sans`) | 400 | 1.5 | Homepage lead paragraphs, legal page h3 |
-| Body | 16px (md) | DM Sans (`font-sans`) | 400 | 1.6 | Body copy, FAQ answers, legal body text, auth form |
-| Secondary | 14px (sm) | DM Sans (`font-sans`) | 400 | 1.5 | Metadata, captions, auth disclaimer, badge context text |
-| Label | 12px (xs) | DM Sans (`font-sans`) | 600 | 1.4 | Badges, FAQ category tabs (uppercase + tracking-wide) |
+| Subheading | 24px (xl) | General Sans (`font-display`) | 700 | 1.3 | Homepage subsections, legal page h2, auth card heading |
+| Body | 16px (md) | DM Sans (`font-sans`) | 400 | 1.6 | Body copy, FAQ answers, legal body text, auth form, metadata, captions |
 
-**Weights declared (per family):**
-- General Sans: 700 (h1/h2), 600 (h3/subsection)
-- DM Sans: 400 (body/secondary/lead), 600 (labels/badges/UI elements)
+**System reference (inherited from Phase 1, not primary in Phase 3):** 18px lead paragraphs, 14px secondary/caption text, 12px badge labels. Apply these sizes directly via Tailwind scale values (`text-sm`, `text-xs`) where needed — they do not require declaration as primary type roles in this phase.
+
+**Weights declared (2 weights across all families):**
+- 700 bold — all headings (Display, Heading, Subheading) in General Sans
+- 400 regular — all body copy, metadata, and UI text in DM Sans
 
 **Data rendering rule:** Any numeric value shown in the homepage hero stats row, stats section, or DemandChecker result must apply `tabular-nums` (Tailwind `tabular-nums` utility class). Source: FOUN-14 requirement.
 
@@ -148,7 +146,7 @@ The full token system is defined in Phase 1. Phase 3 applies these tokens — no
 ### Homepage (`apps/web/src/app/page.tsx`)
 
 **Hero section (PUBL-01, D-01 through D-05):**
-- Background: `bg-bg py-16 md:py-24` — no gradient, no SVG pattern, no colored background
+- Background: `bg-bg py-16` — no gradient, no SVG pattern, no colored background
 - Layout: `max-w-content mx-auto px-4 sm:px-6 lg:px-8`
 - Heading: left-aligned, `text-3xl font-display font-bold text-text-base` — replace "Find Your Dream Home" with data-forward copy
 - Stats: server-side fetched aggregate demand data (active buyers, active regions, avg budget) rendered with `tabular-nums`. If fetch fails: D-04 fallback — static left-aligned value proposition copy, no numbers, no skeleton
@@ -213,7 +211,7 @@ Identical treatment to Explore page:
 **Card:** `.card` class on the auth card container (already a `.card` in most implementations — verify and apply if not)
 
 **Typography fixes:**
-- Page heading: `text-2xl font-display font-semibold text-text-base`
+- Page heading: `text-2xl font-display font-bold text-text-base`
 - Subtitle: `text-md text-text-secondary`
 - Form labels: `.label` class
 
@@ -244,13 +242,13 @@ bg-error/10 border border-error/30 rounded-md text-error text-sm p-3
 
 **Category tabs (D-12):** `justify-start` row (not `justify-center`). Tab button pattern:
 ```
-Active:   px-4 py-2 rounded-sm text-xs font-semibold uppercase tracking-wide bg-accent text-white
-Inactive: px-4 py-2 rounded-sm text-xs font-semibold uppercase tracking-wide bg-surface-raised text-text-secondary border border-border hover:bg-surface hover:text-text-base
+Active:   px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wide bg-accent text-white
+Inactive: px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-wide bg-surface-raised text-text-secondary border border-border hover:bg-surface hover:text-text-base
 ```
 
 **FAQ accordion items:** `.card` class already in use — verify `overflow-hidden` is present for height transition. Expand/collapse via existing `useState` toggle (no changes to logic).
 
-**FAQ question text:** `text-md font-semibold text-text-base`
+**FAQ question text:** `text-md font-bold text-text-base`
 
 **FAQ answer text:** `text-md text-text-secondary`
 
@@ -277,8 +275,8 @@ Inactive: px-4 py-2 rounded-sm text-xs font-semibold uppercase tracking-wide bg-
 
 **Heading hierarchy:**
 - h1: `text-2xl font-display font-bold text-text-base mb-8`
-- h2: `text-xl font-display font-semibold text-text-base mb-4 mt-8`
-- h3: `text-lg font-display font-medium text-text-base mb-3`
+- h2: `text-xl font-display font-bold text-text-base mb-4 mt-8`
+- h3: `text-lg font-display font-bold text-text-base mb-3`
 
 **Body text:** `text-md text-text-secondary mb-4` (all `text-gray-700` / `text-gray-600` instances)
 
@@ -391,7 +389,7 @@ max-w-content mx-auto px-4 sm:px-6 lg:px-8
 ```
 
 **Section vertical spacing (homepage):**
-- Hero: `py-16 md:py-24`
+- Hero: `py-16`
 - Interior sections: `py-16`
 - Between sections: no explicit margin — rely on `py-16` pairs creating 32px visual gap
 
