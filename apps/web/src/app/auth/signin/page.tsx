@@ -35,8 +35,8 @@ function SignInForm() {
   };
 
   return (
-    <div className="card">
-      {/* Google Sign In */}
+    <div className="card p-8">
+      {/* Google Sign In — D-14: intentional brand trust signal, gray tokens preserved */}
       <button
         onClick={handleGoogleSignIn}
         className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
@@ -64,10 +64,10 @@ function SignInForm() {
 
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200" />
+          <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-white text-gray-500">
+          <span className="px-4 bg-surface text-text-muted">
             Or continue with email
           </span>
         </div>
@@ -86,12 +86,12 @@ function SignInForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
             required
-            className="input"
+            className="input w-full mt-1"
           />
         </div>
 
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="bg-error-light border border-error rounded-md text-error text-sm p-3">
             {error}
           </div>
         )}
@@ -105,13 +105,13 @@ function SignInForm() {
         </button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-sm text-text-muted">
         By signing in, you agree to our{" "}
-        <Link href="/terms" className="text-primary-600 hover:underline">
+        <Link href="/terms" className="text-accent hover:text-accent-hover underline">
           Terms of Service
         </Link>{" "}
         and{" "}
-        <Link href="/privacy" className="text-primary-600 hover:underline">
+        <Link href="/privacy" className="text-accent hover:text-accent-hover underline">
           Privacy Policy
         </Link>
       </p>
@@ -121,13 +121,13 @@ function SignInForm() {
 
 function SignInFormFallback() {
   return (
-    <div className="card animate-pulse">
-      <div className="h-12 bg-gray-200 rounded-lg mb-6" />
-      <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto mb-6" />
+    <div className="card p-8 animate-pulse">
+      <div className="h-12 bg-surface-raised rounded-lg mb-6" />
+      <div className="h-4 bg-surface-raised rounded w-1/2 mx-auto mb-6" />
       <div className="space-y-4">
-        <div className="h-4 bg-gray-200 rounded w-1/4" />
-        <div className="h-10 bg-gray-200 rounded" />
-        <div className="h-10 bg-gray-200 rounded" />
+        <div className="h-4 bg-surface-raised rounded w-1/4" />
+        <div className="h-10 bg-surface-raised rounded" />
+        <div className="h-10 bg-surface-raised rounded" />
       </div>
     </div>
   );
@@ -138,8 +138,8 @@ export default function SignInPage() {
     <div className="min-h-[calc(100vh-64px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-3xl font-display font-bold text-text-base">Welcome</h1>
+          <p className="mt-2 text-md text-text-secondary">
             Sign in to start your property journey
           </p>
         </div>

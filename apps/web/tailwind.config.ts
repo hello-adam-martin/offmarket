@@ -25,8 +25,10 @@ export default {
         "text-muted": "var(--color-text-muted)",
         "text-inverse": "var(--color-text-inverse)",
         success: "var(--color-success)",
+        "success-light": "var(--color-success-light)",
         warning: "var(--color-warning)",
         error: "var(--color-error)",
+        "error-light": "var(--color-error-light)",
         info: "var(--color-info)",
       },
       fontFamily: {
