@@ -11,10 +11,10 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600">
+        <h1 className="text-xl font-display font-semibold text-primary">Dashboard</h1>
+        <p className="text-secondary">
           Welcome back, {session.user?.name || session.user?.email}
         </p>
       </div>
@@ -25,27 +25,27 @@ export default async function DashboardPage() {
       <div className="grid md:grid-cols-2 gap-6">
         {/* Buyer Section */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-xl font-display font-semibold text-primary mb-4">
             As a Buyer
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-secondary mb-4">
             Register your interest to let property owners know you&apos;re looking in
             their area.
           </p>
           <div className="space-y-3">
             <Link
               href="/buyer/my-ads"
-              className="block p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors"
+              className="block bg-surface border border-border rounded-md p-4 hover:border-accent transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900">My Interests</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-primary">My Interests</p>
+                  <p className="text-sm text-secondary">
                     View and manage your buyer interests
                   </p>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-muted"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -61,17 +61,17 @@ export default async function DashboardPage() {
             </Link>
             <Link
               href="/buyer/create"
-              className="block p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors"
+              className="block bg-surface border border-border rounded-md p-4 hover:border-accent transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900">Register Interest</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-primary">Register Interest</p>
+                  <p className="text-sm text-secondary">
                     Tell owners what you&apos;re looking for
                   </p>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-muted"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -90,27 +90,27 @@ export default async function DashboardPage() {
 
         {/* Owner Section */}
         <div className="card">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-xl font-display font-semibold text-primary mb-4">
             As an Owner
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-secondary mb-4">
             Register your property to see how many buyers are interested in your
             area.
           </p>
           <div className="space-y-3">
             <Link
               href="/owner/my-properties"
-              className="block p-4 border border-gray-200 rounded-lg hover:border-accent-300 hover:bg-accent-50 transition-colors"
+              className="block bg-surface border border-border rounded-md p-4 hover:border-accent transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900">My Properties</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-primary">My Properties</p>
+                  <p className="text-sm text-secondary">
                     View demand for your properties
                   </p>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-muted"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -126,17 +126,17 @@ export default async function DashboardPage() {
             </Link>
             <Link
               href="/owner/register"
-              className="block p-4 border border-gray-200 rounded-lg hover:border-accent-300 hover:bg-accent-50 transition-colors"
+              className="block bg-surface border border-border rounded-md p-4 hover:border-accent transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900">Register Property</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-primary">Register Property</p>
+                  <p className="text-sm text-secondary">
                     Add a new property to check demand
                   </p>
                 </div>
                 <svg
-                  className="w-5 h-5 text-gray-400"
+                  className="w-5 h-5 text-muted"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -157,10 +157,10 @@ export default async function DashboardPage() {
         <div className="card md:col-span-2">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">
+              <h2 className="text-xl font-display font-semibold text-primary">
                 Messages & Inquiries
               </h2>
-              <p className="text-gray-600">
+              <p className="text-secondary">
                 View and respond to messages from buyers or property owners.
               </p>
             </div>
