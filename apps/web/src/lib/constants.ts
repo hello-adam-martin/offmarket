@@ -36,10 +36,10 @@ export const FEATURE_LABELS: Record<string, string> = Object.fromEntries(
   FEATURES.map((f) => [f.value, f.label])
 );
 
-// Inquiry status labels and colors
-export const STATUS_LABELS: Record<string, { label: string; className: string }> = {
-  PENDING: { label: "Pending", className: "bg-yellow-100 text-yellow-800" },
-  ACCEPTED: { label: "Accepted", className: "bg-green-100 text-green-800" },
-  DECLINED: { label: "Declined", className: "bg-red-100 text-red-800" },
-  COMPLETED: { label: "Completed", className: "bg-gray-100 text-gray-600" },
+// Inquiry status labels and badge classes
+export const STATUS_LABELS: Record<string, { label: string; badgeClass: string }> = {
+  PENDING: { label: "Pending", badgeClass: "badge-warning" },
+  ACCEPTED: { label: "Accepted", badgeClass: "badge-success" },
+  DECLINED: { label: "Declined", badgeClass: "badge-error" },
+  COMPLETED: { label: "Completed", badgeClass: "badge-neutral" },
 };

@@ -58,10 +58,10 @@ export default function InquiriesPage() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-          <div className="h-4 bg-gray-200 rounded w-2/3 mb-8" />
+          <div className="h-8 bg-surface-raised rounded w-1/3 mb-4" />
+          <div className="h-4 bg-surface-raised rounded w-2/3 mb-8" />
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="card h-24" />
@@ -74,12 +74,12 @@ export default function InquiriesPage() {
 
   if (!session) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl font-display font-semibold text-primary mb-4">
             Sign in to View Messages
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to view your inquiries and messages.
           </p>
           <Link
@@ -96,25 +96,25 @@ export default function InquiriesPage() {
   const totalUnread = inquiries.reduce((sum, i) => sum + i.unreadCount, 0);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-xl font-display font-semibold text-primary flex items-center gap-2">
             Messages
             {totalUnread > 0 && (
-              <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-600 text-white">
+              <span className="badge-info tabular-nums">
                 {totalUnread} unread
               </span>
             )}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-secondary mt-1">
             Your conversations with buyers and property owners.
           </p>
         </div>
       </div>
 
       {/* Filter tabs */}
-      <div className="flex gap-2 mb-6">
+      <div className="bg-surface-raised rounded-md p-1 inline-flex gap-1 mb-6">
         {[
           { value: "all", label: "All" },
           { value: "buyer", label: "As Buyer" },
@@ -123,10 +123,10 @@ export default function InquiriesPage() {
           <button
             key={tab.value}
             onClick={() => setFilter(tab.value as any)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-4 py-2 rounded-sm text-sm font-medium transition-colors ${
               filter === tab.value
-                ? "bg-primary-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-surface border-b-2 border-accent text-accent"
+                : "text-secondary hover:text-primary"
             }`}
           >
             {tab.label}
@@ -135,17 +135,17 @@ export default function InquiriesPage() {
       </div>
 
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 mb-6">
+        <div className="p-4 bg-error-light border border-error rounded-md text-error mb-6">
           {error}
         </div>
       )}
 
       {inquiries.length === 0 ? (
         <div className="card text-center py-12">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-display font-semibold text-primary mb-2">
             No messages yet
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             {filter === "buyer"
               ? "When you reach out to property owners, your conversations will appear here."
               : filter === "owner"
@@ -167,35 +167,27 @@ export default function InquiriesPage() {
             <Link
               key={inquiry.id}
               href={`/inquiries/${inquiry.id}`}
-              className={`card block hover:border-primary-300 transition-colors ${
-                inquiry.unreadCount > 0 ? "border-primary-300 bg-primary-50" : ""
+              className={`card-compact block hover:border-accent transition-colors ${
+                inquiry.unreadCount > 0 ? "border-accent bg-surface" : ""
               }`}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span
-                      className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                        inquiry.role === "buyer"
-                          ? "bg-blue-100 text-blue-800"
-                          : "bg-purple-100 text-purple-800"
-                      }`}
-                    >
+                    <span className="badge-neutral">
                       {inquiry.role === "buyer" ? "Buyer" : "Owner"}
                     </span>
-                    <span
-                      className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${STATUS_LABELS[inquiry.status].className}`}
-                    >
+                    <span className={STATUS_LABELS[inquiry.status].badgeClass}>
                       {STATUS_LABELS[inquiry.status].label}
                     </span>
                     {inquiry.unreadCount > 0 && (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary-600 text-white">
+                      <span className="badge-info tabular-nums">
                         {inquiry.unreadCount} new
                       </span>
                     )}
                   </div>
 
-                  <p className="font-medium text-gray-900">
+                  <p className="font-medium text-primary">
                     {inquiry.role === "owner"
                       ? inquiry.propertyAddress
                       : [inquiry.propertySuburb, inquiry.propertyCity]
@@ -204,18 +196,18 @@ export default function InquiriesPage() {
                   </p>
 
                   {inquiry.role === "owner" && inquiry.buyerName && (
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-secondary">
                       From: {inquiry.buyerName}
                     </p>
                   )}
 
-                  <p className="text-sm text-gray-500 mt-1 truncate">
+                  <p className="text-sm text-muted mt-1 truncate">
                     {truncate(inquiry.lastMessage, 100)}
                   </p>
                 </div>
 
                 <div className="text-right shrink-0">
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-muted">
                     {formatRelativeTime(inquiry.lastMessageAt)}
                   </p>
                 </div>
