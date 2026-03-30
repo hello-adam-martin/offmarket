@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Tailwind config, CSS variables, fonts, and dark mode provider wired atomically
 - [x] **Phase 2: Shared Components** - Header, footer, modals, form primitives, cards, and all shared UI restyled (completed 2026-03-29)
-- [ ] **Phase 3: Public Pages** - Homepage, explore, region, auth, and legal pages restyled and blacklist-clean
+- [x] **Phase 3: Public Pages** - Homepage, explore, region, auth, and legal pages restyled and blacklist-clean (completed 2026-03-30)
 - [ ] **Phase 4: Buyer Pages** - Create ad, my ads, and postcards pages restyled
 - [ ] **Phase 5: Owner Pages** - Register property, my properties, and property detail pages restyled
 - [ ] **Phase 6: User App Pages** - Dashboard, profile, inquiries, notifications, upgrade, and all user-facing app pages restyled
@@ -71,7 +71,7 @@ Plans:
 **Plans**: 3 plans
 Plans:
 - [x] 03-01-PLAN.md — Homepage full restyle: data-forward hero with live stats, AI slop removal, section cleanup
-- [ ] 03-02-PLAN.md — Auth/signin page and Help/FAQ page restyle with semantic tokens
+- [x] 03-02-PLAN.md — Auth/signin page and Help/FAQ page restyle with semantic tokens
 - [x] 03-03-PLAN.md — Legal pages (privacy, terms), explore/region wrappers, and DemandChecker token fixes
 **UI hint**: yes
 
@@ -143,7 +143,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/3 | In Progress|  |
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
-| 3. Public Pages | 0/3 | Not started | - |
+| 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 0/TBD | Not started | - |
 | 5. Owner Pages | 0/TBD | Not started | - |
 | 6. User App Pages | 0/TBD | Not started | - |

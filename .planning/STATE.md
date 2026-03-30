@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-30T02:24:48.157Z"
+status: verifying
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-03-30T02:25:25.443Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 8
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 
 Phase: 03 (public-pages) — EXECUTING
 Plan: 3 of 3
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -60,6 +60,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-shared-components P05 | 12 | 2 tasks | 2 files |
 | Phase 03 P03 | 10 | 2 tasks | 5 files |
 | Phase 03-public-pages P01 | 298s | 2 tasks | 2 files |
+| Phase 03-public-pages P02 | 18 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,8 @@ Recent decisions affecting current work:
 - [Phase 03-03]: DemandChecker uses bg-success/10 and bg-error/10 directly in JSX className strings (not @apply) — opacity modifiers work in Tailwind utility classes in template files, just not in @apply with CSS variable colors
 - [Phase 03-01]: Homepage hero uses async server component with area-demand API fetch and 5-min revalidation; static fallback when API unavailable
 - [Phase 03-01]: bg-error/10 and bg-success/10 opacity syntax replaced with bg-error-light/bg-success-light in globals.css @apply rules (Tailwind v3 CSS variable opacity modifier limitation)
+- [Phase 03-02]: Error state uses bg-error-light/border-error instead of bg-error/10 — CSS variable opacity modifiers fail in Tailwind @apply; added error-light CSS variable
+- [Phase 03-02]: success-light and error-light CSS variables added to support badge-success and badge-error without opacity modifier syntax
 
 ### Pending Todos
 
@@ -101,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T02:24:48.154Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-03-30T02:25:25.440Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
