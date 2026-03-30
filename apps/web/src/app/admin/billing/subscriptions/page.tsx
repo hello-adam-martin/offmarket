@@ -22,6 +22,19 @@ interface Subscription {
   };
 }
 
+const STATUS_LABELS: Record<string, { label: string; badgeClass: string }> = {
+  ACTIVE: { label: "Active", badgeClass: "badge-success" },
+  CANCELED: { label: "Canceled", badgeClass: "badge-neutral" },
+  PAST_DUE: { label: "Past Due", badgeClass: "badge-error" },
+  TRIALING: { label: "Trialing", badgeClass: "badge-info" },
+  INCOMPLETE: { label: "Incomplete", badgeClass: "badge-warning" },
+};
+
+const TIER_LABELS: Record<string, { label: string; badgeClass: string }> = {
+  PRO: { label: "Pro", badgeClass: "badge-info" },
+  FREE: { label: "Free", badgeClass: "badge-neutral" },
+};
+
 export default function SubscriptionsPage() {
   const { data: session } = useSession();
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
@@ -79,31 +92,6 @@ export default function SubscriptionsPage() {
     fetchSubscriptions();
   };
 
-  const getStatusBadge = (status: string, tier: string) => {
-    if (tier === "FREE") {
-      return (
-        <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600">
-          Free
-        </span>
-      );
-    }
-
-    const statusStyles: Record<string, string> = {
-      ACTIVE: "bg-green-100 text-green-700",
-      PAST_DUE: "bg-yellow-100 text-yellow-700",
-      CANCELED: "bg-gray-100 text-gray-600",
-      INCOMPLETE: "bg-orange-100 text-orange-700",
-    };
-
-    return (
-      <span
-        className={`px-2 py-1 text-xs font-medium rounded-full ${statusStyles[status] || "bg-gray-100 text-gray-600"}`}
-      >
-        {status.replace("_", " ")}
-      </span>
-    );
-  };
-
   const formatDate = (dateString: string | null) => {
     if (!dateString) return "—";
     return new Date(dateString).toLocaleDateString("en-NZ", {
@@ -119,7 +107,7 @@ export default function SubscriptionsPage() {
         <div className="flex items-center gap-4">
           <Link
             href="/admin/billing"
-            className="text-gray-500 hover:text-gray-700"
+            className="text-text-secondary hover:text-text-base"
           >
             <svg
               className="w-5 h-5"
@@ -135,12 +123,12 @@ export default function SubscriptionsPage() {
               />
             </svg>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Subscriptions</h1>
+          <h1 className="text-xl font-display font-semibold text-text-base">Subscriptions</h1>
         </div>
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-lg shadow p-4">
+      <div className="card p-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <form onSubmit={handleSearch} className="flex-1">
             <div className="relative">
@@ -149,10 +137,10 @@ export default function SubscriptionsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by email or name..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="input pl-10"
               />
               <svg
-                className="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
+                className="absolute left-3 top-2.5 h-5 w-5 text-text-muted"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -172,7 +160,7 @@ export default function SubscriptionsPage() {
               setFilter(e.target.value);
               setPage(1);
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="input"
           >
             <option value="all">All Status</option>
             <option value="ACTIVE">Active</option>
@@ -184,120 +172,121 @@ export default function SubscriptionsPage() {
       </div>
 
       {/* Subscriptions Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="card overflow-x-auto p-0">
         {loading ? (
-          <div className="p-8 text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto" />
+          <div className="p-8 space-y-3">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="h-10 bg-surface-raised rounded animate-pulse" />
+            ))}
           </div>
         ) : subscriptions.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">
+          <div className="p-8 text-center text-text-secondary">
             No subscriptions found
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    User
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Tier
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Period End
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Created
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {subscriptions.map((sub) => (
-                  <tr key={sub.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="font-medium text-gray-900">
-                          {sub.user.name || "—"}
+          <table className="w-full min-w-[640px]">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  User
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Tier
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Period End
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Created
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {subscriptions.map((sub) => (
+                <tr key={sub.id} className="hover:bg-surface-raised transition-colors">
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <div>
+                      <p className="font-medium text-text-base">
+                        {sub.user.name || "—"}
+                      </p>
+                      <p className="text-sm text-text-secondary">{sub.user.email}</p>
+                      {sub.stripeCustomerId && (
+                        <p className="text-xs text-text-muted font-mono tabular-nums mt-0.5">
+                          {sub.stripeCustomerId}
                         </p>
-                        <p className="text-sm text-gray-500">{sub.user.email}</p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span
-                        className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          sub.tier === "PRO"
-                            ? "bg-primary-100 text-primary-700"
-                            : "bg-gray-100 text-gray-600"
-                        }`}
-                      >
-                        {sub.tier}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      {getStatusBadge(sub.status, sub.tier)}
-                      {sub.cancelAtPeriodEnd && (
-                        <span className="ml-2 text-xs text-red-500">
-                          Canceling
-                        </span>
                       )}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-500">
-                      {formatDate(sub.currentPeriodEnd)}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-500">
-                      {formatDate(sub.createdAt)}
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        <Link
-                          href={`/admin/users?id=${sub.userId}`}
-                          className="text-sm text-primary-600 hover:text-primary-800"
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <span className={TIER_LABELS[sub.tier]?.badgeClass || "badge-neutral"}>
+                      {TIER_LABELS[sub.tier]?.label || sub.tier}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <span className={STATUS_LABELS[sub.status]?.badgeClass || "badge-neutral"}>
+                      {STATUS_LABELS[sub.status]?.label || sub.status}
+                    </span>
+                    {sub.cancelAtPeriodEnd && (
+                      <span className="ml-2 text-xs text-error">
+                        Canceling
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-secondary tabular-nums">
+                    {formatDate(sub.currentPeriodEnd)}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-secondary tabular-nums">
+                    {formatDate(sub.createdAt)}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={`/admin/users?id=${sub.userId}`}
+                        className="btn-secondary btn-sm"
+                      >
+                        View User
+                      </Link>
+                      {sub.stripeSubscriptionId && (
+                        <a
+                          href={`https://dashboard.stripe.com/subscriptions/${sub.stripeSubscriptionId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary btn-sm"
                         >
-                          View User
-                        </Link>
-                        {sub.stripeSubscriptionId && (
-                          <a
-                            href={`https://dashboard.stripe.com/subscriptions/${sub.stripeSubscriptionId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-gray-500 hover:text-gray-700"
-                          >
-                            Stripe
-                          </a>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                          Stripe
+                        </a>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+          <div className="px-6 py-4 border-t border-border flex items-center justify-between">
             <button
               onClick={() => setPage(Math.max(1, page - 1))}
               disabled={page === 1}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-text-secondary tabular-nums">
               Page {page} of {totalPages}
             </span>
             <button
               onClick={() => setPage(Math.min(totalPages, page + 1))}
               disabled={page === totalPages}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
             </button>

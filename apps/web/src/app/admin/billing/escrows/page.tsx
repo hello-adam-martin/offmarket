@@ -30,6 +30,14 @@ interface EscrowDeposit {
   };
 }
 
+const ESCROW_STATUS_LABELS: Record<string, { label: string; badgeClass: string }> = {
+  PENDING: { label: "Pending", badgeClass: "badge-warning" },
+  HELD: { label: "Held", badgeClass: "badge-info" },
+  RELEASED: { label: "Released", badgeClass: "badge-success" },
+  REFUNDED: { label: "Refunded", badgeClass: "badge-neutral" },
+  EXPIRED: { label: "Expired", badgeClass: "badge-error" },
+};
+
 export default function EscrowsPage() {
   const { data: session } = useSession();
   const [escrows, setEscrows] = useState<EscrowDeposit[]>([]);
@@ -120,24 +128,6 @@ export default function EscrowsPage() {
     }
   };
 
-  const getStatusBadge = (status: string) => {
-    const statusStyles: Record<string, string> = {
-      PENDING: "bg-yellow-100 text-yellow-700",
-      HELD: "bg-blue-100 text-blue-700",
-      RELEASED: "bg-green-100 text-green-700",
-      REFUNDED: "bg-orange-100 text-orange-700",
-      EXPIRED: "bg-gray-100 text-gray-600",
-    };
-
-    return (
-      <span
-        className={`px-2 py-1 text-xs font-medium rounded-full ${statusStyles[status] || "bg-gray-100 text-gray-600"}`}
-      >
-        {status}
-      </span>
-    );
-  };
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-NZ", {
       year: "numeric",
@@ -161,7 +151,7 @@ export default function EscrowsPage() {
         <div className="flex items-center gap-4">
           <Link
             href="/admin/billing"
-            className="text-gray-500 hover:text-gray-700"
+            className="text-text-secondary hover:text-text-base"
           >
             <svg
               className="w-5 h-5"
@@ -177,24 +167,24 @@ export default function EscrowsPage() {
               />
             </svg>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Escrow Deposits</h1>
+          <h1 className="text-xl font-display font-semibold text-text-base">Escrow Deposits</h1>
         </div>
       </div>
 
       {actionResult && (
         <div
-          className={`p-4 rounded-lg ${
+          className={`card border-l-4 ${
             actionResult.type === "success"
-              ? "bg-green-50 border border-green-200 text-green-700"
-              : "bg-red-50 border border-red-200 text-red-700"
+              ? "border-success"
+              : "border-error"
           }`}
         >
-          {actionResult.message}
+          <p className="text-sm text-text-base">{actionResult.message}</p>
         </div>
       )}
 
       {/* Filters */}
-      <div className="bg-white rounded-lg shadow p-4">
+      <div className="card p-4">
         <div className="flex flex-col sm:flex-row gap-4">
           <select
             value={filter}
@@ -202,7 +192,7 @@ export default function EscrowsPage() {
               setFilter(e.target.value);
               setPage(1);
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="input"
           >
             <option value="all">All Status</option>
             <option value="PENDING">Pending</option>
@@ -215,163 +205,161 @@ export default function EscrowsPage() {
       </div>
 
       {/* Escrows Table */}
-      <div className="bg-white rounded-lg shadow overflow-hidden">
+      <div className="card overflow-x-auto p-0">
         {loading ? (
-          <div className="p-8 text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto" />
+          <div className="p-8 space-y-3">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="h-10 bg-surface-raised rounded animate-pulse" />
+            ))}
           </div>
         ) : escrows.length === 0 ? (
-          <div className="p-8 text-center text-gray-500">
+          <div className="p-8 text-center text-text-secondary">
             No escrow deposits found
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Property
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Owner
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Buyer
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Amount
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Expires
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {escrows.map((escrow) => (
-                  <tr key={escrow.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
-                      <p className="text-sm font-medium text-gray-900 truncate max-w-xs">
-                        {escrow.property.address}
+          <table className="w-full min-w-[640px]">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Property
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Owner
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Buyer
+                </th>
+                <th className="px-6 py-3 text-right text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Amount
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Expires
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {escrows.map((escrow) => (
+                <tr key={escrow.id} className="hover:bg-surface-raised transition-colors">
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <p className="font-medium text-text-base truncate max-w-xs">
+                      {escrow.property.address}
+                    </p>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <div>
+                      <p className="font-medium text-text-base">
+                        {escrow.owner.name || "—"}
                       </p>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
-                          {escrow.owner.name || "—"}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {escrow.owner.email}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="text-sm font-medium text-gray-900">
-                          {escrow.buyer.name || "—"}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <p className="text-sm font-semibold text-gray-900">
-                        ${(escrow.amount / 100).toFixed(2)}
+                      <p className="text-xs text-text-secondary">
+                        {escrow.owner.email}
                       </p>
-                    </td>
-                    <td className="px-6 py-4">
-                      {getStatusBadge(escrow.status)}
-                    </td>
-                    <td className="px-6 py-4">
-                      <div>
-                        <p
-                          className={`text-sm ${
-                            isExpiringSoon(escrow.expiresAt)
-                              ? "text-orange-600 font-medium"
-                              : "text-gray-500"
-                          }`}
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <p className="font-medium text-text-base">
+                      {escrow.buyer.name || "—"}
+                    </p>
+                  </td>
+                  <td className="px-6 py-4 text-right font-mono text-sm text-text-base tabular-nums">
+                    ${(escrow.amount / 100).toFixed(2)}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <span className={ESCROW_STATUS_LABELS[escrow.status]?.badgeClass || "badge-neutral"}>
+                      {ESCROW_STATUS_LABELS[escrow.status]?.label || escrow.status}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-secondary tabular-nums">
+                    <div>
+                      <p
+                        className={
+                          isExpiringSoon(escrow.expiresAt)
+                            ? "text-warning font-medium"
+                            : "text-text-secondary"
+                        }
+                      >
+                        {formatDate(escrow.expiresAt)}
+                      </p>
+                      {isExpiringSoon(escrow.expiresAt) &&
+                        escrow.status === "HELD" && (
+                          <p className="text-xs text-warning">
+                            Expiring soon
+                          </p>
+                        )}
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-text-base">
+                    <div className="flex items-center gap-2">
+                      {escrow.status === "HELD" && (
+                        <>
+                          <button
+                            onClick={() => handleAction(escrow.id, "release")}
+                            disabled={actionLoading === escrow.id}
+                            className="btn-secondary btn-sm disabled:opacity-50"
+                          >
+                            {actionLoading === escrow.id
+                              ? "..."
+                              : "Release"}
+                          </button>
+                          <button
+                            onClick={() => handleAction(escrow.id, "refund")}
+                            disabled={actionLoading === escrow.id}
+                            className="btn-destructive btn-sm disabled:opacity-50"
+                          >
+                            {actionLoading === escrow.id
+                              ? "..."
+                              : "Refund"}
+                          </button>
+                        </>
+                      )}
+                      {escrow.inquiryId && (
+                        <Link
+                          href={`/inquiries/${escrow.inquiryId}`}
+                          className="btn-secondary btn-sm"
                         >
-                          {formatDate(escrow.expiresAt)}
-                        </p>
-                        {isExpiringSoon(escrow.expiresAt) &&
-                          escrow.status === "HELD" && (
-                            <p className="text-xs text-orange-500">
-                              Expiring soon
-                            </p>
-                          )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        {escrow.status === "HELD" && (
-                          <>
-                            <button
-                              onClick={() => handleAction(escrow.id, "release")}
-                              disabled={actionLoading === escrow.id}
-                              className="px-3 py-1 text-xs font-medium text-green-700 bg-green-100 rounded hover:bg-green-200 disabled:opacity-50"
-                            >
-                              {actionLoading === escrow.id
-                                ? "..."
-                                : "Release"}
-                            </button>
-                            <button
-                              onClick={() => handleAction(escrow.id, "refund")}
-                              disabled={actionLoading === escrow.id}
-                              className="px-3 py-1 text-xs font-medium text-orange-700 bg-orange-100 rounded hover:bg-orange-200 disabled:opacity-50"
-                            >
-                              {actionLoading === escrow.id
-                                ? "..."
-                                : "Refund"}
-                            </button>
-                          </>
-                        )}
-                        {escrow.inquiryId && (
-                          <Link
-                            href={`/inquiries/${escrow.inquiryId}`}
-                            className="text-xs text-primary-600 hover:text-primary-800"
-                          >
-                            View Inquiry
-                          </Link>
-                        )}
-                        {escrow.stripePaymentId && (
-                          <a
-                            href={`https://dashboard.stripe.com/payments/${escrow.stripePaymentId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-xs text-gray-500 hover:text-gray-700"
-                          >
-                            Stripe
-                          </a>
-                        )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                          View Inquiry
+                        </Link>
+                      )}
+                      {escrow.stripePaymentId && (
+                        <a
+                          href={`https://dashboard.stripe.com/payments/${escrow.stripePaymentId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary btn-sm"
+                        >
+                          Stripe
+                        </a>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+          <div className="px-6 py-4 border-t border-border flex items-center justify-between">
             <button
               onClick={() => setPage(Math.max(1, page - 1))}
               disabled={page === 1}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-text-secondary tabular-nums">
               Page {page} of {totalPages}
             </span>
             <button
               onClick={() => setPage(Math.min(totalPages, page + 1))}
               disabled={page === totalPages}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-secondary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
             </button>
@@ -380,40 +368,30 @@ export default function EscrowsPage() {
       </div>
 
       {/* Legend */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="text-sm font-medium text-gray-900 mb-3">
+      <div className="card">
+        <h3 className="text-sm font-semibold text-text-base mb-3">
           Status Legend
         </h3>
         <div className="flex flex-wrap gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-700">
-              PENDING
-            </span>
-            <span className="text-gray-600">Payment initiated</span>
+            <span className="badge-warning">PENDING</span>
+            <span className="text-text-secondary">Payment initiated</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700">
-              HELD
-            </span>
-            <span className="text-gray-600">Payment captured, awaiting outcome</span>
+            <span className="badge-info">HELD</span>
+            <span className="text-text-secondary">Payment captured, awaiting outcome</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700">
-              RELEASED
-            </span>
-            <span className="text-gray-600">Payment sent to platform</span>
+            <span className="badge-success">RELEASED</span>
+            <span className="text-text-secondary">Payment sent to platform</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-700">
-              REFUNDED
-            </span>
-            <span className="text-gray-600">Payment returned to owner</span>
+            <span className="badge-neutral">REFUNDED</span>
+            <span className="text-text-secondary">Payment returned to owner</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-600">
-              EXPIRED
-            </span>
-            <span className="text-gray-600">Auto-refunded after 30 days</span>
+            <span className="badge-error">EXPIRED</span>
+            <span className="text-text-secondary">Auto-refunded after 30 days</span>
           </div>
         </div>
       </div>
