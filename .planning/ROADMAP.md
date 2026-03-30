@@ -18,7 +18,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Buyer Pages** - Create ad, my ads, and postcards pages restyled (completed 2026-03-30)
 - [x] **Phase 5: Owner Pages** - Register property, my properties, and property detail pages restyled (completed 2026-03-30)
 - [x] **Phase 6: User App Pages** - Dashboard, profile, inquiries, notifications, upgrade, and all user-facing app pages restyled (completed 2026-03-30)
-- [ ] **Phase 7: Admin Pages** - Admin dashboard, user management, billing, email templates, and postcards admin restyled
+- [x] **Phase 7: Admin Pages** - Admin dashboard, user management, billing, email templates, and postcards admin restyled (completed 2026-03-30)
 - [ ] **Phase 8: Cross-Cutting Audit** - Full-site verification of max-width, dark mode, accent color, typography hierarchy, AI slop, accessibility, and responsiveness
 
 ## Phase Details
@@ -133,7 +133,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 07-01-PLAN.md — Restyle admin layout shell, dashboard, users table, and billing overview
-- [ ] 07-02-PLAN.md — Restyle billing detail pages (subscriptions, escrows, settings), email templates, and postcards admin
+- [x] 07-02-PLAN.md — Restyle billing detail pages (subscriptions, escrows, settings), email templates, and postcards admin
 **UI hint**: yes
 
 ### Phase 8: Cross-Cutting Audit
@@ -165,5 +165,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
 | 6. User App Pages | 5/5 | Complete   | 2026-03-30 |
-| 7. Admin Pages | 1/2 | In Progress|  |
+| 7. Admin Pages | 2/2 | Complete   | 2026-03-30 |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |

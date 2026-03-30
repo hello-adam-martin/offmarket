@@ -83,11 +83,11 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 - [x] **ADMN-02**: User management page restyled — data table, action buttons
 - [x] **ADMN-03**: Billing overview page restyled
 - [x] **ADMN-04**: Billing settings page restyled
-- [ ] **ADMN-05**: Subscriptions page restyled — data table with status badges
-- [ ] **ADMN-06**: Escrows page restyled — financial data with tabular-nums
-- [ ] **ADMN-07**: Email templates page restyled
-- [ ] **ADMN-08**: Email template editor page restyled
-- [ ] **ADMN-09**: Postcards admin page restyled
+- [x] **ADMN-05**: Subscriptions page restyled — data table with status badges
+- [x] **ADMN-06**: Escrows page restyled — financial data with tabular-nums
+- [x] **ADMN-07**: Email templates page restyled
+- [x] **ADMN-08**: Email template editor page restyled
+- [x] **ADMN-09**: Postcards admin page restyled
 
 ### Cross-Cutting
 
@@ -188,11 +188,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ADMN-02 | Phase 7 | Complete |
 | ADMN-03 | Phase 7 | Complete |
 | ADMN-04 | Phase 7 | Complete |
-| ADMN-05 | Phase 7 | Pending |
-| ADMN-06 | Phase 7 | Pending |
-| ADMN-07 | Phase 7 | Pending |
-| ADMN-08 | Phase 7 | Pending |
-| ADMN-09 | Phase 7 | Pending |
+| ADMN-05 | Phase 7 | Complete |
+| ADMN-06 | Phase 7 | Complete |
+| ADMN-07 | Phase 7 | Complete |
+| ADMN-08 | Phase 7 | Complete |
+| ADMN-09 | Phase 7 | Complete |
 | XCUT-01 | Phase 8 | Pending |
 | XCUT-02 | Phase 8 | Pending |
 | XCUT-03 | Phase 8 | Pending |
