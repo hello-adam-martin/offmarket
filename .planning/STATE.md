@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 3 UI-SPEC approved
-last_updated: "2026-03-30T02:01:32.310Z"
-last_activity: 2026-03-29
+status: executing
+stopped_at: Completed 03-03-PLAN.md
+last_updated: "2026-03-30T02:24:08.805Z"
+last_activity: 2026-03-30
 progress:
   total_phases: 8
   completed_phases: 2
-  total_plans: 8
-  completed_plans: 8
+  total_plans: 11
+  completed_plans: 9
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** Every page and component visually matches DESIGN.md — typography, color, spacing, layout, dark mode
-**Current focus:** Phase 02 — shared-components
+**Current focus:** Phase 03 — public-pages
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
-Status: Phase complete — ready for verification
-Last activity: 2026-03-29
+Phase: 03 (public-pages) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
+Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02 P03 | 15 | 2 tasks | 3 files |
 | Phase 02 P02 | 8 | 2 tasks | 5 files |
 | Phase 02-shared-components P05 | 12 | 2 tasks | 2 files |
+| Phase 03 P03 | 10 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,7 @@ Recent decisions affecting current work:
 - [Phase 02-02]: PostcardRequestModal retains Headless UI Dialog/Transition — modal-panel-sm applied to Dialog.Panel directly
 - [Phase 02-05]: Delete button moved outside hover overlay div — avoids absolute-in-absolute stacking confusion
 - [Phase 02-05]: Drop zone hover state via Tailwind hover: utilities rather than isHovered state variable
+- [Phase 03-03]: DemandChecker uses bg-success/10 and bg-error/10 directly in JSX className strings (not @apply) — opacity modifiers work in Tailwind utility classes in template files, just not in @apply with CSS variable colors
 
 ### Pending Todos
 
@@ -96,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T02:01:32.301Z
-Stopped at: Phase 3 UI-SPEC approved
-Resume file: .planning/phases/03-public-pages/03-UI-SPEC.md
+Last session: 2026-03-30T02:24:08.803Z
+Stopped at: Completed 03-03-PLAN.md
+Resume file: None
