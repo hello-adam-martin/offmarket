@@ -81,10 +81,10 @@ export default function MyPropertiesPage() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-          <div className="h-4 bg-gray-200 rounded w-2/3 mb-8" />
+          <div className="h-8 bg-surface-raised rounded w-1/3 mb-4" />
+          <div className="h-4 bg-surface-raised rounded w-2/3 mb-8" />
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="card h-32" />
@@ -97,12 +97,12 @@ export default function MyPropertiesPage() {
 
   if (!session) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-primary mb-4">
             Sign in to View Your Properties
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to view and manage your registered
             properties.
           </p>
@@ -118,11 +118,11 @@ export default function MyPropertiesPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Properties</h1>
-          <p className="text-gray-600">
+          <h1 className="text-2xl font-bold text-primary">My Properties</h1>
+          <p className="text-secondary">
             See buyer demand for your properties.
           </p>
         </div>
@@ -132,17 +132,17 @@ export default function MyPropertiesPage() {
       </div>
 
       {error && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 mb-6">
+        <div className="p-4 bg-error-light border border-error rounded-lg text-error mb-6">
           {error}
         </div>
       )}
 
       {properties.length === 0 ? (
         <div className="card text-center py-12">
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-primary mb-2">
             No properties registered
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             Register your property to see how many buyers are interested.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -160,36 +160,36 @@ export default function MyPropertiesPage() {
             <Link
               key={property.id}
               href={`/owner/properties/${property.id}`}
-              className="card block hover:border-primary-300 transition-colors"
+              className="card block hover:border-accent transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div className="flex-1">
-                  <h2 className="text-lg font-semibold text-gray-900 mb-1">
+                  <h2 className="text-lg font-semibold text-primary mb-1">
                     {property.address}
                   </h2>
-                  <p className="text-gray-600 text-sm mb-2">
+                  <p className="text-secondary text-sm mb-2">
                     {[property.suburb, property.city, property.region]
                       .filter(Boolean)
                       .join(", ")}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 text-sm text-gray-500">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                  <div className="flex flex-wrap gap-2 text-sm text-secondary">
+                    <span className="badge-neutral">
                       {PROPERTY_TYPE_LABELS[property.propertyType] ||
                         property.propertyType}
                     </span>
                     {property.bedrooms && (
-                      <span>{property.bedrooms} bed</span>
+                      <span className="tabular-nums">{property.bedrooms} bed</span>
                     )}
                     {property.bathrooms && (
-                      <span>{property.bathrooms} bath</span>
+                      <span className="tabular-nums">{property.bathrooms} bath</span>
                     )}
                     {property.estimatedValue && (
-                      <span>{formatNZD(property.estimatedValue)}</span>
+                      <span className="tabular-nums">{formatNZD(property.estimatedValue)}</span>
                     )}
                   </div>
 
-                  <p className="text-xs text-gray-400 mt-2">
+                  <p className="text-xs text-muted mt-2">
                     Added {formatRelativeTime(property.createdAt)}
                   </p>
                 </div>
@@ -197,12 +197,10 @@ export default function MyPropertiesPage() {
                 <div className="flex flex-col items-end gap-2">
                   {/* Demand count */}
                   <div className="text-center">
-                    <p
-                      className={`text-2xl font-bold ${property.demandCount > 0 ? "text-primary-600" : "text-gray-400"}`}
-                    >
+                    <p className="text-2xl font-bold text-accent tabular-nums">
                       {property.demandCount}
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-secondary">
                       {property.demandCount === 1
                         ? "interested buyer"
                         : "interested buyers"}
@@ -211,12 +209,12 @@ export default function MyPropertiesPage() {
 
                   {/* Actions */}
                   <div className="flex gap-2">
-                    <span className="text-sm text-primary-600">
+                    <span className="text-sm text-accent hover:text-accent-hover">
                       View Details
                     </span>
                     <button
                       onClick={(e) => deleteProperty(property.id, e)}
-                      className="text-sm text-red-600 hover:text-red-800"
+                      className="text-sm text-error hover:text-error-hover"
                     >
                       Delete
                     </button>
