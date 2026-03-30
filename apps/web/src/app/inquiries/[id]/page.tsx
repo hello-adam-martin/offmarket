@@ -148,9 +148,9 @@ export default function InquiryDetailPage() {
 
   if (status === "loading" || loading) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-1/4 mb-4" />
+          <div className="h-6 bg-surface-raised rounded w-1/4 mb-4" />
           <div className="card h-96" />
         </div>
       </div>
@@ -159,12 +159,12 @@ export default function InquiryDetailPage() {
 
   if (!session) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl font-display font-semibold text-primary mb-4">
             Sign in to View Messages
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             You need to be signed in to view this conversation.
           </p>
           <Link
@@ -180,12 +180,12 @@ export default function InquiryDetailPage() {
 
   if (error || !inquiry) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      <div className="max-w-content mx-auto px-4 py-8">
         <div className="card text-center py-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl font-display font-semibold text-primary mb-4">
             Conversation Not Found
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="text-secondary mb-6">
             {error || "This conversation doesn't exist or you don't have access to it."}
           </p>
           <Link href="/inquiries" className="btn-primary">
@@ -201,12 +201,12 @@ export default function InquiryDetailPage() {
     .join(", ");
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="max-w-content mx-auto px-4 py-8">
       {/* Header */}
       <div className="flex items-center gap-4 mb-6">
         <Link
           href="/inquiries"
-          className="text-gray-600 hover:text-gray-900"
+          className="text-secondary hover:text-primary"
         >
           <svg
             className="w-6 h-6"
@@ -223,15 +223,16 @@ export default function InquiryDetailPage() {
           </svg>
         </Link>
         <div className="flex-1">
-          <h1 className="text-xl font-bold text-gray-900">
+          <h1 className="text-xl font-display font-semibold text-primary">
             {inquiry.property.address || propertyLocation || "Property Inquiry"}
           </h1>
           {inquiry.property.address && propertyLocation && (
-            <p className="text-sm text-gray-600">{propertyLocation}</p>
+            <p className="text-sm text-secondary">{propertyLocation}</p>
           )}
         </div>
         <span
-          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${STATUS_LABELS[inquiry.status].className}`}
+          className={STATUS_LABELS[inquiry.status].badgeClass}
+          aria-label={`Status: ${STATUS_LABELS[inquiry.status].label}`}
         >
           {STATUS_LABELS[inquiry.status].label}
         </span>
@@ -245,20 +246,23 @@ export default function InquiryDetailPage() {
               <img
                 src={inquiry.buyer.image}
                 alt={inquiry.buyer.name || "Buyer"}
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-8 h-8 rounded-full object-cover"
               />
             ) : (
-              <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
-                <span className="text-primary-600 font-semibold">
+              <div
+                className="w-8 h-8 rounded-full bg-accent-light flex items-center justify-center"
+                aria-label={inquiry.buyer.name || "Buyer"}
+              >
+                <span className="text-accent font-semibold text-sm">
                   {(inquiry.buyer.name || "B").charAt(0).toUpperCase()}
                 </span>
               </div>
             )}
             <div>
-              <p className="font-medium text-gray-900">
+              <p className="font-medium text-primary">
                 {inquiry.buyer.name || "Buyer"}
               </p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-muted">
                 Started {formatRelativeTime(inquiry.createdAt)}
               </p>
             </div>
@@ -269,13 +273,13 @@ export default function InquiryDetailPage() {
             <div className="flex gap-2">
               <button
                 onClick={() => updateStatus("ACCEPTED")}
-                className="text-sm px-3 py-1 bg-green-100 text-green-700 rounded-lg hover:bg-green-200"
+                className="bg-success-light text-success border border-success rounded-sm px-3 py-1.5 text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 Accept
               </button>
               <button
                 onClick={() => updateStatus("DECLINED")}
-                className="text-sm px-3 py-1 bg-red-100 text-red-700 rounded-lg hover:bg-red-200"
+                className="bg-error-light text-error border border-error rounded-sm px-3 py-1.5 text-sm font-medium hover:opacity-90 transition-opacity"
               >
                 Decline
               </button>
@@ -284,7 +288,7 @@ export default function InquiryDetailPage() {
           {inquiry.status === "ACCEPTED" && (
             <button
               onClick={() => updateStatus("COMPLETED")}
-              className="text-sm px-3 py-1 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200"
+              className="btn-secondary"
             >
               Mark Complete
             </button>
@@ -294,25 +298,26 @@ export default function InquiryDetailPage() {
 
       {/* Messages */}
       <div className="card mb-4">
-        <div className="space-y-4 max-h-[400px] overflow-y-auto p-1">
+        <div
+          role="log"
+          aria-live="polite"
+          aria-label="Message thread"
+          className="space-y-4 max-h-[400px] overflow-y-auto p-1"
+        >
           {inquiry.messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex ${msg.isOwn ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[80%] px-4 py-2 rounded-lg ${
+                className={`max-w-[80%] ${
                   msg.isOwn
-                    ? "bg-primary-600 text-white"
-                    : "bg-gray-100 text-gray-900"
+                    ? "bg-accent text-white rounded-lg rounded-br-sm p-3"
+                    : "bg-surface-raised text-primary rounded-lg rounded-bl-sm p-3"
                 }`}
               >
                 <p className="whitespace-pre-wrap">{msg.message}</p>
-                <p
-                  className={`text-xs mt-1 ${
-                    msg.isOwn ? "text-primary-200" : "text-gray-500"
-                  }`}
-                >
+                <p className="text-xs text-muted mt-1">
                   {formatRelativeTime(msg.createdAt)}
                 </p>
               </div>
@@ -325,12 +330,12 @@ export default function InquiryDetailPage() {
       {/* Message input */}
       {inquiry.status !== "DECLINED" && inquiry.status !== "COMPLETED" && (
         <form onSubmit={sendMessage} className="flex gap-2">
-          <input
-            type="text"
+          <textarea
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            placeholder="Type your message..."
-            className="input flex-1"
+            placeholder="Write your reply..."
+            className="input flex-1 resize-none"
+            rows={2}
             disabled={sending}
           />
           <button
@@ -344,7 +349,7 @@ export default function InquiryDetailPage() {
       )}
 
       {(inquiry.status === "DECLINED" || inquiry.status === "COMPLETED") && (
-        <div className="text-center py-4 text-gray-500">
+        <div className="text-center py-4 text-muted">
           This conversation has been {inquiry.status.toLowerCase()}.
         </div>
       )}
