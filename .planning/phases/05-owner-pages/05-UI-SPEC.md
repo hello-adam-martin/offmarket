@@ -35,7 +35,6 @@ Declared values (base unit: 4px — source: DESIGN.md):
 
 | Token | Value | Tailwind Class | Usage |
 |-------|-------|----------------|-------|
-| 2xs | 2px | — | Fine details only (thin separators, icon micro-gaps) — not for layout |
 | xs | 4px | p-1 / gap-1 | Icon gaps, badge internal padding |
 | sm | 8px | p-2 / gap-2 | Compact element internal spacing, stat row gaps |
 | md | 16px | p-4 / gap-4 | Default element spacing, form field internal padding |
@@ -47,6 +46,7 @@ Declared values (base unit: 4px — source: DESIGN.md):
 Exceptions:
 - Touch targets: minimum 44px on all interactive elements (WCAG 2.5.5) — enforce via `min-h-[44px]` on buttons and links.
 - Property image thumbnails: 80px × 60px (20:15 ratio) — specific to property listing cards.
+- Thin separators and dividers use CSS `border-width: 1px` — this is a border property, not a spacing value.
 
 **Source:** DESIGN.md Spacing section, Phase 1 UI-SPEC.
 
@@ -57,22 +57,19 @@ Exceptions:
 | Role | Font | Size | Weight | Line Height | Token / Class |
 |------|------|------|--------|-------------|---------------|
 | Display / Hero | General Sans | 48px | 700 | 1.1 | text-3xl (Tailwind custom) |
-| Section heading | General Sans | 32px | 700 | 1.2 | text-2xl |
-| Subsection / stat value | General Sans | 24px | 600 | 1.3 | text-xl |
-| Lead / body large | DM Sans | 18px | 400 | 1.5 | text-lg |
-| Body | DM Sans | 16px | 400 | 1.6 | text-md / text-base |
-| Secondary / metadata | DM Sans | 14px | 400 | 1.5 | text-sm |
-| Labels / badges | DM Sans | 12px | 600 | 1.4 | text-xs uppercase tracking-wide |
+| Subsection heading / stat value | General Sans | 24px | 700 | 1.3 | text-xl |
+| Body | DM Sans | 16px | 400 | 1.6 | text-base |
+| Metadata / labels / badges | DM Sans | 14px | 400 | 1.5 | text-sm |
 
-**Active weights in this phase:** 400 (regular), 600 (semibold), 700 (bold).
+**Active weights in this phase:** 400 (body copy) and 700 (headings, accent numerics).
 **Data displays:** All numeric values (demand counts, match scores, budget ranges, RV, estimated value) use `tabular-nums` class or `font-variant-numeric: tabular-nums` — DM Sans weight 700, `text-accent` for key figures.
 
 **Phase-specific applications:**
 - Owner landing page hero: `text-3xl` General Sans 700 — left-aligned (not centered).
-- Demand summary total: `text-xl` (24px) General Sans 600 `text-accent tabular-nums font-bold`.
+- Demand summary total: `text-xl` (24px) General Sans 700 `text-accent tabular-nums font-bold`.
 - Match score percentage: `text-sm` DM Sans 700 `text-accent tabular-nums`.
 - Property card demand count: `text-sm` DM Sans 700 `text-accent tabular-nums`.
-- Section card headings on register form: `text-base` DM Sans 600 `text-primary`.
+- Section card headings on register form: `text-base` DM Sans 700 `text-primary`.
 
 **Source:** DESIGN.md Typography section, confirmed in globals.css and tailwind.config.ts.
 
@@ -158,13 +155,13 @@ CSS classes available from globals.css (Phase 2 output):
 **Hero section:**
 - Left-aligned text (NOT centered) — AI slop violation if centered.
 - Heading: `text-3xl` General Sans 700 `text-primary`.
-- Subtext: `text-lg` DM Sans 400 `text-secondary`.
+- Subtext: `text-base` DM Sans 400 `text-secondary`.
 - CTA button: `btn-primary btn-lg` — label: "Register Your Property".
 - No gradient background. No SVG pattern. bg-bg page background.
 
 **Benefits section:**
 - Remove icon-in-colored-circle pattern (AI slop blacklist).
-- Use left-aligned icon + text rows: `flex items-start gap-4`, plain Lucide icon (24px, text-accent), heading in `text-base font-semibold text-primary`, body in `text-sm text-secondary`.
+- Use left-aligned icon + text rows: `flex items-start gap-4`, plain Lucide icon (24px, text-accent), heading in `text-base font-bold text-primary`, body in `text-sm text-secondary`.
 - No centered card grid with identical structure.
 
 **DemandChecker component:** Already restyled (Phase 3). Use as-is.
@@ -186,7 +183,7 @@ CSS classes available from globals.css (Phase 2 output):
 
 **Section cards:** Each section (Address, Details, Size, Features, Valuation) uses `.card` class.
 
-**Section headings:** `text-base` / `text-lg` DM Sans 600 `text-primary`. Swap `text-gray-900`.
+**Section headings:** `text-base` DM Sans 700 `text-primary`. Swap `text-gray-900`.
 
 **Form inputs:** All use `.input` class. Labels use `.label` class.
 
@@ -225,7 +222,7 @@ CSS classes available from globals.css (Phase 2 output):
 
 **Delete button:** `text-error hover:text-error-hover text-sm` — destructive action.
 - Replaces `text-red-600 hover:text-red-800`.
-- Confirmation: inline confirm state (button changes to "Are you sure? Yes / Cancel" — no modal needed for this destructive action).
+- Confirmation: inline confirm state (button changes to "Are you sure? This cannot be undone." → "Yes, delete" (btn-destructive) / "Keep Property" (btn-ghost) — no modal needed for this destructive action).
 
 **Property image thumbnail:** 80×60px, `rounded-md` (8px), `object-cover`. bg-surface-raised when no image.
 
@@ -244,7 +241,7 @@ CSS classes available from globals.css (Phase 2 output):
 **Demand Summary Panel:**
 - `.card` with `border-l-4 border-accent` left stripe. No gradient.
 - Replaces `bg-gradient-to-br from-primary-50 to-white border-primary-200`.
-- Total buyer count: `text-xl` (24px) General Sans 600 `text-accent font-bold tabular-nums`.
+- Total buyer count: `text-xl` (24px) General Sans 700 `text-accent font-bold tabular-nums`.
 - Direct vs criteria split: single inline row below total — "12 direct · 8 criteria" in `text-sm text-secondary tabular-nums`.
 - No separate colored sub-cards (remove `bg-green-50` / `bg-blue-50` boxes).
 - Budget range: label in `text-sm text-secondary`, value in `text-sm text-primary tabular-nums`.
@@ -259,7 +256,7 @@ CSS classes available from globals.css (Phase 2 output):
 - `.card` with `border-l-4 border-accent`. No gradient.
 - Replaces `border-2 border-green-200 bg-gradient-to-br from-green-50 to-white`.
 - No icon-in-circle header decoration.
-- Section heading: `text-base font-semibold text-primary`. Subtext: `text-sm text-secondary`.
+- Section heading: `text-base font-bold text-primary`. Subtext: `text-sm text-secondary`.
 - Contact button: `btn-primary` — label: "Contact Buyer".
 - Replaces `bg-green-600 hover:bg-green-700`.
 
@@ -281,7 +278,7 @@ CSS classes available from globals.css (Phase 2 output):
 |---------|------|------|
 | Primary CTA — hero | /owner | "Register Your Property" |
 | Primary CTA — form submit | /owner/register | "Register Property" |
-| Primary CTA — card | /owner | "Get Started" or "Register Your Property" |
+| Primary CTA — card | /owner | "Register Your Property" (btn-primary) |
 | Contact CTA | /owner/properties/[id] | "Contact Buyer" |
 | View details link | /owner/my-properties | "View Details" |
 | Empty state heading — my properties | /owner/my-properties | "No properties yet" |
@@ -290,7 +287,7 @@ CSS classes available from globals.css (Phase 2 output):
 | Empty state heading — no matches | /owner/properties/[id] | "No matches yet" |
 | Empty state body — no matches | /owner/properties/[id] | "Buyers matching your property's location and specs will appear here as they create wanted ads." |
 | Error state | all owner pages | "Something went wrong loading your data. Refresh the page or try again in a moment." |
-| Delete confirmation | /owner/my-properties | "Delete property" → inline: "Are you sure? This cannot be undone." → "Yes, delete" (btn-destructive) / "Cancel" (btn-ghost) |
+| Delete confirmation | /owner/my-properties | "Delete property" → inline: "Are you sure? This cannot be undone." → "Yes, delete" (btn-destructive) / "Keep Property" (btn-ghost) |
 | Loading / submitting | /owner/register | "Registering…" (disabled btn-primary with inline spinner) |
 
 **Tone:** Direct, functional — no aspirational filler. Match the data-forward, utilitarian aesthetic.
