@@ -34,7 +34,7 @@ Every page and component visually matches DESIGN.md — typography, color, spaci
 - [x] Implement DESIGN.md layout system (12-col grid, breakpoints, max-width, border-radius scale) — Validated in Phase 1: Foundation
 - [x] Implement dark mode (redesigned surfaces, reduced accent saturation, proper dark borders) — Validated in Phase 1: Foundation
 - [x] Restyle all public pages (homepage, explore, region, help, privacy, terms, auth) — Validated in Phase 3: Public Pages
-- [ ] Restyle all buyer pages (create ad, my ads, postcards)
+- [x] Restyle all buyer pages (create ad, my ads, postcards) — Validated in Phase 4: Buyer Pages
 - [ ] Restyle all owner pages (register property, my properties, property detail)
 - [ ] Restyle all user pages (dashboard, profile, inquiries, wanted ad detail, property detail, saved searches, notifications, upgrade, claim)
 - [ ] Restyle all admin pages (dashboard, users, billing settings/subscriptions/escrows, email templates, postcards)
@@ -94,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-30 after Phase 1: Foundation completion*
+*Last updated: 2026-03-30 after Phase 4: Buyer Pages completion*
