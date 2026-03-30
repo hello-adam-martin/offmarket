@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 4 UI-SPEC approved
-last_updated: "2026-03-30T03:04:24.049Z"
+status: executing
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-30T03:17:42.838Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 11
-  completed_plans: 11
+  total_plans: 13
+  completed_plans: 12
   percent: 0
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-30)
 
 **Core value:** Every page and component visually matches DESIGN.md — typography, color, spacing, layout, dark mode
-**Current focus:** Phase 03 — public-pages
+**Current focus:** Phase 04 — buyer-pages
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 04 (buyer-pages) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -61,6 +61,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03 P03 | 10 | 2 tasks | 5 files |
 | Phase 03-public-pages P01 | 298s | 2 tasks | 2 files |
 | Phase 03-public-pages P02 | 18 | 2 tasks | 4 files |
+| Phase 04-buyer-pages P02 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,8 @@ Recent decisions affecting current work:
 - [Phase 03-01]: bg-error/10 and bg-success/10 opacity syntax replaced with bg-error-light/bg-success-light in globals.css @apply rules (Tailwind v3 CSS variable opacity modifier limitation)
 - [Phase 03-02]: Error state uses bg-error-light/border-error instead of bg-error/10 — CSS variable opacity modifiers fail in Tailwind @apply; added error-light CSS variable
 - [Phase 03-02]: success-light and error-light CSS variables added to support badge-success and badge-error without opacity modifier syntax
+- [Phase 04-02]: STATUS_LABELS dictionary color field renamed to badgeClass — field value IS the CSS class, no intermediate mapping layer needed
+- [Phase 04-02]: Fallback status badge uses badge-neutral for consistency; free postcard badge uses badge-success (positive outcome)
 
 ### Pending Todos
 
@@ -104,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T03:04:24.046Z
-Stopped at: Phase 4 UI-SPEC approved
-Resume file: .planning/phases/04-buyer-pages/04-UI-SPEC.md
+Last session: 2026-03-30T03:17:42.836Z
+Stopped at: Completed 04-02-PLAN.md
+Resume file: None

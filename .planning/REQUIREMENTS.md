@@ -44,19 +44,19 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Public Pages
 
-- [ ] **PUBL-01**: Homepage restyled — remove AI slop (gradient hero, SVG pattern, centered text), left-align hero, data-forward design, teal accent CTAs
+- [x] **PUBL-01**: Homepage restyled — remove AI slop (gradient hero, SVG pattern, centered text), left-align hero, data-forward design, teal accent CTAs
 - [x] **PUBL-02**: Explore/browse page restyled with DESIGN.md grid, cards, filters
 - [x] **PUBL-03**: Region pages restyled
-- [ ] **PUBL-04**: Help/FAQ page restyled
+- [x] **PUBL-04**: Help/FAQ page restyled
 - [x] **PUBL-05**: Privacy policy page restyled
 - [x] **PUBL-06**: Terms of service page restyled
-- [ ] **PUBL-07**: Auth/signin page restyled
+- [x] **PUBL-07**: Auth/signin page restyled
 
 ### Buyer Pages
 
 - [ ] **BUYR-01**: Create wanted ad page restyled — form layout, inputs, budget range, feature selection
-- [ ] **BUYR-02**: My ads listing page restyled — card grid, status badges, action buttons
-- [ ] **BUYR-03**: Postcards page restyled — request list, status indicators
+- [x] **BUYR-02**: My ads listing page restyled — card grid, status badges, action buttons
+- [x] **BUYR-03**: Postcards page restyled — request list, status indicators
 
 ### Owner Pages
 
@@ -161,16 +161,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COMP-12 | Phase 2 | Complete |
 | COMP-13 | Phase 2 | Complete |
 | COMP-14 | Phase 2 | Complete |
-| PUBL-01 | Phase 3 | Pending |
+| PUBL-01 | Phase 3 | Complete |
 | PUBL-02 | Phase 3 | Complete |
 | PUBL-03 | Phase 3 | Complete |
-| PUBL-04 | Phase 3 | Pending |
+| PUBL-04 | Phase 3 | Complete |
 | PUBL-05 | Phase 3 | Complete |
 | PUBL-06 | Phase 3 | Complete |
-| PUBL-07 | Phase 3 | Pending |
+| PUBL-07 | Phase 3 | Complete |
 | BUYR-01 | Phase 4 | Pending |
-| BUYR-02 | Phase 4 | Pending |
-| BUYR-03 | Phase 4 | Pending |
+| BUYR-02 | Phase 4 | Complete |
+| BUYR-03 | Phase 4 | Complete |
 | OWNR-01 | Phase 5 | Pending |
 | OWNR-02 | Phase 5 | Pending |
 | OWNR-03 | Phase 5 | Pending |

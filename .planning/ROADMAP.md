@@ -86,7 +86,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [ ] 04-01-PLAN.md — Restyle create wanted ad page (token swap, badge-info toggles, success state)
-- [ ] 04-02-PLAN.md — Restyle my ads listing and postcards pages (badge-info tags, STATUS_LABELS refactor)
+- [x] 04-02-PLAN.md — Restyle my ads listing and postcards pages (badge-info tags, STATUS_LABELS refactor)
 **UI hint**: yes
 
 ### Phase 5: Owner Pages
@@ -147,7 +147,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. Foundation | 2/3 | In Progress|  |
 | 2. Shared Components | 5/5 | Complete   | 2026-03-29 |
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
-| 4. Buyer Pages | 0/2 | Not started | - |
+| 4. Buyer Pages | 1/2 | In Progress|  |
 | 5. Owner Pages | 0/TBD | Not started | - |
 | 6. User App Pages | 0/TBD | Not started | - |
 | 7. Admin Pages | 0/TBD | Not started | - |
