@@ -115,9 +115,9 @@ Plans:
 **Plans**: 5 plans
 Plans:
 - [ ] 06-01-PLAN.md — Restyle dashboard (stat cards, upgrade CTA, quick actions) and profile/settings page
-- [ ] 06-02-PLAN.md — Update STATUS_LABELS and restyle inquiries listing + inquiry detail/thread
+- [x] 06-02-PLAN.md — Update STATUS_LABELS and restyle inquiries listing + inquiry detail/thread
 - [ ] 06-03-PLAN.md — Restyle wanted ad detail (889 lines) and property view page
-- [ ] 06-04-PLAN.md — Restyle saved searches and notifications pages (icon-in-circle removal)
+- [x] 06-04-PLAN.md — Restyle saved searches and notifications pages (icon-in-circle removal)
 - [ ] 06-05-PLAN.md — Restyle upgrade/pricing page and claim flow (most AI slop)
 **UI hint**: yes
 
@@ -164,6 +164,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
-| 6. User App Pages | 0/5 | Not started | - |
+| 6. User App Pages | 2/5 | In Progress|  |
 | 7. Admin Pages | 0/TBD | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |

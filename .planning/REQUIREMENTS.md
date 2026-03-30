@@ -61,8 +61,8 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 ### Owner Pages
 
 - [x] **OWNR-01**: Register property page restyled — form layout, image upload, address fields
-- [ ] **OWNR-02**: My properties listing page restyled
-- [ ] **OWNR-03**: Property detail page restyled — demand display, match scores, inquiry actions
+- [x] **OWNR-02**: My properties listing page restyled
+- [x] **OWNR-03**: Property detail page restyled — demand display, match scores, inquiry actions
 
 ### User App Pages
 
@@ -72,8 +72,8 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 - [ ] **USER-04**: Inquiry detail page restyled — message thread, reply form
 - [ ] **USER-05**: Wanted ad detail page restyled — match list, property cards, demand data with tabular-nums
 - [ ] **USER-06**: Property view page restyled
-- [ ] **USER-07**: Saved searches page restyled
-- [ ] **USER-08**: Notifications page restyled
+- [x] **USER-07**: Saved searches page restyled
+- [x] **USER-08**: Notifications page restyled
 - [ ] **USER-09**: Upgrade/pricing page restyled — tier comparison, CTA buttons
 - [ ] **USER-10**: Claim page restyled — postcard claim flow
 
@@ -172,16 +172,16 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BUYR-02 | Phase 4 | Complete |
 | BUYR-03 | Phase 4 | Complete |
 | OWNR-01 | Phase 5 | Complete |
-| OWNR-02 | Phase 5 | Pending |
-| OWNR-03 | Phase 5 | Pending |
+| OWNR-02 | Phase 5 | Complete |
+| OWNR-03 | Phase 5 | Complete |
 | USER-01 | Phase 6 | Pending |
 | USER-02 | Phase 6 | Pending |
 | USER-03 | Phase 6 | Pending |
 | USER-04 | Phase 6 | Pending |
 | USER-05 | Phase 6 | Pending |
 | USER-06 | Phase 6 | Pending |
-| USER-07 | Phase 6 | Pending |
-| USER-08 | Phase 6 | Pending |
+| USER-07 | Phase 6 | Complete |
+| USER-08 | Phase 6 | Complete |
 | USER-09 | Phase 6 | Pending |
 | USER-10 | Phase 6 | Pending |
 | ADMN-01 | Phase 7 | Pending |
