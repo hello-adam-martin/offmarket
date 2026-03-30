@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 04-02-PLAN.md
-last_updated: "2026-03-30T03:17:42.838Z"
+status: verifying
+stopped_at: Completed 04-buyer-pages/04-01-PLAN.md
+last_updated: "2026-03-30T03:21:17.778Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 8
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 13
-  completed_plans: 12
+  completed_plans: 13
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 
 Phase: 04 (buyer-pages) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -62,6 +62,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-public-pages P01 | 298s | 2 tasks | 2 files |
 | Phase 03-public-pages P02 | 18 | 2 tasks | 4 files |
 | Phase 04-buyer-pages P02 | 5 | 2 tasks | 2 files |
+| Phase 04-buyer-pages P01 | 5 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,8 @@ Recent decisions affecting current work:
 - [Phase 03-02]: success-light and error-light CSS variables added to support badge-success and badge-error without opacity modifier syntax
 - [Phase 04-02]: STATUS_LABELS dictionary color field renamed to badgeClass — field value IS the CSS class, no intermediate mapping layer needed
 - [Phase 04-02]: Fallback status badge uses badge-neutral for consistency; free postcard badge uses badge-success (positive outcome)
+- [Phase 04-01]: btn-outline replaced with btn-secondary — btn-outline was never defined in globals.css
+- [Phase 04-01]: max-w-content used for all buyer page containers (1120px) replacing max-w-3xl/max-w-xl per D-12
 
 ### Pending Todos
 
@@ -107,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T03:17:42.836Z
-Stopped at: Completed 04-02-PLAN.md
+Last session: 2026-03-30T03:21:17.776Z
+Stopped at: Completed 04-buyer-pages/04-01-PLAN.md
 Resume file: None

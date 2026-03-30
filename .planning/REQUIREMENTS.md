@@ -54,7 +54,7 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Buyer Pages
 
-- [ ] **BUYR-01**: Create wanted ad page restyled — form layout, inputs, budget range, feature selection
+- [x] **BUYR-01**: Create wanted ad page restyled — form layout, inputs, budget range, feature selection
 - [x] **BUYR-02**: My ads listing page restyled — card grid, status badges, action buttons
 - [x] **BUYR-03**: Postcards page restyled — request list, status indicators
 
@@ -168,7 +168,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PUBL-05 | Phase 3 | Complete |
 | PUBL-06 | Phase 3 | Complete |
 | PUBL-07 | Phase 3 | Complete |
-| BUYR-01 | Phase 4 | Pending |
+| BUYR-01 | Phase 4 | Complete |
 | BUYR-02 | Phase 4 | Complete |
 | BUYR-03 | Phase 4 | Complete |
 | OWNR-01 | Phase 5 | Pending |
