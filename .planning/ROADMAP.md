@@ -148,8 +148,8 @@ Plans:
   5. Every page renders correctly at sm (640px), md (768px), lg (1024px), and xl (1280px) breakpoints
 **Plans**: 2 plans
 Plans:
-- [ ] 08-01-PLAN.md — TBD
-- [ ] 08-02-PLAN.md — TBD
+- [ ] 08-01-PLAN.md — Fix browse components, header/footer max-width, dark mode tokens, accent shades, and AI slop
+- [ ] 08-02-PLAN.md — Typography sweep: add font-display to all h1/h2/h3 across 29 files
 **UI hint**: yes
 
 ## Progress
