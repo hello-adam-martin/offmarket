@@ -109,112 +109,112 @@ export default function AdminUsersPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-content">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Users</h1>
+        <h1 className="text-xl font-display font-semibold text-text-base">Users</h1>
         <form onSubmit={handleSearch} className="flex gap-2">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by email or name..."
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="input max-w-sm"
           />
           <button
             type="submit"
-            className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700"
+            className="btn-primary"
           >
             Search
           </button>
         </form>
       </div>
 
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <div className="card overflow-x-auto p-0">
+        <table className="w-full min-w-[640px]">
+          <thead>
+            <tr className="border-b border-border">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 User
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Profiles
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Role
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Joined
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-right text-xs font-semibold text-text-muted uppercase tracking-wide">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="divide-y divide-border">
             {loading ? (
               [...Array(5)].map((_, i) => (
                 <tr key={i}>
                   <td colSpan={5} className="px-6 py-4">
-                    <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                    <div className="h-4 bg-surface-raised rounded animate-pulse"></div>
                   </td>
                 </tr>
               ))
             ) : users.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={5} className="px-6 py-8 text-center text-text-muted">
                   No users found
                 </td>
               </tr>
             ) : (
               users.map((user) => (
-                <tr key={user.id}>
+                <tr key={user.id} className="hover:bg-surface-raised transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
-                      <p className="font-medium text-gray-900">
+                      <p className="font-medium text-text-base">
                         {user.name || "No name"}
                       </p>
-                      <p className="text-sm text-gray-500">{user.email}</p>
+                      <p className="text-sm text-text-secondary">{user.email}</p>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex gap-2">
                       {user.isBuyer && (
-                        <span className="px-2 py-1 text-xs rounded bg-green-100 text-green-700">
+                        <span className="badge-info">
                           Buyer
                         </span>
                       )}
                       {user.isOwner && (
-                        <span className="px-2 py-1 text-xs rounded bg-blue-100 text-blue-700">
+                        <span className="badge-neutral">
                           Owner
                         </span>
                       )}
                       {!user.isBuyer && !user.isOwner && (
-                        <span className="text-xs text-gray-400">None</span>
+                        <span className="text-xs text-text-muted">None</span>
                       )}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span
-                      className={`px-2 py-1 text-xs font-medium rounded ${
+                      className={
                         user.role === "ADMIN"
-                          ? "bg-purple-100 text-purple-700"
-                          : "bg-gray-100 text-gray-700"
-                      }`}
+                          ? "badge-warning"
+                          : "badge-neutral"
+                      }
                     >
                       {user.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-text-secondary tabular-nums">
                     {formatRelativeTime(user.createdAt)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-right">
                     <button
                       onClick={() => toggleRole(user.id, user.role)}
                       disabled={updatingUserId === user.id}
-                      className={`text-sm ${
+                      className={`btn-sm min-h-[44px] ${
                         user.role === "ADMIN"
-                          ? "text-red-600 hover:text-red-800"
-                          : "text-purple-600 hover:text-purple-800"
+                          ? "btn-destructive"
+                          : "btn-secondary"
                       } disabled:opacity-50`}
                     >
                       {updatingUserId === user.id
@@ -232,8 +232,8 @@ export default function AdminUsersPage() {
 
         {/* Pagination */}
         {pagination && pagination.pages > 1 && (
-          <div className="px-6 py-3 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-            <p className="text-sm text-gray-500">
+          <div className="px-6 py-3 bg-surface border-t border-border flex items-center justify-between">
+            <p className="text-sm text-text-secondary tabular-nums">
               Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
               {Math.min(pagination.page * pagination.limit, pagination.total)} of{" "}
               {pagination.total} users
@@ -242,14 +242,14 @@ export default function AdminUsersPage() {
               <button
                 onClick={() => fetchUsers(pagination.page - 1, search)}
                 disabled={pagination.page === 1}
-                className="px-3 py-1 text-sm border rounded hover:bg-gray-100 disabled:opacity-50"
+                className="btn-secondary btn-sm disabled:opacity-50"
               >
                 Previous
               </button>
               <button
                 onClick={() => fetchUsers(pagination.page + 1, search)}
                 disabled={pagination.page === pagination.pages}
-                className="px-3 py-1 text-sm border rounded hover:bg-gray-100 disabled:opacity-50"
+                className="btn-secondary btn-sm disabled:opacity-50"
               >
                 Next
               </button>
