@@ -112,31 +112,31 @@ export function DemandChecker() {
       </form>
 
       {error && (
-        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+        <div className="mt-4 p-4 bg-error/10 border border-error/30 rounded-md text-error">
           {error}
         </div>
       )}
 
       {result && (
         <div
-          className={`mt-4 p-6 rounded-lg border ${
+          className={`mt-4 p-6 rounded-md border ${
             result.hasInterest
-              ? "bg-green-50 border-green-200"
-              : "bg-gray-50 border-gray-200"
+              ? "bg-success/10 border border-success/30"
+              : "bg-surface-raised border-border"
           }`}
         >
           <div className="text-center">
             {result.hasInterest ? (
               <>
-                <div className="text-4xl font-bold text-green-600 mb-2">
+                <div className="text-4xl font-bold text-success tabular-nums mb-2">
                   {result.buyerCount}
                 </div>
-                <p className="text-lg text-green-700 font-medium">
+                <p className="text-lg text-success font-medium">
                   {result.buyerCount === 1
                     ? "Buyer Interested"
                     : "Buyers Interested"}
                 </p>
-                <p className="text-gray-600 mt-2">{result.message}</p>
+                <p className="text-text-secondary mt-2">{result.message}</p>
                 <a
                   href="/owner"
                   className="btn-primary mt-4 inline-block"
@@ -146,8 +146,8 @@ export function DemandChecker() {
               </>
             ) : (
               <>
-                <p className="text-gray-600">{result.message}</p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-text-secondary">{result.message}</p>
+                <p className="text-sm text-text-muted mt-2">
                   Be the first to know when buyers register interest in this
                   area.
                 </p>
