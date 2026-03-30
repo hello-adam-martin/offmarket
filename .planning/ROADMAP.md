@@ -112,10 +112,13 @@ Plans:
   2. The upgrade/pricing page shows tier comparison with DESIGN.md card pattern, teal CTA on the recommended plan, and no AI slop layout patterns
   3. The inquiry message thread shows DESIGN.md surface colors, correct reply form input styling, and readable typography hierarchy
   4. Notifications and saved searches pages show DESIGN.md list styling with correct empty states
-**Plans**: 2 plans
+**Plans**: 5 plans
 Plans:
-- [x] 05-01-PLAN.md — Restyle owner landing page and register property form
-- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
+- [ ] 06-01-PLAN.md — Restyle dashboard (stat cards, upgrade CTA, quick actions) and profile/settings page
+- [ ] 06-02-PLAN.md — Update STATUS_LABELS and restyle inquiries listing + inquiry detail/thread
+- [ ] 06-03-PLAN.md — Restyle wanted ad detail (889 lines) and property view page
+- [ ] 06-04-PLAN.md — Restyle saved searches and notifications pages (icon-in-circle removal)
+- [ ] 06-05-PLAN.md — Restyle upgrade/pricing page and claim flow (most AI slop)
 **UI hint**: yes
 
 ### Phase 7: Admin Pages
@@ -129,8 +132,8 @@ Plans:
   4. Email template editor and postcards admin pages render DESIGN.md form and card patterns
 **Plans**: 2 plans
 Plans:
-- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
-- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
+- [ ] 07-01-PLAN.md — TBD
+- [ ] 07-02-PLAN.md — TBD
 **UI hint**: yes
 
 ### Phase 8: Cross-Cutting Audit
@@ -145,8 +148,8 @@ Plans:
   5. Every page renders correctly at sm (640px), md (768px), lg (1024px), and xl (1280px) breakpoints
 **Plans**: 2 plans
 Plans:
-- [ ] 05-01-PLAN.md — Restyle owner landing page and register property form
-- [ ] 05-02-PLAN.md — Restyle my-properties listing and property detail page
+- [ ] 08-01-PLAN.md — TBD
+- [ ] 08-02-PLAN.md — TBD
 **UI hint**: yes
 
 ## Progress
@@ -161,6 +164,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Public Pages | 3/3 | Complete   | 2026-03-30 |
 | 4. Buyer Pages | 2/2 | Complete   | 2026-03-30 |
 | 5. Owner Pages | 2/2 | Complete   | 2026-03-30 |
-| 6. User App Pages | 0/TBD | Not started | - |
+| 6. User App Pages | 0/5 | Not started | - |
 | 7. Admin Pages | 0/TBD | Not started | - |
 | 8. Cross-Cutting Audit | 0/TBD | Not started | - |
