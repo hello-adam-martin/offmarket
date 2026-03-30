@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-30T06:23:04.919Z"
+status: verifying
+stopped_at: Completed 05-owner-pages plan 02 — property listing and detail pages restyled
+last_updated: "2026-03-30T06:24:43.083Z"
 last_activity: 2026-03-30
 progress:
   total_phases: 8
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 15
-  completed_plans: 14
+  completed_plans: 15
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-30)
 
 Phase: 05 (owner-pages) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-30
 
 Progress: [░░░░░░░░░░] 0%
@@ -64,6 +64,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-buyer-pages P02 | 5 | 2 tasks | 2 files |
 | Phase 04-buyer-pages P01 | 5 | 1 tasks | 1 files |
 | Phase 05-owner-pages P01 | 117s | 2 tasks | 2 files |
+| Phase 05-owner-pages P02 | 186s | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,10 @@ Recent decisions affecting current work:
 - [Phase 04-01]: btn-outline replaced with btn-secondary — btn-outline was never defined in globals.css
 - [Phase 04-01]: max-w-content used for all buyer page containers (1120px) replacing max-w-3xl/max-w-xl per D-12
 - [Phase 05-01]: Hero left-aligned (D-07): removed text-center from owner landing hero, benefits flattened to flex rows (D-08), CTA card flat bg-surface-raised no gradient (D-09), feature badges badge-info/badge-neutral (D-17), error tokens bg-error-light/text-error (D-26)
+- [Phase 05-owner-pages]: [Phase 05-02]: Demand summary panel uses card with border-l-4 border-accent — flat card, no gradient, left stripe signals section prominence
+- [Phase 05-owner-pages]: [Phase 05-02]: Demand total sized at text-xl (24px) not text-3xl — matches D-02 constraint, avoids oversized hero-style number in sidebar
+- [Phase 05-owner-pages]: [Phase 05-02]: Direct/criteria split as inline text row — removes colored sub-cards, aligns with D-03 clean data display
+- [Phase 05-owner-pages]: [Phase 05-02]: All match scores use single text-accent color — removes green/yellow/orange tier coloring per D-05
 
 ### Pending Todos
 
@@ -112,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T06:23:04.916Z
-Stopped at: Completed 05-01-PLAN.md
+Last session: 2026-03-30T06:24:43.080Z
+Stopped at: Completed 05-owner-pages plan 02 — property listing and detail pages restyled
 Resume file: None
