@@ -18,8 +18,10 @@
   --color-text-muted: #9ca3af;
   --color-text-inverse: #fafaf7;
   --color-success: #059669;
+  --color-success-light: #d1fae5;
   --color-warning: #d97706;
   --color-error: #dc2626;
+  --color-error-light: #fee2e2;
   --color-info: #0d9488;
 }
 
@@ -37,6 +39,8 @@
   --color-accent-hover: #0d6b62;
   --color-accent-light: #134e4a;
   --color-secondary-light: #451a03;
+  --color-success-light: #064e3b;
+  --color-error-light: #7f1d1d;
 }
 
 @layer base {
@@ -107,9 +111,9 @@
   /* Badge base + variants — per UI-SPEC badges section */
   .badge { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide; }
   .badge-info { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-accent-light text-accent; }
-  .badge-success { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-success/10 text-success; }
+  .badge-success { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-success-light text-success; }
   .badge-warning { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-secondary-light text-warning; }
-  .badge-error { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-error/10 text-error; }
+  .badge-error { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-error-light text-error; }
   .badge-neutral { @apply inline-flex items-center rounded-sm px-2 py-0.5 text-xs font-semibold leading-4 uppercase tracking-wide bg-surface-raised text-text-secondary; }
 
   /* Modal shell — per D-08, D-09 */
