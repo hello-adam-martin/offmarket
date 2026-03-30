@@ -79,10 +79,10 @@ Requirements for design overhaul milestone. Each maps to roadmap phases.
 
 ### Admin Pages
 
-- [ ] **ADMN-01**: Admin dashboard restyled — stats cards, data tables with tabular-nums
-- [ ] **ADMN-02**: User management page restyled — data table, action buttons
-- [ ] **ADMN-03**: Billing overview page restyled
-- [ ] **ADMN-04**: Billing settings page restyled
+- [x] **ADMN-01**: Admin dashboard restyled — stats cards, data tables with tabular-nums
+- [x] **ADMN-02**: User management page restyled — data table, action buttons
+- [x] **ADMN-03**: Billing overview page restyled
+- [x] **ADMN-04**: Billing settings page restyled
 - [ ] **ADMN-05**: Subscriptions page restyled — data table with status badges
 - [ ] **ADMN-06**: Escrows page restyled — financial data with tabular-nums
 - [ ] **ADMN-07**: Email templates page restyled
@@ -184,10 +184,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | USER-08 | Phase 6 | Complete |
 | USER-09 | Phase 6 | Complete |
 | USER-10 | Phase 6 | Complete |
-| ADMN-01 | Phase 7 | Pending |
-| ADMN-02 | Phase 7 | Pending |
-| ADMN-03 | Phase 7 | Pending |
-| ADMN-04 | Phase 7 | Pending |
+| ADMN-01 | Phase 7 | Complete |
+| ADMN-02 | Phase 7 | Complete |
+| ADMN-03 | Phase 7 | Complete |
+| ADMN-04 | Phase 7 | Complete |
 | ADMN-05 | Phase 7 | Pending |
 | ADMN-06 | Phase 7 | Pending |
 | ADMN-07 | Phase 7 | Pending |
