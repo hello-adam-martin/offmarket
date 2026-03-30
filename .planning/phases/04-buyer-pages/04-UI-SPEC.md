@@ -34,8 +34,7 @@ Source: DESIGN.md + tailwind.config.ts (4px base unit). No new tokens added this
 
 | Token | Value | Usage in Phase 4 |
 |-------|-------|-----------------|
-| 2xs | 2px | Tight inline gaps (badge gap overrides) |
-| xs | 4px | Icon gaps (`gap-1`), badge inner padding |
+| xs | 4px | Icon gaps (`gap-1`), badge inner padding, badge gap overrides (minimum grid-aligned value) |
 | sm | 8px | Compact element spacing, button padding (`px-3 py-1.5` for btn-sm) |
 | md | 16px | Default element spacing, card inner gap, form field gap |
 | lg | 24px | Section padding within cards, `p-6` on `.card` |
@@ -55,19 +54,18 @@ Source: DESIGN.md typography scale, confirmed in tailwind.config.ts fontSize ent
 
 | Role | Size | Weight | Line Height | Font | Tailwind Class | Usage in Phase 4 |
 |------|------|--------|-------------|------|----------------|-----------------|
-| Body | 16px | 400 | 1.6 | DM Sans | `text-md` | Form descriptions, card body text |
+| Body | 16px | 400 | 1.6 | DM Sans | `text-md` | Form descriptions, card body text, metadata, hints, postcard cost, allowance usage line, secondary/supporting text |
 | Label | 12px | 600 | 1.4 | DM Sans | `text-xs` (or `.label`) | Form labels (via `.label` class), badge text |
-| Secondary | 14px | 400 | 1.5 | DM Sans | `text-sm` | Metadata, hints, postcard cost, allowance usage line |
 | Heading | 24px | 600 | 1.3 | General Sans | `text-xl font-display` | Card section headings on create form, page headings |
-| Page Title | 32px | 700 | 1.2 | General Sans | `text-2xl font-display` | "Create Wanted Ad", "My Ads", "Postcards" page titles |
-| Stat/Match Count | 32px | 700 | 1.2 | DM Sans | `text-2xl font-bold tabular-nums text-accent` | Match count large number on My Ads cards (D-06) |
-| Data/Numbers | 14–16px | 400–500 | 1.5 | DM Sans | `tabular-nums` modifier | Budget, postcard cost, allowance numbers (D-17) |
+| Page Title / Stat | 32px | 600 | 1.2 | General Sans / DM Sans | `text-2xl font-semibold font-display` / `text-2xl font-semibold tabular-nums text-accent` | Page titles ("Create Wanted Ad", "My Ads", "Postcards") and match count large number on My Ads cards (D-06) |
 
 Rules:
 - General Sans (`font-display`) used only for page titles and section headings (h1–h3 equivalents).
 - DM Sans (`font-sans`, default) used for all body, labels, metadata, and data displays.
+- Secondary/supporting text (metadata, hints, postcard cost, allowance usage line) uses `text-md text-secondary` — same 16px size as body, with `text-secondary` color providing visual hierarchy instead of a separate size.
 - `tabular-nums` class applied directly on any element containing numeric output (budget, match count, postcard count, usage fractions). Do not wrap in a separate `<span>` unless the element itself contains mixed text.
 - `.label` CSS class encapsulates: `text-xs font-semibold text-text-secondary mb-1 uppercase tracking-wide` — use for all `<label>` elements in the create form.
+- Data/numbers use `text-md font-normal tabular-nums` (weight 400, size 16px).
 
 ---
 
@@ -89,7 +87,7 @@ Source: DESIGN.md Color section, CSS variables in globals.css, tailwind.config.t
 The teal accent (`text-accent`, `bg-accent`, `border-accent`, `text-accent-hover`) is permitted only on:
 
 1. Primary CTA buttons (`.btn-primary` — bg-accent background)
-2. Match count large number on My Ads cards (`text-2xl font-bold text-accent tabular-nums`)
+2. Match count large number on My Ads cards (`text-2xl font-semibold text-accent tabular-nums`)
 3. Active selection card border (`border-accent`) and tint (`bg-accent-light`) on target type cards
 4. Active property type and feature toggle badge (`badge-info` — bg-accent-light text-accent)
 5. Location tag badges (`badge-info`)
@@ -222,8 +220,8 @@ No gradients. The `bg-gradient-to-r from-primary-50 to-primary-100` CTA box is r
 
 | Element | Class |
 |---------|-------|
-| Match count number | `text-2xl font-bold text-accent tabular-nums` |
-| "matches" label | `text-sm text-secondary` |
+| Match count number | `text-2xl font-semibold text-accent tabular-nums` |
+| "matches" label | `text-md text-secondary` |
 | Specific address indicator circle | `w-10 h-10 mx-auto rounded-full bg-accent-light flex items-center justify-center` |
 | House icon inside circle | `w-5 h-5 text-accent` |
 
@@ -233,7 +231,7 @@ No gradients. The `bg-gradient-to-r from-primary-50 to-primary-100` CTA box is r
 |---------|-------|
 | "N free left" badge | `badge-info` |
 | Usage line "N of M used" | `text-xs text-secondary tabular-nums mt-1` |
-| Postcard cost | `text-sm text-secondary tabular-nums` |
+| Postcard cost | `text-md text-secondary tabular-nums` |
 
 ### "How Postcards Work" Info Section (postcards/page.tsx)
 
@@ -241,18 +239,18 @@ No gradients. The `bg-gradient-to-r from-primary-50 to-primary-100` CTA box is r
 |---------|-------|
 | Section container | `mt-8 p-4 bg-surface-raised rounded-lg` |
 | Section heading | `font-medium text-primary mb-2` |
-| List items | `text-sm text-secondary space-y-1` |
+| List items | `text-md text-secondary space-y-1` |
 
 ### Usage Summary Bar (create/page.tsx)
 
 | Element | Class |
 |---------|-------|
-| Bar container | `flex flex-wrap gap-3 p-3 bg-surface-raised rounded-md text-sm` |
+| Bar container | `flex flex-wrap gap-3 p-3 bg-surface-raised rounded-md text-md` |
 | Label text | `text-secondary` |
-| Count (remaining > 0) | `font-medium text-primary tabular-nums` |
-| Count (remaining = 0) | `font-medium text-error tabular-nums` |
-| Unlimited label | `font-medium text-accent` |
-| Upgrade link | `text-accent hover:text-accent-hover font-medium` |
+| Count (remaining > 0) | `font-semibold text-primary tabular-nums` |
+| Count (remaining = 0) | `font-semibold text-error tabular-nums` |
+| Unlimited label | `font-semibold text-accent` |
+| Upgrade link | `text-accent hover:text-accent-hover font-semibold` |
 
 ---
 
@@ -298,6 +296,9 @@ These patterns are explicitly banned. Flag and replace on sight:
 | Extra `px-*/py-*` alongside `.badge-*` classes | Remove — badge-* provides its own padding |
 | `bg-accent/10` or `bg-error/10` opacity modifier syntax | `bg-accent-light`, `bg-error-light` (CSS variable opacity fails in @apply, Pitfall 4) |
 | `statusInfo.color` field reference | `statusInfo.badgeClass` after STATUS_LABELS refactor |
+| `font-bold` on page titles or stat numbers | `font-semibold` — only 2 weights (400 and 600) are permitted |
+| `text-sm` for secondary/metadata text | `text-md text-secondary` — 16px body size with color hierarchy, not separate size |
+| `gap-0.5` (2px) on badge containers | `gap-1` (4px) — minimum grid-aligned gap value |
 
 ---
 
